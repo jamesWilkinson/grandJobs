@@ -1,0 +1,2768 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet href="file:///C|/Users/James/Desktop/SA-MP/source/pawno/LVP Pawn Editor/xml/pawndoc.xsl" type="text/xsl"?>
+<doc source="C:\Users\James\Desktop\SA-MP\source\filterscripts\fsdebug.pwn">
+	<assembly>
+		<name>fsdebug.pwn</name>
+	</assembly>
+	<members>
+
+		<!-- enumerations -->
+		<member name="T:CURVEHICLE" value="3">
+			<tagname value="CURVEHICLE"/>
+			<member name="C:spawn" value="0">
+				<tagname value="bool"/>
+			</member>
+			<member name="C:vmodel" value="1">
+			</member>
+			<member name="C:vInt" value="2">
+			</member>
+		</member>
+		<member name="T:E_OBJECT" value="8">
+			<tagname value="E_OBJECT"/>
+			<member name="C:OBJ_MOD" value="0">
+			</member>
+			<member name="C:OBJ_MDL" value="1">
+			</member>
+			<member name="C:OBJ_X" value="2">
+				<tagname value="Float"/>
+			</member>
+			<member name="C:OBJ_Y" value="3">
+				<tagname value="Float"/>
+			</member>
+			<member name="C:OBJ_Z" value="4">
+				<tagname value="Float"/>
+			</member>
+			<member name="C:OBJ_RX" value="5">
+				<tagname value="Float"/>
+			</member>
+			<member name="C:OBJ_RY" value="6">
+				<tagname value="Float"/>
+			</member>
+			<member name="C:OBJ_RZ" value="7">
+				<tagname value="Float"/>
+			</member>
+		</member>
+		<member name="T:E_OBJ_RATE" value="2">
+			<tagname value="E_OBJ_RATE"/>
+			<member name="C:OBJ_RATE_ROT" value="0">
+				<tagname value="Float"/>
+			</member>
+			<member name="C:OBJ_RATE_MOVE" value="1">
+				<tagname value="Float"/>
+			</member>
+		</member>
+		<member name="T:P_CAMERA_D" value="8">
+			<tagname value="P_CAMERA_D"/>
+			<member name="C:CMODE" value="0">
+			</member>
+			<member name="C:RATE" value="1">
+				<tagname value="Float"/>
+			</member>
+			<member name="C:CPOS_X" value="2">
+				<tagname value="Float"/>
+			</member>
+			<member name="C:CPOS_Y" value="3">
+				<tagname value="Float"/>
+			</member>
+			<member name="C:CPOS_Z" value="4">
+				<tagname value="Float"/>
+			</member>
+			<member name="C:CLOO_X" value="5">
+				<tagname value="Float"/>
+			</member>
+			<member name="C:CLOO_Y" value="6">
+				<tagname value="Float"/>
+			</member>
+			<member name="C:CLOO_Z" value="7">
+				<tagname value="Float"/>
+			</member>
+		</member>
+
+		<!-- constants -->
+		<member name="C:EOS" value="0">
+			<referrer name="strtok"/>
+		</member>
+		<member name="C:cellmax" value="2147483647">
+			<referrer name="operator!(Float:)"/>
+		</member>
+		<member name="C:cellmin" value="-2147483648">
+			<referrer name="operator-(Float:)"/>
+		</member>
+		<member name="C:false" value="0">
+			<tagname value="bool"/>
+			<referrer name="dcmd_debug"/>
+			<referrer name="OnPlayerCommandText"/>
+			<referrer name="OnPlayerClickMap"/>
+			<referrer name="VehicleSelect"/>
+			<referrer name="IsInvalidSkin"/>
+		</member>
+		<member name="C:true" value="1">
+			<tagname value="bool"/>
+			<referrer name="dcmd_debug"/>
+			<referrer name="dcmd_object"/>
+			<referrer name="dcmd_camera"/>
+			<referrer name="dcmd_csel"/>
+			<referrer name="dcmd_g"/>
+			<referrer name="dcmd_w"/>
+			<referrer name="dcmd_t"/>
+			<referrer name="dcmd_wsel"/>
+			<referrer name="dcmd_v"/>
+			<referrer name="dcmd_vsel"/>
+			<referrer name="dcmd_ssel"/>
+			<referrer name="dcmd_s"/>
+			<referrer name="dcmd_skin"/>
+			<referrer name="dcmd_goto"/>
+			<referrer name="dcmd_warpto"/>
+			<referrer name="dcmd_setloc"/>
+			<referrer name="dcmd_bring"/>
+			<referrer name="dcmd_weapon"/>
+			<referrer name="dcmd_w2"/>
+			<referrer name="OnPlayerCommandText"/>
+			<referrer name="OnPlayerClickMap"/>
+			<referrer name="VehicleSelect"/>
+			<referrer name="IsInvalidSkin"/>
+			<referrer name="GetVehicleModelIDFromName"/>
+			<referrer name="GetWeaponModelIDFromName"/>
+		</member>
+
+		<!-- variables -->
+		<member name="F:aSelNames">
+			<referrer name="dcmd_osel"/>
+			<referrer name="dcmd_csel"/>
+			<referrer name="dcmd_wsel"/>
+			<referrer name="dcmd_v"/>
+			<referrer name="dcmd_vsel"/>
+			<referrer name="dcmd_ssel"/>
+		</member>
+		<member name="F:aVehicleNames">
+			<referrer name="dcmd_debug"/>
+			<referrer name="dcmd_v"/>
+			<referrer name="VehicleSelect"/>
+			<referrer name="GetVehicleModelIDFromName"/>
+		</member>
+		<member name="F:aWeaponNames">
+			<referrer name="dcmd_w2"/>
+			<referrer name="GetWeaponModelIDFromName"/>
+		</member>
+		<member name="F:curPlayerCamD">
+			<referrer name="dcmd_object"/>
+			<referrer name="dcmd_osel"/>
+			<referrer name="dcmd_camera"/>
+			<referrer name="dcmd_csel"/>
+			<referrer name="OnPlayerConnect"/>
+			<referrer name="CameraSelect"/>
+			<referrer name="ObjectSelect"/>
+		</member>
+		<member name="F:curPlayerObjI">
+			<referrer name="dcmd_object"/>
+			<referrer name="dcmd_osel"/>
+			<referrer name="ObjectSelect"/>
+		</member>
+		<member name="F:curPlayerObjM">
+			<referrer name="dcmd_object"/>
+			<referrer name="dcmd_osel"/>
+			<referrer name="OnFilterScriptInit"/>
+			<referrer name="ObjectSelect"/>
+		</member>
+		<member name="F:curPlayerSkin">
+			<referrer name="dcmd_s"/>
+			<referrer name="OnPlayerDisconnect"/>
+			<referrer name="SkinSelect"/>
+		</member>
+		<member name="F:curPlayerVehI">
+			<referrer name="dcmd_v"/>
+			<referrer name="dcmd_vsel"/>
+			<referrer name="OnPlayerDisconnect"/>
+			<referrer name="VehicleSelect"/>
+		</member>
+		<member name="F:curPlayerVehM">
+			<referrer name="dcmd_v"/>
+			<referrer name="dcmd_vsel"/>
+			<referrer name="OnPlayerDisconnect"/>
+			<referrer name="VehicleSelect"/>
+		</member>
+		<member name="F:curServerVehP">
+			<referrer name="dcmd_debug"/>
+			<referrer name="dcmd_v"/>
+			<referrer name="dcmd_vsel"/>
+			<referrer name="VehicleSelect"/>
+		</member>
+		<member name="F:gPlayerStatus">
+			<referrer name="dcmd_object"/>
+			<referrer name="dcmd_osel"/>
+			<referrer name="dcmd_csel"/>
+			<referrer name="dcmd_wsel"/>
+			<referrer name="dcmd_v"/>
+			<referrer name="dcmd_vsel"/>
+			<referrer name="dcmd_ssel"/>
+			<referrer name="OnPlayerDisconnect"/>
+			<referrer name="WorldSelect"/>
+			<referrer name="SkinSelect"/>
+			<referrer name="CameraSelect"/>
+			<referrer name="VehicleSelect"/>
+			<referrer name="ObjectSelect"/>
+		</member>
+		<member name="F:gPlayerTimers">
+			<referrer name="dcmd_osel"/>
+			<referrer name="dcmd_csel"/>
+			<referrer name="dcmd_wsel"/>
+			<referrer name="dcmd_vsel"/>
+			<referrer name="dcmd_ssel"/>
+			<referrer name="OnPlayerDisconnect"/>
+			<referrer name="WorldSelect"/>
+			<referrer name="SkinSelect"/>
+			<referrer name="CameraSelect"/>
+			<referrer name="VehicleSelect"/>
+			<referrer name="ObjectSelect"/>
+		</member>
+		<member name="F:gWorldStatus">
+			<referrer name="dcmd_w"/>
+			<referrer name="dcmd_t"/>
+			<referrer name="WorldSelect"/>
+		</member>
+		<member name="F:pObjectRate">
+			<referrer name="dcmd_object"/>
+			<referrer name="OnFilterScriptInit"/>
+			<referrer name="ObjectSelect"/>
+		</member>
+
+		<!-- functions -->
+		<member name="M:operator!(Float:)" syntax="operator!(Float:)(oper)">
+			<tagname value="bool"/>
+			<stacksize value="1"/>
+			<dependency name="cellmax"/>
+			<param name="oper">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator%(_:,Float:)" syntax="operator%(_:,Float:)(oper1, oper2)">
+			<stacksize value="1"/>
+			<param name="oper1">
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator%(Float:,_:)" syntax="operator%(Float:,_:)(oper1, oper2)">
+			<stacksize value="1"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator%(Float:,Float:)" syntax="operator%(Float:,Float:)(oper1, oper2)">
+			<stacksize value="1"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator!=(Float:,_:)" syntax="operator!=(Float:,_:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator!=(Float:,Float:)" syntax="operator!=(Float:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator-(_:,Float:)" syntax="operator-(_:,Float:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatsub"/>
+			<param name="oper1">
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator-(Float:,_:)" syntax="operator-(Float:,_:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatsub"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator+(Float:,_:)" syntax="operator+(Float:,_:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatadd"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator/(_:,Float:)" syntax="operator/(_:,Float:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatdiv"/>
+			<param name="oper1">
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator/(Float:,_:)" syntax="operator/(Float:,_:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatdiv"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator*(Float:,_:)" syntax="operator*(Float:,_:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatmul"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator++(Float:)" syntax="operator++(Float:)(oper)">
+			<tagname value="Float"/>
+			<stacksize value="1"/>
+			<dependency name="operator+(Float:,Float:)"/>
+			<param name="oper">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator-(Float:)" syntax="operator-(Float:)(oper)">
+			<tagname value="Float"/>
+			<stacksize value="1"/>
+			<referrer name="GetXYInFrontOfPlayer"/>
+			<dependency name="cellmin"/>
+			<param name="oper">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator--(Float:)" syntax="operator--(Float:)(oper)">
+			<tagname value="Float"/>
+			<stacksize value="1"/>
+			<dependency name="operator-(Float:,Float:)"/>
+			<param name="oper">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator-(Float:,Float:)" syntax="operator-(Float:,Float:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="operator--(Float:)"/>
+			<referrer name="dcmd_object"/>
+			<referrer name="dcmd_osel"/>
+			<referrer name="CameraSelect"/>
+			<referrer name="ObjectSelect"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator+(Float:,Float:)" syntax="operator+(Float:,Float:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="operator++(Float:)"/>
+			<referrer name="dcmd_object"/>
+			<referrer name="dcmd_osel"/>
+			<referrer name="dcmd_wsel"/>
+			<referrer name="dcmd_v"/>
+			<referrer name="dcmd_vsel"/>
+			<referrer name="dcmd_goto"/>
+			<referrer name="dcmd_bring"/>
+			<referrer name="CameraSelect"/>
+			<referrer name="VehicleSelect"/>
+			<referrer name="ObjectSelect"/>
+			<referrer name="GetXYInFrontOfPlayer"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator*(Float:,Float:)" syntax="operator*(Float:,Float:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="GetXYInFrontOfPlayer"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator==(Float:,Float:)" syntax="operator==(Float:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator==(Float:,_:)" syntax="operator==(Float:,_:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator&gt;(Float:,Float:)" syntax="operator&gt;(Float:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator&gt;(Float:,_:)" syntax="operator&gt;(Float:,_:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator&gt;(_:,Float:)" syntax="operator&gt;(_:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator&gt;=(Float:,Float:)" syntax="operator&gt;=(Float:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator&gt;=(Float:,_:)" syntax="operator&gt;=(Float:,_:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator&gt;=(_:,Float:)" syntax="operator&gt;=(_:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator&lt;(Float:,Float:)" syntax="operator&lt;(Float:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator&lt;(Float:,_:)" syntax="operator&lt;(Float:,_:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator&lt;(_:,Float:)" syntax="operator&lt;(_:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator&lt;=(Float:,Float:)" syntax="operator&lt;=(Float:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator&lt;=(Float:,_:)" syntax="operator&lt;=(Float:,_:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator&lt;=(_:,Float:)" syntax="operator&lt;=(_:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:@receivepacket" syntax="@receivepacket(packet[], size, source[])">
+			<attribute name="public"/>
+			<stacksize value="1"/>
+			<param name="packet">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="size">
+			</param>
+			<param name="source">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:@receivestring" syntax="@receivestring(message[], source[])">
+			<attribute name="public"/>
+			<stacksize value="1"/>
+			<param name="message">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="source">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:CameraSelect" syntax="CameraSelect(playerid)">
+			<attribute name="public"/>
+			<stacksize value="539"/>
+			<dependency name="operator-(Float:,Float:)"/>
+			<dependency name="operator+(Float:,Float:)"/>
+			<dependency name="CLOO_X"/>
+			<dependency name="CLOO_Y"/>
+			<dependency name="CLOO_Z"/>
+			<dependency name="CMODE"/>
+			<dependency name="CPOS_X"/>
+			<dependency name="CPOS_Y"/>
+			<dependency name="CPOS_Z"/>
+			<dependency name="GetPlayerKeys"/>
+			<dependency name="KillTimer"/>
+			<dependency name="RATE"/>
+			<dependency name="SendClientMessage"/>
+			<dependency name="SetCameraBehindPlayer"/>
+			<dependency name="SetPlayerCameraLookAt"/>
+			<dependency name="SetPlayerCameraPos"/>
+			<dependency name="SetPlayerPos"/>
+			<dependency name="TogglePlayerControllable"/>
+			<dependency name="curPlayerCamD"/>
+			<dependency name="curPlayerCamD"/>
+			<dependency name="fclose"/>
+			<dependency name="fopen"/>
+			<dependency name="format"/>
+			<dependency name="fwrite"/>
+			<dependency name="gPlayerStatus"/>
+			<dependency name="gPlayerTimers"/>
+			<dependency name="getdate"/>
+			<dependency name="gettime"/>
+			<dependency name="io_append"/>
+			<dependency name="print"/>
+			<dependency name="printf"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:CreateObject" syntax="CreateObject(modelid, X, Y, Z, rX, rY, rZ, DrawDistance)">
+			<attribute name="native"/>
+			<referrer name="dcmd_osel"/>
+			<referrer name="ObjectSelect"/>
+			<param name="modelid">
+			</param>
+			<param name="X">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="Y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="Z">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="rX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="rY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="rZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="DrawDistance">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:CreateVehicle" syntax="CreateVehicle(vehicletype, x, y, z, rotation, color1, color2, respawn_delay)">
+			<attribute name="native"/>
+			<referrer name="dcmd_v"/>
+			<referrer name="dcmd_vsel"/>
+			<referrer name="VehicleSelect"/>
+			<param name="vehicletype">
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="rotation">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="color1">
+			</param>
+			<param name="color2">
+			</param>
+			<param name="respawn_delay">
+			</param>
+		</member>
+		<member name="M:DestroyObject" syntax="DestroyObject(objectid)">
+			<attribute name="native"/>
+			<referrer name="ObjectSelect"/>
+			<param name="objectid">
+			</param>
+		</member>
+		<member name="M:DestroyVehicle" syntax="DestroyVehicle(vehicleid)">
+			<attribute name="native"/>
+			<referrer name="VehicleSelect"/>
+			<param name="vehicleid">
+			</param>
+		</member>
+		<member name="M:GameTextForPlayer" syntax="GameTextForPlayer(playerid, string[], time, style)">
+			<attribute name="native"/>
+			<referrer name="dcmd_wsel"/>
+			<referrer name="WorldSelect"/>
+			<referrer name="SkinSelect"/>
+			<referrer name="VehicleSelect"/>
+			<referrer name="ObjectSelect"/>
+			<param name="playerid">
+			</param>
+			<param name="string">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="time">
+			</param>
+			<param name="style">
+			</param>
+		</member>
+		<member name="M:GetObjectPos" syntax="GetObjectPos(objectid, &amp;X, &amp;Y, &amp;Z)">
+			<attribute name="native"/>
+			<referrer name="dcmd_object"/>
+			<param name="objectid">
+			</param>
+			<param name="X">
+				<paraminfo>Float &amp; </paraminfo>
+			</param>
+			<param name="Y">
+				<paraminfo>Float &amp; </paraminfo>
+			</param>
+			<param name="Z">
+				<paraminfo>Float &amp; </paraminfo>
+			</param>
+		</member>
+		<member name="M:GetObjectRot" syntax="GetObjectRot(objectid, &amp;RotX, &amp;RotY, &amp;RotZ)">
+			<attribute name="native"/>
+			<referrer name="dcmd_object"/>
+			<param name="objectid">
+			</param>
+			<param name="RotX">
+				<paraminfo>Float &amp; </paraminfo>
+			</param>
+			<param name="RotY">
+				<paraminfo>Float &amp; </paraminfo>
+			</param>
+			<param name="RotZ">
+				<paraminfo>Float &amp; </paraminfo>
+			</param>
+		</member>
+		<member name="M:GetPlayerFacingAngle" syntax="GetPlayerFacingAngle(playerid, &amp;ang)">
+			<attribute name="native"/>
+			<referrer name="dcmd_osel"/>
+			<referrer name="dcmd_v"/>
+			<referrer name="dcmd_vsel"/>
+			<referrer name="VehicleSelect"/>
+			<referrer name="GetXYInFrontOfPlayer"/>
+			<param name="playerid">
+			</param>
+			<param name="ang">
+				<paraminfo>Float &amp; </paraminfo>
+			</param>
+		</member>
+		<member name="M:GetPlayerInterior" syntax="GetPlayerInterior(playerid)">
+			<attribute name="native"/>
+			<referrer name="dcmd_v"/>
+			<referrer name="dcmd_vsel"/>
+			<referrer name="dcmd_goto"/>
+			<referrer name="dcmd_bring"/>
+			<referrer name="VehicleSelect"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:GetPlayerKeys" syntax="GetPlayerKeys(playerid, &amp;keys, &amp;updown, &amp;leftright)">
+			<attribute name="native"/>
+			<referrer name="WorldSelect"/>
+			<referrer name="SkinSelect"/>
+			<referrer name="CameraSelect"/>
+			<referrer name="VehicleSelect"/>
+			<referrer name="ObjectSelect"/>
+			<param name="playerid">
+			</param>
+			<param name="keys">
+				<paraminfo> &amp; </paraminfo>
+			</param>
+			<param name="updown">
+				<paraminfo> &amp; </paraminfo>
+			</param>
+			<param name="leftright">
+				<paraminfo> &amp; </paraminfo>
+			</param>
+		</member>
+		<member name="M:GetPlayerName" syntax="GetPlayerName(playerid, name[], len)">
+			<attribute name="native"/>
+			<referrer name="dcmd_goto"/>
+			<referrer name="dcmd_bring"/>
+			<param name="playerid">
+			</param>
+			<param name="name">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="len">
+			</param>
+		</member>
+		<member name="M:GetPlayerPos" syntax="GetPlayerPos(playerid, &amp;x, &amp;y, &amp;z)">
+			<attribute name="native"/>
+			<referrer name="dcmd_osel"/>
+			<referrer name="dcmd_csel"/>
+			<referrer name="dcmd_wsel"/>
+			<referrer name="dcmd_v"/>
+			<referrer name="dcmd_vsel"/>
+			<referrer name="dcmd_ssel"/>
+			<referrer name="dcmd_goto"/>
+			<referrer name="dcmd_bring"/>
+			<referrer name="VehicleSelect"/>
+			<referrer name="GetXYInFrontOfPlayer"/>
+			<param name="playerid">
+			</param>
+			<param name="x">
+				<paraminfo>Float &amp; </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float &amp; </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float &amp; </paraminfo>
+			</param>
+		</member>
+		<member name="M:GetPlayerVehicleID" syntax="GetPlayerVehicleID(playerid)">
+			<attribute name="native"/>
+			<referrer name="dcmd_goto"/>
+			<referrer name="dcmd_setloc"/>
+			<referrer name="dcmd_bring"/>
+			<referrer name="GetXYInFrontOfPlayer"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:GetPlayerVirtualWorld" syntax="GetPlayerVirtualWorld(playerid)">
+			<attribute name="native"/>
+			<referrer name="dcmd_v"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:GetVehicleModelIDFromName" syntax="GetVehicleModelIDFromName(vname[])">
+			<stacksize value="7"/>
+			<referrer name="dcmd_v"/>
+			<dependency name="aVehicleNames"/>
+			<dependency name="strfind"/>
+			<dependency name="true"/>
+			<param name="vname">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:GetVehiclePos" syntax="GetVehiclePos(vehicleid, &amp;x, &amp;y, &amp;z)">
+			<attribute name="native"/>
+			<referrer name="dcmd_debug"/>
+			<param name="vehicleid">
+			</param>
+			<param name="x">
+				<paraminfo>Float &amp; </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float &amp; </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float &amp; </paraminfo>
+			</param>
+		</member>
+		<member name="M:GetVehicleZAngle" syntax="GetVehicleZAngle(vehicleid, &amp;z_angle)">
+			<attribute name="native"/>
+			<referrer name="dcmd_debug"/>
+			<referrer name="GetXYInFrontOfPlayer"/>
+			<param name="vehicleid">
+			</param>
+			<param name="z_angle">
+				<paraminfo>Float &amp; </paraminfo>
+			</param>
+		</member>
+		<member name="M:GetWeaponModelIDFromName" syntax="GetWeaponModelIDFromName(wname[])">
+			<stacksize value="7"/>
+			<referrer name="dcmd_w2"/>
+			<dependency name="aWeaponNames"/>
+			<dependency name="strfind"/>
+			<dependency name="true"/>
+			<param name="wname">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:GetXYInFrontOfPlayer" syntax="GetXYInFrontOfPlayer(playerid, &amp;x, &amp;y, distance)">
+			<stacksize value="7"/>
+			<referrer name="dcmd_osel"/>
+			<referrer name="dcmd_csel"/>
+			<referrer name="dcmd_wsel"/>
+			<referrer name="dcmd_v"/>
+			<referrer name="dcmd_vsel"/>
+			<referrer name="dcmd_ssel"/>
+			<referrer name="dcmd_goto"/>
+			<referrer name="dcmd_bring"/>
+			<referrer name="VehicleSelect"/>
+			<dependency name="operator-(Float:)"/>
+			<dependency name="operator+(Float:,Float:)"/>
+			<dependency name="operator*(Float:,Float:)"/>
+			<dependency name="GetPlayerFacingAngle"/>
+			<dependency name="GetPlayerPos"/>
+			<dependency name="GetPlayerVehicleID"/>
+			<dependency name="GetVehicleZAngle"/>
+			<dependency name="degrees"/>
+			<dependency name="floatcos"/>
+			<dependency name="floatsin"/>
+			<param name="playerid">
+			</param>
+			<param name="x">
+				<paraminfo>Float &amp; </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float &amp; </paraminfo>
+			</param>
+			<param name="distance">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:GivePlayerWeapon" syntax="GivePlayerWeapon(playerid, weaponid, ammo)">
+			<attribute name="native"/>
+			<referrer name="dcmd_w2"/>
+			<param name="playerid">
+			</param>
+			<param name="weaponid">
+			</param>
+			<param name="ammo">
+			</param>
+		</member>
+		<member name="M:IsInvalidSkin" syntax="IsInvalidSkin(skinid)">
+			<stacksize value="16"/>
+			<referrer name="dcmd_s"/>
+			<referrer name="SkinSelect"/>
+			<dependency name="false"/>
+			<dependency name="true"/>
+			<param name="skinid">
+			</param>
+		</member>
+		<member name="M:IsPlayerConnected" syntax="IsPlayerConnected(playerid)">
+			<attribute name="native"/>
+			<referrer name="dcmd_goto"/>
+			<referrer name="dcmd_bring"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:IsValidModel" syntax="IsValidModel(modelid)">
+			<stacksize value="1"/>
+			<referrer name="ObjectSelect"/>
+			<param name="modelid">
+			</param>
+		</member>
+		<member name="M:IsValidObject" syntax="IsValidObject(objectid)">
+			<attribute name="native"/>
+			<referrer name="dcmd_object"/>
+			<param name="objectid">
+			</param>
+		</member>
+		<member name="M:KillTimer" syntax="KillTimer(timerid)">
+			<attribute name="native"/>
+			<referrer name="OnPlayerDisconnect"/>
+			<referrer name="WorldSelect"/>
+			<referrer name="SkinSelect"/>
+			<referrer name="CameraSelect"/>
+			<referrer name="VehicleSelect"/>
+			<referrer name="ObjectSelect"/>
+			<param name="timerid">
+			</param>
+		</member>
+		<member name="M:LinkVehicleToInterior" syntax="LinkVehicleToInterior(vehicleid, interiorid)">
+			<attribute name="native"/>
+			<referrer name="dcmd_v"/>
+			<referrer name="dcmd_vsel"/>
+			<referrer name="dcmd_goto"/>
+			<referrer name="dcmd_setloc"/>
+			<referrer name="dcmd_bring"/>
+			<referrer name="VehicleSelect"/>
+			<param name="vehicleid">
+			</param>
+			<param name="interiorid">
+			</param>
+		</member>
+		<member name="M:ObjectSelect" syntax="ObjectSelect(playerid)">
+			<attribute name="public"/>
+			<stacksize value="141"/>
+			<dependency name="operator-(Float:,Float:)"/>
+			<dependency name="operator+(Float:,Float:)"/>
+			<dependency name="CLOO_X"/>
+			<dependency name="CLOO_Y"/>
+			<dependency name="CLOO_Z"/>
+			<dependency name="CPOS_X"/>
+			<dependency name="CPOS_Y"/>
+			<dependency name="CPOS_Z"/>
+			<dependency name="CreateObject"/>
+			<dependency name="DestroyObject"/>
+			<dependency name="GameTextForPlayer"/>
+			<dependency name="GetPlayerKeys"/>
+			<dependency name="IsValidModel"/>
+			<dependency name="KillTimer"/>
+			<dependency name="OBJ_MDL"/>
+			<dependency name="OBJ_MOD"/>
+			<dependency name="OBJ_RATE_MOVE"/>
+			<dependency name="OBJ_RATE_ROT"/>
+			<dependency name="OBJ_RX"/>
+			<dependency name="OBJ_RY"/>
+			<dependency name="OBJ_RZ"/>
+			<dependency name="OBJ_X"/>
+			<dependency name="OBJ_Y"/>
+			<dependency name="OBJ_Z"/>
+			<dependency name="SetCameraBehindPlayer"/>
+			<dependency name="SetObjectPos"/>
+			<dependency name="SetObjectRot"/>
+			<dependency name="SetPlayerCameraLookAt"/>
+			<dependency name="SetPlayerCameraPos"/>
+			<dependency name="SetPlayerPos"/>
+			<dependency name="TogglePlayerControllable"/>
+			<dependency name="curPlayerCamD"/>
+			<dependency name="curPlayerCamD"/>
+			<dependency name="curPlayerObjI"/>
+			<dependency name="curPlayerObjM"/>
+			<dependency name="curPlayerObjM"/>
+			<dependency name="format"/>
+			<dependency name="gPlayerStatus"/>
+			<dependency name="gPlayerTimers"/>
+			<dependency name="pObjectRate"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnDialogResponse" syntax="OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="dialogid">
+			</param>
+			<param name="response">
+			</param>
+			<param name="listitem">
+			</param>
+			<param name="inputtext">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnEnterExitModShop" syntax="OnEnterExitModShop(playerid, enterexit, interiorid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="enterexit">
+			</param>
+			<param name="interiorid">
+			</param>
+		</member>
+		<member name="M:OnFilterScriptExit" syntax="OnFilterScriptExit()">
+			<attribute name="public"/>
+			<stacksize value="3"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:OnFilterScriptInit" syntax="OnFilterScriptInit()">
+			<attribute name="public"/>
+			<stacksize value="4"/>
+			<dependency name="OBJ_MDL"/>
+			<dependency name="OBJ_RATE_MOVE"/>
+			<dependency name="OBJ_RATE_ROT"/>
+			<dependency name="curPlayerObjM"/>
+			<dependency name="curPlayerObjM"/>
+			<dependency name="pObjectRate"/>
+			<dependency name="pObjectRate"/>
+			<dependency name="print"/>
+			<dependency name="printf"/>
+		</member>
+		<member name="M:OnGameModeExit" syntax="OnGameModeExit()">
+			<stacksize value="1"/>
+		</member>
+		<member name="M:OnGameModeInit" syntax="OnGameModeInit()">
+			<stacksize value="1"/>
+		</member>
+		<member name="M:OnObjectMoved" syntax="OnObjectMoved(objectid)">
+			<stacksize value="1"/>
+			<param name="objectid">
+			</param>
+		</member>
+		<member name="M:OnPlayerClickMap" syntax="OnPlayerClickMap(playerid, fX, fY, fZ)">
+			<attribute name="public"/>
+			<stacksize value="6"/>
+			<dependency name="SetPlayerPosFindZ"/>
+			<dependency name="false"/>
+			<dependency name="true"/>
+			<param name="playerid">
+			</param>
+			<param name="fX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerClickPlayer" syntax="OnPlayerClickPlayer(playerid, clickedplayerid, source)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="clickedplayerid">
+			</param>
+			<param name="source">
+			</param>
+		</member>
+		<member name="M:OnPlayerClickPlayerTextDraw" syntax="OnPlayerClickPlayerTextDraw(playerid, playertextid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="playertextid">
+				<paraminfo>PlayerText </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerClickTextDraw" syntax="OnPlayerClickTextDraw(playerid, clickedid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="clickedid">
+				<paraminfo>Text </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerCommandText" syntax="OnPlayerCommandText(playerid, cmdtext[])">
+			<attribute name="public"/>
+			<stacksize value="6"/>
+			<dependency name="dcmd_bring"/>
+			<dependency name="dcmd_camera"/>
+			<dependency name="dcmd_csel"/>
+			<dependency name="dcmd_debug"/>
+			<dependency name="dcmd_g"/>
+			<dependency name="dcmd_goto"/>
+			<dependency name="dcmd_gravity"/>
+			<dependency name="dcmd_object"/>
+			<dependency name="dcmd_osel"/>
+			<dependency name="dcmd_s"/>
+			<dependency name="dcmd_setloc"/>
+			<dependency name="dcmd_skin"/>
+			<dependency name="dcmd_ssel"/>
+			<dependency name="dcmd_t"/>
+			<dependency name="dcmd_time"/>
+			<dependency name="dcmd_v"/>
+			<dependency name="dcmd_vehicle"/>
+			<dependency name="dcmd_vsel"/>
+			<dependency name="dcmd_w"/>
+			<dependency name="dcmd_w2"/>
+			<dependency name="dcmd_warpto"/>
+			<dependency name="dcmd_weapon"/>
+			<dependency name="dcmd_weather"/>
+			<dependency name="dcmd_wsel"/>
+			<dependency name="false"/>
+			<dependency name="strcmp"/>
+			<dependency name="true"/>
+			<param name="playerid">
+			</param>
+			<param name="cmdtext">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerConnect" syntax="OnPlayerConnect(playerid)">
+			<attribute name="public"/>
+			<stacksize value="1"/>
+			<dependency name="CMODE"/>
+			<dependency name="RATE"/>
+			<dependency name="curPlayerCamD"/>
+			<dependency name="curPlayerCamD"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerDeath" syntax="OnPlayerDeath(playerid, killerid, reason)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="killerid">
+			</param>
+			<param name="reason">
+			</param>
+		</member>
+		<member name="M:OnPlayerDisconnect" syntax="OnPlayerDisconnect(playerid, reason)">
+			<attribute name="public"/>
+			<stacksize value="3"/>
+			<dependency name="KillTimer"/>
+			<dependency name="curPlayerSkin"/>
+			<dependency name="curPlayerVehI"/>
+			<dependency name="curPlayerVehM"/>
+			<dependency name="gPlayerStatus"/>
+			<dependency name="gPlayerTimers"/>
+			<param name="playerid">
+			</param>
+			<param name="reason">
+			</param>
+		</member>
+		<member name="M:OnPlayerEditAttachedObject" syntax="OnPlayerEditAttachedObject(playerid, response, index, modelid, boneid, fOffsetX, fOffsetY, fOffsetZ, fRotX, fRotY, fRotZ, fScaleX, fScaleY, fScaleZ)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="response">
+			</param>
+			<param name="index">
+			</param>
+			<param name="modelid">
+			</param>
+			<param name="boneid">
+			</param>
+			<param name="fOffsetX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fOffsetY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fOffsetZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fRotX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fRotY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fRotZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fScaleX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fScaleY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fScaleZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerEditObject" syntax="OnPlayerEditObject(playerid, playerobject, objectid, response, fX, fY, fZ, fRotX, fRotY, fRotZ)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="playerobject">
+			</param>
+			<param name="objectid">
+			</param>
+			<param name="response">
+			</param>
+			<param name="fX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fRotX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fRotY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fRotZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerEnterCheckpoint" syntax="OnPlayerEnterCheckpoint(playerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerEnterRaceCheckpoint" syntax="OnPlayerEnterRaceCheckpoint(playerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerEnterVehicle" syntax="OnPlayerEnterVehicle(playerid, vehicleid, ispassenger)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="vehicleid">
+			</param>
+			<param name="ispassenger">
+			</param>
+		</member>
+		<member name="M:OnPlayerExitVehicle" syntax="OnPlayerExitVehicle(playerid, vehicleid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="vehicleid">
+			</param>
+		</member>
+		<member name="M:OnPlayerExitedMenu" syntax="OnPlayerExitedMenu(playerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerGiveDamage" syntax="OnPlayerGiveDamage(playerid, damagedid, amount, weaponid, bodypart)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="damagedid">
+			</param>
+			<param name="amount">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="weaponid">
+			</param>
+			<param name="bodypart">
+			</param>
+		</member>
+		<member name="M:OnPlayerInteriorChange" syntax="OnPlayerInteriorChange(playerid, newinteriorid, oldinteriorid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="newinteriorid">
+			</param>
+			<param name="oldinteriorid">
+			</param>
+		</member>
+		<member name="M:OnPlayerKeyStateChange" syntax="OnPlayerKeyStateChange(playerid, newkeys, oldkeys)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="newkeys">
+			</param>
+			<param name="oldkeys">
+			</param>
+		</member>
+		<member name="M:OnPlayerLeaveCheckpoint" syntax="OnPlayerLeaveCheckpoint(playerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerLeaveRaceCheckpoint" syntax="OnPlayerLeaveRaceCheckpoint(playerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerObjectMoved" syntax="OnPlayerObjectMoved(playerid, objectid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="objectid">
+			</param>
+		</member>
+		<member name="M:OnPlayerPickUpPickup" syntax="OnPlayerPickUpPickup(playerid, pickupid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="pickupid">
+			</param>
+		</member>
+		<member name="M:OnPlayerRequestClass" syntax="OnPlayerRequestClass(playerid, classid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="classid">
+			</param>
+		</member>
+		<member name="M:OnPlayerRequestSpawn" syntax="OnPlayerRequestSpawn(playerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerSelectObject" syntax="OnPlayerSelectObject(playerid, type, objectid, modelid, fX, fY, fZ)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="type">
+			</param>
+			<param name="objectid">
+			</param>
+			<param name="modelid">
+			</param>
+			<param name="fX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerSelectedMenuRow" syntax="OnPlayerSelectedMenuRow(playerid, row)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="row">
+			</param>
+		</member>
+		<member name="M:OnPlayerSpawn" syntax="OnPlayerSpawn(playerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerStateChange" syntax="OnPlayerStateChange(playerid, newstate, oldstate)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="newstate">
+			</param>
+			<param name="oldstate">
+			</param>
+		</member>
+		<member name="M:OnPlayerStreamIn" syntax="OnPlayerStreamIn(playerid, forplayerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="forplayerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerStreamOut" syntax="OnPlayerStreamOut(playerid, forplayerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="forplayerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerTakeDamage" syntax="OnPlayerTakeDamage(playerid, issuerid, amount, weaponid, bodypart)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="issuerid">
+			</param>
+			<param name="amount">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="weaponid">
+			</param>
+			<param name="bodypart">
+			</param>
+		</member>
+		<member name="M:OnPlayerText" syntax="OnPlayerText(playerid, text[])">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="text">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerUpdate" syntax="OnPlayerUpdate(playerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerWeaponShot" syntax="OnPlayerWeaponShot(playerid, weaponid, hittype, hitid, fX, fY, fZ)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="weaponid">
+			</param>
+			<param name="hittype">
+			</param>
+			<param name="hitid">
+			</param>
+			<param name="fX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnRconCommand" syntax="OnRconCommand(cmd[])">
+			<stacksize value="1"/>
+			<param name="cmd">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnRconLoginAttempt" syntax="OnRconLoginAttempt(ip[], password[], success)">
+			<stacksize value="1"/>
+			<param name="ip">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="password">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="success">
+			</param>
+		</member>
+		<member name="M:OnUnoccupiedVehicleUpdate" syntax="OnUnoccupiedVehicleUpdate(vehicleid, playerid, passenger_seat, new_x, new_y, new_z)">
+			<stacksize value="1"/>
+			<param name="vehicleid">
+			</param>
+			<param name="playerid">
+			</param>
+			<param name="passenger_seat">
+			</param>
+			<param name="new_x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="new_y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="new_z">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnVehicleDamageStatusUpdate" syntax="OnVehicleDamageStatusUpdate(vehicleid, playerid)">
+			<stacksize value="1"/>
+			<param name="vehicleid">
+			</param>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnVehicleDeath" syntax="OnVehicleDeath(vehicleid, killerid)">
+			<stacksize value="1"/>
+			<param name="vehicleid">
+			</param>
+			<param name="killerid">
+			</param>
+		</member>
+		<member name="M:OnVehicleMod" syntax="OnVehicleMod(playerid, vehicleid, componentid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="vehicleid">
+			</param>
+			<param name="componentid">
+			</param>
+		</member>
+		<member name="M:OnVehiclePaintjob" syntax="OnVehiclePaintjob(playerid, vehicleid, paintjobid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="vehicleid">
+			</param>
+			<param name="paintjobid">
+			</param>
+		</member>
+		<member name="M:OnVehicleRespray" syntax="OnVehicleRespray(playerid, vehicleid, color1, color2)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="vehicleid">
+			</param>
+			<param name="color1">
+			</param>
+			<param name="color2">
+			</param>
+		</member>
+		<member name="M:OnVehicleSpawn" syntax="OnVehicleSpawn(vehicleid)">
+			<stacksize value="1"/>
+			<param name="vehicleid">
+			</param>
+		</member>
+		<member name="M:OnVehicleStreamIn" syntax="OnVehicleStreamIn(vehicleid, forplayerid)">
+			<stacksize value="1"/>
+			<param name="vehicleid">
+			</param>
+			<param name="forplayerid">
+			</param>
+		</member>
+		<member name="M:OnVehicleStreamOut" syntax="OnVehicleStreamOut(vehicleid, forplayerid)">
+			<stacksize value="1"/>
+			<param name="vehicleid">
+			</param>
+			<param name="forplayerid">
+			</param>
+		</member>
+		<member name="M:PutPlayerInVehicle" syntax="PutPlayerInVehicle(playerid, vehicleid, seatid)">
+			<attribute name="native"/>
+			<referrer name="dcmd_v"/>
+			<param name="playerid">
+			</param>
+			<param name="vehicleid">
+			</param>
+			<param name="seatid">
+			</param>
+		</member>
+		<member name="M:SendClientMessage" syntax="SendClientMessage(playerid, color, message[])">
+			<attribute name="native"/>
+			<referrer name="dcmd_debug"/>
+			<referrer name="dcmd_object"/>
+			<referrer name="dcmd_osel"/>
+			<referrer name="dcmd_camera"/>
+			<referrer name="dcmd_csel"/>
+			<referrer name="dcmd_g"/>
+			<referrer name="dcmd_w"/>
+			<referrer name="dcmd_t"/>
+			<referrer name="dcmd_wsel"/>
+			<referrer name="dcmd_v"/>
+			<referrer name="dcmd_vsel"/>
+			<referrer name="dcmd_ssel"/>
+			<referrer name="dcmd_s"/>
+			<referrer name="dcmd_goto"/>
+			<referrer name="dcmd_setloc"/>
+			<referrer name="dcmd_bring"/>
+			<referrer name="dcmd_w2"/>
+			<referrer name="WorldSelect"/>
+			<referrer name="SkinSelect"/>
+			<referrer name="CameraSelect"/>
+			<referrer name="VehicleSelect"/>
+			<param name="playerid">
+			</param>
+			<param name="color">
+			</param>
+			<param name="message">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:SetCameraBehindPlayer" syntax="SetCameraBehindPlayer(playerid)">
+			<attribute name="native"/>
+			<referrer name="WorldSelect"/>
+			<referrer name="SkinSelect"/>
+			<referrer name="CameraSelect"/>
+			<referrer name="VehicleSelect"/>
+			<referrer name="ObjectSelect"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:SetGravity" syntax="SetGravity(gravity)">
+			<attribute name="native"/>
+			<referrer name="dcmd_g"/>
+			<param name="gravity">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:SetObjectPos" syntax="SetObjectPos(objectid, X, Y, Z)">
+			<attribute name="native"/>
+			<referrer name="ObjectSelect"/>
+			<param name="objectid">
+			</param>
+			<param name="X">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="Y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="Z">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:SetObjectRot" syntax="SetObjectRot(objectid, RotX, RotY, RotZ)">
+			<attribute name="native"/>
+			<referrer name="ObjectSelect"/>
+			<param name="objectid">
+			</param>
+			<param name="RotX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="RotY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="RotZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:SetPlayerCameraLookAt" syntax="SetPlayerCameraLookAt(playerid, x, y, z, cut)">
+			<attribute name="native"/>
+			<referrer name="dcmd_object"/>
+			<referrer name="dcmd_osel"/>
+			<referrer name="dcmd_wsel"/>
+			<referrer name="dcmd_vsel"/>
+			<referrer name="dcmd_ssel"/>
+			<referrer name="CameraSelect"/>
+			<referrer name="ObjectSelect"/>
+			<param name="playerid">
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="cut">
+			</param>
+		</member>
+		<member name="M:SetPlayerCameraPos" syntax="SetPlayerCameraPos(playerid, x, y, z)">
+			<attribute name="native"/>
+			<referrer name="dcmd_object"/>
+			<referrer name="dcmd_osel"/>
+			<referrer name="dcmd_wsel"/>
+			<referrer name="dcmd_vsel"/>
+			<referrer name="dcmd_ssel"/>
+			<referrer name="CameraSelect"/>
+			<referrer name="ObjectSelect"/>
+			<param name="playerid">
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:SetPlayerInterior" syntax="SetPlayerInterior(playerid, interiorid)">
+			<attribute name="native"/>
+			<referrer name="dcmd_goto"/>
+			<referrer name="dcmd_setloc"/>
+			<referrer name="dcmd_bring"/>
+			<param name="playerid">
+			</param>
+			<param name="interiorid">
+			</param>
+		</member>
+		<member name="M:SetPlayerPos" syntax="SetPlayerPos(playerid, x, y, z)">
+			<attribute name="native"/>
+			<referrer name="dcmd_goto"/>
+			<referrer name="dcmd_setloc"/>
+			<referrer name="dcmd_bring"/>
+			<referrer name="CameraSelect"/>
+			<referrer name="ObjectSelect"/>
+			<param name="playerid">
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:SetPlayerPosFindZ" syntax="SetPlayerPosFindZ(playerid, x, y, z)">
+			<attribute name="native"/>
+			<referrer name="OnPlayerClickMap"/>
+			<param name="playerid">
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:SetPlayerSkin" syntax="SetPlayerSkin(playerid, skinid)">
+			<attribute name="native"/>
+			<referrer name="dcmd_s"/>
+			<referrer name="SkinSelect"/>
+			<param name="playerid">
+			</param>
+			<param name="skinid">
+			</param>
+		</member>
+		<member name="M:SetTimerEx" syntax="SetTimerEx(funcname[], interval, repeating, format[], ...)">
+			<attribute name="native"/>
+			<referrer name="dcmd_osel"/>
+			<referrer name="dcmd_csel"/>
+			<referrer name="dcmd_wsel"/>
+			<referrer name="dcmd_vsel"/>
+			<referrer name="dcmd_ssel"/>
+			<param name="funcname">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="interval">
+			</param>
+			<param name="repeating">
+			</param>
+			<param name="format">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="...">
+				<paraminfo> {Float,_} </paraminfo>
+			</param>
+		</member>
+		<member name="M:SetVehiclePos" syntax="SetVehiclePos(vehicleid, x, y, z)">
+			<attribute name="native"/>
+			<referrer name="dcmd_goto"/>
+			<referrer name="dcmd_setloc"/>
+			<referrer name="dcmd_bring"/>
+			<param name="vehicleid">
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:SetVehicleVirtualWorld" syntax="SetVehicleVirtualWorld(vehicleid, worldid)">
+			<attribute name="native"/>
+			<referrer name="dcmd_v"/>
+			<param name="vehicleid">
+			</param>
+			<param name="worldid">
+			</param>
+		</member>
+		<member name="M:SetWeather" syntax="SetWeather(weatherid)">
+			<attribute name="native"/>
+			<referrer name="dcmd_w"/>
+			<referrer name="WorldSelect"/>
+			<param name="weatherid">
+			</param>
+		</member>
+		<member name="M:SetWorldTime" syntax="SetWorldTime(hour)">
+			<attribute name="native"/>
+			<referrer name="dcmd_t"/>
+			<referrer name="WorldSelect"/>
+			<param name="hour">
+			</param>
+		</member>
+		<member name="M:SkinSelect" syntax="SkinSelect(playerid)">
+			<attribute name="public"/>
+			<stacksize value="137"/>
+			<dependency name="GameTextForPlayer"/>
+			<dependency name="GetPlayerKeys"/>
+			<dependency name="IsInvalidSkin"/>
+			<dependency name="KillTimer"/>
+			<dependency name="SendClientMessage"/>
+			<dependency name="SetCameraBehindPlayer"/>
+			<dependency name="SetPlayerSkin"/>
+			<dependency name="TogglePlayerControllable"/>
+			<dependency name="curPlayerSkin"/>
+			<dependency name="format"/>
+			<dependency name="gPlayerStatus"/>
+			<dependency name="gPlayerTimers"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:TogglePlayerControllable" syntax="TogglePlayerControllable(playerid, toggle)">
+			<attribute name="native"/>
+			<referrer name="dcmd_osel"/>
+			<referrer name="dcmd_csel"/>
+			<referrer name="dcmd_wsel"/>
+			<referrer name="dcmd_vsel"/>
+			<referrer name="dcmd_ssel"/>
+			<referrer name="WorldSelect"/>
+			<referrer name="SkinSelect"/>
+			<referrer name="CameraSelect"/>
+			<referrer name="VehicleSelect"/>
+			<referrer name="ObjectSelect"/>
+			<param name="playerid">
+			</param>
+			<param name="toggle">
+			</param>
+		</member>
+		<member name="M:VehicleSelect" syntax="VehicleSelect(playerid)">
+			<attribute name="public"/>
+			<stacksize value="145"/>
+			<dependency name="operator+(Float:,Float:)"/>
+			<dependency name="CreateVehicle"/>
+			<dependency name="DestroyVehicle"/>
+			<dependency name="GameTextForPlayer"/>
+			<dependency name="GetPlayerFacingAngle"/>
+			<dependency name="GetPlayerInterior"/>
+			<dependency name="GetPlayerKeys"/>
+			<dependency name="GetPlayerPos"/>
+			<dependency name="GetXYInFrontOfPlayer"/>
+			<dependency name="KillTimer"/>
+			<dependency name="LinkVehicleToInterior"/>
+			<dependency name="SendClientMessage"/>
+			<dependency name="SetCameraBehindPlayer"/>
+			<dependency name="TogglePlayerControllable"/>
+			<dependency name="aVehicleNames"/>
+			<dependency name="aVehicleNames"/>
+			<dependency name="curPlayerVehI"/>
+			<dependency name="curPlayerVehM"/>
+			<dependency name="curServerVehP"/>
+			<dependency name="curServerVehP"/>
+			<dependency name="false"/>
+			<dependency name="format"/>
+			<dependency name="gPlayerStatus"/>
+			<dependency name="gPlayerTimers"/>
+			<dependency name="printf"/>
+			<dependency name="spawn"/>
+			<dependency name="true"/>
+			<dependency name="vInt"/>
+			<dependency name="vmodel"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:WorldSelect" syntax="WorldSelect(playerid)">
+			<attribute name="public"/>
+			<stacksize value="149"/>
+			<dependency name="GameTextForPlayer"/>
+			<dependency name="GetPlayerKeys"/>
+			<dependency name="KillTimer"/>
+			<dependency name="SendClientMessage"/>
+			<dependency name="SetCameraBehindPlayer"/>
+			<dependency name="SetWeather"/>
+			<dependency name="SetWorldTime"/>
+			<dependency name="TogglePlayerControllable"/>
+			<dependency name="fclose"/>
+			<dependency name="fopen"/>
+			<dependency name="format"/>
+			<dependency name="fwrite"/>
+			<dependency name="gPlayerStatus"/>
+			<dependency name="gPlayerTimers"/>
+			<dependency name="gWorldStatus"/>
+			<dependency name="getdate"/>
+			<dependency name="gettime"/>
+			<dependency name="io_append"/>
+			<dependency name="print"/>
+			<dependency name="printf"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:dcmd_bring" syntax="dcmd_bring(playerid, params[])">
+			<stacksize value="142"/>
+			<referrer name="OnPlayerCommandText"/>
+			<dependency name="operator+(Float:,Float:)"/>
+			<dependency name="GetPlayerInterior"/>
+			<dependency name="GetPlayerName"/>
+			<dependency name="GetPlayerPos"/>
+			<dependency name="GetPlayerVehicleID"/>
+			<dependency name="GetXYInFrontOfPlayer"/>
+			<dependency name="IsPlayerConnected"/>
+			<dependency name="LinkVehicleToInterior"/>
+			<dependency name="SendClientMessage"/>
+			<dependency name="SetPlayerInterior"/>
+			<dependency name="SetPlayerPos"/>
+			<dependency name="SetVehiclePos"/>
+			<dependency name="floatstr"/>
+			<dependency name="format"/>
+			<dependency name="strlen"/>
+			<dependency name="strtok"/>
+			<dependency name="strval"/>
+			<dependency name="true"/>
+			<param name="playerid">
+			</param>
+			<param name="params">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:dcmd_camera" syntax="dcmd_camera(playerid, params[])">
+			<stacksize value="135"/>
+			<referrer name="OnPlayerCommandText"/>
+			<dependency name="CMODE"/>
+			<dependency name="RATE"/>
+			<dependency name="SendClientMessage"/>
+			<dependency name="curPlayerCamD"/>
+			<dependency name="curPlayerCamD"/>
+			<dependency name="floatstr"/>
+			<dependency name="strcmp"/>
+			<dependency name="strlen"/>
+			<dependency name="strtok"/>
+			<dependency name="strval"/>
+			<dependency name="true"/>
+			<param name="playerid">
+			</param>
+			<param name="params">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:dcmd_csel" syntax="dcmd_csel(playerid, params[])">
+			<stacksize value="135"/>
+			<referrer name="OnPlayerCommandText"/>
+			<dependency name="CLOO_X"/>
+			<dependency name="CLOO_Y"/>
+			<dependency name="CLOO_Z"/>
+			<dependency name="CPOS_X"/>
+			<dependency name="CPOS_Y"/>
+			<dependency name="CPOS_Z"/>
+			<dependency name="GetPlayerPos"/>
+			<dependency name="GetXYInFrontOfPlayer"/>
+			<dependency name="SendClientMessage"/>
+			<dependency name="SetTimerEx"/>
+			<dependency name="TogglePlayerControllable"/>
+			<dependency name="aSelNames"/>
+			<dependency name="aSelNames"/>
+			<dependency name="curPlayerCamD"/>
+			<dependency name="curPlayerCamD"/>
+			<dependency name="format"/>
+			<dependency name="gPlayerStatus"/>
+			<dependency name="gPlayerTimers"/>
+			<dependency name="true"/>
+			<param name="playerid">
+			</param>
+			<param name="params">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:dcmd_debug" syntax="dcmd_debug(playerid, params[])">
+			<stacksize value="280"/>
+			<referrer name="OnPlayerCommandText"/>
+			<dependency name="GetVehiclePos"/>
+			<dependency name="GetVehicleZAngle"/>
+			<dependency name="SendClientMessage"/>
+			<dependency name="aVehicleNames"/>
+			<dependency name="aVehicleNames"/>
+			<dependency name="curServerVehP"/>
+			<dependency name="curServerVehP"/>
+			<dependency name="false"/>
+			<dependency name="fclose"/>
+			<dependency name="fopen"/>
+			<dependency name="format"/>
+			<dependency name="fwrite"/>
+			<dependency name="getdate"/>
+			<dependency name="gettime"/>
+			<dependency name="io_append"/>
+			<dependency name="print"/>
+			<dependency name="spawn"/>
+			<dependency name="strcmp"/>
+			<dependency name="true"/>
+			<dependency name="vInt"/>
+			<dependency name="vmodel"/>
+			<param name="playerid">
+			</param>
+			<param name="params">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:dcmd_g" syntax="dcmd_g(playerid, params[])">
+			<stacksize value="135"/>
+			<referrer name="dcmd_gravity"/>
+			<referrer name="OnPlayerCommandText"/>
+			<dependency name="SendClientMessage"/>
+			<dependency name="SetGravity"/>
+			<dependency name="floatstr"/>
+			<dependency name="format"/>
+			<dependency name="strlen"/>
+			<dependency name="true"/>
+			<param name="playerid">
+			</param>
+			<param name="params">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:dcmd_goto" syntax="dcmd_goto(playerid, params[])">
+			<stacksize value="142"/>
+			<referrer name="dcmd_warpto"/>
+			<referrer name="OnPlayerCommandText"/>
+			<dependency name="operator+(Float:,Float:)"/>
+			<dependency name="GetPlayerInterior"/>
+			<dependency name="GetPlayerName"/>
+			<dependency name="GetPlayerPos"/>
+			<dependency name="GetPlayerVehicleID"/>
+			<dependency name="GetXYInFrontOfPlayer"/>
+			<dependency name="IsPlayerConnected"/>
+			<dependency name="LinkVehicleToInterior"/>
+			<dependency name="SendClientMessage"/>
+			<dependency name="SetPlayerInterior"/>
+			<dependency name="SetPlayerPos"/>
+			<dependency name="SetVehiclePos"/>
+			<dependency name="floatstr"/>
+			<dependency name="format"/>
+			<dependency name="strlen"/>
+			<dependency name="strtok"/>
+			<dependency name="strval"/>
+			<dependency name="true"/>
+			<param name="playerid">
+			</param>
+			<param name="params">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:dcmd_gravity" syntax="dcmd_gravity(playerid, params[])">
+			<stacksize value="5"/>
+			<referrer name="OnPlayerCommandText"/>
+			<dependency name="dcmd_g"/>
+			<param name="playerid">
+			</param>
+			<param name="params">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:dcmd_object" syntax="dcmd_object(playerid, params[])">
+			<stacksize value="137"/>
+			<referrer name="OnPlayerCommandText"/>
+			<dependency name="operator-(Float:,Float:)"/>
+			<dependency name="operator+(Float:,Float:)"/>
+			<dependency name="CLOO_X"/>
+			<dependency name="CLOO_Y"/>
+			<dependency name="CLOO_Z"/>
+			<dependency name="CPOS_X"/>
+			<dependency name="CPOS_Y"/>
+			<dependency name="CPOS_Z"/>
+			<dependency name="GetObjectPos"/>
+			<dependency name="GetObjectRot"/>
+			<dependency name="IsValidObject"/>
+			<dependency name="OBJ_MOD"/>
+			<dependency name="OBJ_RATE_MOVE"/>
+			<dependency name="OBJ_RATE_ROT"/>
+			<dependency name="OBJ_RX"/>
+			<dependency name="OBJ_RY"/>
+			<dependency name="OBJ_RZ"/>
+			<dependency name="OBJ_X"/>
+			<dependency name="OBJ_Y"/>
+			<dependency name="OBJ_Z"/>
+			<dependency name="SendClientMessage"/>
+			<dependency name="SetPlayerCameraLookAt"/>
+			<dependency name="SetPlayerCameraPos"/>
+			<dependency name="curPlayerCamD"/>
+			<dependency name="curPlayerCamD"/>
+			<dependency name="curPlayerObjI"/>
+			<dependency name="curPlayerObjM"/>
+			<dependency name="curPlayerObjM"/>
+			<dependency name="floatstr"/>
+			<dependency name="format"/>
+			<dependency name="gPlayerStatus"/>
+			<dependency name="pObjectRate"/>
+			<dependency name="pObjectRate"/>
+			<dependency name="strcmp"/>
+			<dependency name="strlen"/>
+			<dependency name="strtok"/>
+			<dependency name="strval"/>
+			<dependency name="true"/>
+			<param name="playerid">
+			</param>
+			<param name="params">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:dcmd_osel" syntax="dcmd_osel(playerid, params[])">
+			<stacksize value="139"/>
+			<referrer name="OnPlayerCommandText"/>
+			<dependency name="operator-(Float:,Float:)"/>
+			<dependency name="operator+(Float:,Float:)"/>
+			<dependency name="CLOO_X"/>
+			<dependency name="CLOO_Y"/>
+			<dependency name="CLOO_Z"/>
+			<dependency name="CPOS_X"/>
+			<dependency name="CPOS_Y"/>
+			<dependency name="CPOS_Z"/>
+			<dependency name="CreateObject"/>
+			<dependency name="GetPlayerFacingAngle"/>
+			<dependency name="GetPlayerPos"/>
+			<dependency name="GetXYInFrontOfPlayer"/>
+			<dependency name="OBJ_MDL"/>
+			<dependency name="OBJ_RX"/>
+			<dependency name="OBJ_RY"/>
+			<dependency name="OBJ_RZ"/>
+			<dependency name="OBJ_X"/>
+			<dependency name="OBJ_Y"/>
+			<dependency name="OBJ_Z"/>
+			<dependency name="SendClientMessage"/>
+			<dependency name="SetPlayerCameraLookAt"/>
+			<dependency name="SetPlayerCameraPos"/>
+			<dependency name="SetTimerEx"/>
+			<dependency name="TogglePlayerControllable"/>
+			<dependency name="aSelNames"/>
+			<dependency name="aSelNames"/>
+			<dependency name="curPlayerCamD"/>
+			<dependency name="curPlayerCamD"/>
+			<dependency name="curPlayerObjI"/>
+			<dependency name="curPlayerObjM"/>
+			<dependency name="curPlayerObjM"/>
+			<dependency name="format"/>
+			<dependency name="gPlayerStatus"/>
+			<dependency name="gPlayerTimers"/>
+			<param name="playerid">
+			</param>
+			<param name="params">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:dcmd_s" syntax="dcmd_s(playerid, params[])">
+			<stacksize value="135"/>
+			<referrer name="dcmd_skin"/>
+			<referrer name="OnPlayerCommandText"/>
+			<dependency name="IsInvalidSkin"/>
+			<dependency name="SendClientMessage"/>
+			<dependency name="SetPlayerSkin"/>
+			<dependency name="curPlayerSkin"/>
+			<dependency name="format"/>
+			<dependency name="strlen"/>
+			<dependency name="strtok"/>
+			<dependency name="strval"/>
+			<dependency name="true"/>
+			<param name="playerid">
+			</param>
+			<param name="params">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:dcmd_setloc" syntax="dcmd_setloc(playerid, params[])">
+			<stacksize value="140"/>
+			<referrer name="OnPlayerCommandText"/>
+			<dependency name="GetPlayerVehicleID"/>
+			<dependency name="LinkVehicleToInterior"/>
+			<dependency name="SendClientMessage"/>
+			<dependency name="SetPlayerInterior"/>
+			<dependency name="SetPlayerPos"/>
+			<dependency name="SetVehiclePos"/>
+			<dependency name="floatstr"/>
+			<dependency name="strlen"/>
+			<dependency name="strtok"/>
+			<dependency name="strval"/>
+			<dependency name="true"/>
+			<param name="playerid">
+			</param>
+			<param name="params">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:dcmd_skin" syntax="dcmd_skin(playerid, params[])">
+			<stacksize value="5"/>
+			<referrer name="OnPlayerCommandText"/>
+			<dependency name="dcmd_s"/>
+			<dependency name="true"/>
+			<param name="playerid">
+			</param>
+			<param name="params">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:dcmd_ssel" syntax="dcmd_ssel(playerid, params[])">
+			<stacksize value="138"/>
+			<referrer name="OnPlayerCommandText"/>
+			<dependency name="GetPlayerPos"/>
+			<dependency name="GetXYInFrontOfPlayer"/>
+			<dependency name="SendClientMessage"/>
+			<dependency name="SetPlayerCameraLookAt"/>
+			<dependency name="SetPlayerCameraPos"/>
+			<dependency name="SetTimerEx"/>
+			<dependency name="TogglePlayerControllable"/>
+			<dependency name="aSelNames"/>
+			<dependency name="aSelNames"/>
+			<dependency name="format"/>
+			<dependency name="gPlayerStatus"/>
+			<dependency name="gPlayerTimers"/>
+			<dependency name="true"/>
+			<param name="playerid">
+			</param>
+			<param name="params">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:dcmd_t" syntax="dcmd_t(playerid, params[])">
+			<stacksize value="135"/>
+			<referrer name="dcmd_time"/>
+			<referrer name="OnPlayerCommandText"/>
+			<dependency name="SendClientMessage"/>
+			<dependency name="SetWorldTime"/>
+			<dependency name="format"/>
+			<dependency name="gWorldStatus"/>
+			<dependency name="strlen"/>
+			<dependency name="strtok"/>
+			<dependency name="strval"/>
+			<dependency name="true"/>
+			<param name="playerid">
+			</param>
+			<param name="params">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:dcmd_time" syntax="dcmd_time(playerid, params[])">
+			<stacksize value="5"/>
+			<referrer name="OnPlayerCommandText"/>
+			<dependency name="dcmd_t"/>
+			<param name="playerid">
+			</param>
+			<param name="params">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:dcmd_v" syntax="dcmd_v(playerid, params[])">
+			<stacksize value="143"/>
+			<referrer name="dcmd_vehicle"/>
+			<referrer name="OnPlayerCommandText"/>
+			<dependency name="operator+(Float:,Float:)"/>
+			<dependency name="CreateVehicle"/>
+			<dependency name="GetPlayerFacingAngle"/>
+			<dependency name="GetPlayerInterior"/>
+			<dependency name="GetPlayerPos"/>
+			<dependency name="GetPlayerVirtualWorld"/>
+			<dependency name="GetVehicleModelIDFromName"/>
+			<dependency name="GetXYInFrontOfPlayer"/>
+			<dependency name="LinkVehicleToInterior"/>
+			<dependency name="PutPlayerInVehicle"/>
+			<dependency name="SendClientMessage"/>
+			<dependency name="SetVehicleVirtualWorld"/>
+			<dependency name="aSelNames"/>
+			<dependency name="aSelNames"/>
+			<dependency name="aVehicleNames"/>
+			<dependency name="aVehicleNames"/>
+			<dependency name="curPlayerVehI"/>
+			<dependency name="curPlayerVehM"/>
+			<dependency name="curServerVehP"/>
+			<dependency name="curServerVehP"/>
+			<dependency name="format"/>
+			<dependency name="gPlayerStatus"/>
+			<dependency name="spawn"/>
+			<dependency name="strval"/>
+			<dependency name="true"/>
+			<dependency name="vInt"/>
+			<dependency name="vmodel"/>
+			<param name="playerid">
+			</param>
+			<param name="params">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:dcmd_vehicle" syntax="dcmd_vehicle(playerid, params[])">
+			<stacksize value="5"/>
+			<referrer name="OnPlayerCommandText"/>
+			<dependency name="dcmd_v"/>
+			<param name="playerid">
+			</param>
+			<param name="params">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:dcmd_vsel" syntax="dcmd_vsel(playerid, params[])">
+			<stacksize value="142"/>
+			<referrer name="OnPlayerCommandText"/>
+			<dependency name="operator+(Float:,Float:)"/>
+			<dependency name="CreateVehicle"/>
+			<dependency name="GetPlayerFacingAngle"/>
+			<dependency name="GetPlayerInterior"/>
+			<dependency name="GetPlayerPos"/>
+			<dependency name="GetXYInFrontOfPlayer"/>
+			<dependency name="LinkVehicleToInterior"/>
+			<dependency name="SendClientMessage"/>
+			<dependency name="SetPlayerCameraLookAt"/>
+			<dependency name="SetPlayerCameraPos"/>
+			<dependency name="SetTimerEx"/>
+			<dependency name="TogglePlayerControllable"/>
+			<dependency name="aSelNames"/>
+			<dependency name="aSelNames"/>
+			<dependency name="curPlayerVehI"/>
+			<dependency name="curPlayerVehM"/>
+			<dependency name="curServerVehP"/>
+			<dependency name="curServerVehP"/>
+			<dependency name="format"/>
+			<dependency name="gPlayerStatus"/>
+			<dependency name="gPlayerTimers"/>
+			<dependency name="printf"/>
+			<dependency name="spawn"/>
+			<dependency name="true"/>
+			<dependency name="vInt"/>
+			<dependency name="vmodel"/>
+			<param name="playerid">
+			</param>
+			<param name="params">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:dcmd_w" syntax="dcmd_w(playerid, params[])">
+			<stacksize value="135"/>
+			<referrer name="dcmd_weather"/>
+			<referrer name="OnPlayerCommandText"/>
+			<dependency name="SendClientMessage"/>
+			<dependency name="SetWeather"/>
+			<dependency name="format"/>
+			<dependency name="gWorldStatus"/>
+			<dependency name="strlen"/>
+			<dependency name="strtok"/>
+			<dependency name="strval"/>
+			<dependency name="true"/>
+			<param name="playerid">
+			</param>
+			<param name="params">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:dcmd_w2" syntax="dcmd_w2(playerid, params[])">
+			<stacksize value="138"/>
+			<referrer name="dcmd_weapon"/>
+			<referrer name="OnPlayerCommandText"/>
+			<dependency name="GetWeaponModelIDFromName"/>
+			<dependency name="GivePlayerWeapon"/>
+			<dependency name="SendClientMessage"/>
+			<dependency name="aWeaponNames"/>
+			<dependency name="aWeaponNames"/>
+			<dependency name="format"/>
+			<dependency name="strlen"/>
+			<dependency name="strtok"/>
+			<dependency name="strval"/>
+			<dependency name="true"/>
+			<param name="playerid">
+			</param>
+			<param name="params">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:dcmd_warpto" syntax="dcmd_warpto(playerid, params[])">
+			<stacksize value="5"/>
+			<referrer name="OnPlayerCommandText"/>
+			<dependency name="dcmd_goto"/>
+			<dependency name="true"/>
+			<param name="playerid">
+			</param>
+			<param name="params">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:dcmd_weapon" syntax="dcmd_weapon(playerid, params[])">
+			<stacksize value="5"/>
+			<referrer name="OnPlayerCommandText"/>
+			<dependency name="dcmd_w2"/>
+			<dependency name="true"/>
+			<param name="playerid">
+			</param>
+			<param name="params">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:dcmd_weather" syntax="dcmd_weather(playerid, params[])">
+			<stacksize value="5"/>
+			<referrer name="OnPlayerCommandText"/>
+			<dependency name="dcmd_w"/>
+			<param name="playerid">
+			</param>
+			<param name="params">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:dcmd_wsel" syntax="dcmd_wsel(playerid, params[])">
+			<stacksize value="138"/>
+			<referrer name="OnPlayerCommandText"/>
+			<dependency name="operator+(Float:,Float:)"/>
+			<dependency name="GameTextForPlayer"/>
+			<dependency name="GetPlayerPos"/>
+			<dependency name="GetXYInFrontOfPlayer"/>
+			<dependency name="SendClientMessage"/>
+			<dependency name="SetPlayerCameraLookAt"/>
+			<dependency name="SetPlayerCameraPos"/>
+			<dependency name="SetTimerEx"/>
+			<dependency name="TogglePlayerControllable"/>
+			<dependency name="aSelNames"/>
+			<dependency name="aSelNames"/>
+			<dependency name="format"/>
+			<dependency name="gPlayerStatus"/>
+			<dependency name="gPlayerTimers"/>
+			<dependency name="true"/>
+			<param name="playerid">
+			</param>
+			<param name="params">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:fclose" syntax="fclose(handle)">
+			<tagname value="bool"/>
+			<attribute name="native"/>
+			<referrer name="dcmd_debug"/>
+			<referrer name="WorldSelect"/>
+			<referrer name="CameraSelect"/>
+			<param name="handle">
+				<paraminfo>File </paraminfo>
+			</param>
+		</member>
+		<member name="M:float" syntax="float(value)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="operator*(Float:,_:)"/>
+			<referrer name="operator/(Float:,_:)"/>
+			<referrer name="operator/(_:,Float:)"/>
+			<referrer name="operator+(Float:,_:)"/>
+			<referrer name="operator-(Float:,_:)"/>
+			<referrer name="operator-(_:,Float:)"/>
+			<referrer name="operator==(Float:,_:)"/>
+			<referrer name="operator!=(Float:,_:)"/>
+			<referrer name="operator&gt;(Float:,_:)"/>
+			<referrer name="operator&gt;(_:,Float:)"/>
+			<referrer name="operator&gt;=(Float:,_:)"/>
+			<referrer name="operator&gt;=(_:,Float:)"/>
+			<referrer name="operator&lt;(Float:,_:)"/>
+			<referrer name="operator&lt;(_:,Float:)"/>
+			<referrer name="operator&lt;=(Float:,_:)"/>
+			<referrer name="operator&lt;=(_:,Float:)"/>
+			<param name="value">
+			</param>
+		</member>
+		<member name="M:floatadd" syntax="floatadd(oper1, oper2)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="operator+(Float:,_:)"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:floatcmp" syntax="floatcmp(oper1, oper2)">
+			<attribute name="native"/>
+			<referrer name="operator==(Float:,Float:)"/>
+			<referrer name="operator==(Float:,_:)"/>
+			<referrer name="operator!=(Float:,Float:)"/>
+			<referrer name="operator!=(Float:,_:)"/>
+			<referrer name="operator&gt;(Float:,Float:)"/>
+			<referrer name="operator&gt;(Float:,_:)"/>
+			<referrer name="operator&gt;(_:,Float:)"/>
+			<referrer name="operator&gt;=(Float:,Float:)"/>
+			<referrer name="operator&gt;=(Float:,_:)"/>
+			<referrer name="operator&gt;=(_:,Float:)"/>
+			<referrer name="operator&lt;(Float:,Float:)"/>
+			<referrer name="operator&lt;(Float:,_:)"/>
+			<referrer name="operator&lt;(_:,Float:)"/>
+			<referrer name="operator&lt;=(Float:,Float:)"/>
+			<referrer name="operator&lt;=(Float:,_:)"/>
+			<referrer name="operator&lt;=(_:,Float:)"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:floatcos" syntax="floatcos(value, mode)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="GetXYInFrontOfPlayer"/>
+			<param name="value">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="mode">
+				<paraminfo>anglemode </paraminfo>
+			</param>
+		</member>
+		<member name="M:floatdiv" syntax="floatdiv(dividend, divisor)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="operator/(Float:,_:)"/>
+			<referrer name="operator/(_:,Float:)"/>
+			<param name="dividend">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="divisor">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:floatmul" syntax="floatmul(oper1, oper2)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="operator*(Float:,_:)"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:floatsin" syntax="floatsin(value, mode)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="GetXYInFrontOfPlayer"/>
+			<param name="value">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="mode">
+				<paraminfo>anglemode </paraminfo>
+			</param>
+		</member>
+		<member name="M:floatstr" syntax="floatstr(string[])">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="dcmd_object"/>
+			<referrer name="dcmd_camera"/>
+			<referrer name="dcmd_g"/>
+			<referrer name="dcmd_goto"/>
+			<referrer name="dcmd_setloc"/>
+			<referrer name="dcmd_bring"/>
+			<param name="string">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:floatsub" syntax="floatsub(oper1, oper2)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="operator-(Float:,_:)"/>
+			<referrer name="operator-(_:,Float:)"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:fopen" syntax="fopen(name[], mode)">
+			<tagname value="File"/>
+			<attribute name="native"/>
+			<referrer name="dcmd_debug"/>
+			<referrer name="WorldSelect"/>
+			<referrer name="CameraSelect"/>
+			<param name="name">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="mode">
+				<paraminfo>filemode </paraminfo>
+			</param>
+		</member>
+		<member name="M:format" syntax="format(output[], len, format[], ...)">
+			<attribute name="native"/>
+			<referrer name="dcmd_debug"/>
+			<referrer name="dcmd_object"/>
+			<referrer name="dcmd_osel"/>
+			<referrer name="dcmd_csel"/>
+			<referrer name="dcmd_g"/>
+			<referrer name="dcmd_w"/>
+			<referrer name="dcmd_t"/>
+			<referrer name="dcmd_wsel"/>
+			<referrer name="dcmd_v"/>
+			<referrer name="dcmd_vsel"/>
+			<referrer name="dcmd_ssel"/>
+			<referrer name="dcmd_s"/>
+			<referrer name="dcmd_goto"/>
+			<referrer name="dcmd_bring"/>
+			<referrer name="dcmd_w2"/>
+			<referrer name="WorldSelect"/>
+			<referrer name="SkinSelect"/>
+			<referrer name="CameraSelect"/>
+			<referrer name="VehicleSelect"/>
+			<referrer name="ObjectSelect"/>
+			<param name="output">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="len">
+			</param>
+			<param name="format">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="...">
+				<paraminfo> {Float,_} </paraminfo>
+			</param>
+		</member>
+		<member name="M:fwrite" syntax="fwrite(handle, string[])">
+			<attribute name="native"/>
+			<referrer name="dcmd_debug"/>
+			<referrer name="WorldSelect"/>
+			<referrer name="CameraSelect"/>
+			<param name="handle">
+				<paraminfo>File </paraminfo>
+			</param>
+			<param name="string">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:getdate" syntax="getdate(&amp;year, &amp;month, &amp;day)">
+			<attribute name="native"/>
+			<referrer name="dcmd_debug"/>
+			<referrer name="WorldSelect"/>
+			<referrer name="CameraSelect"/>
+			<param name="year">
+				<paraminfo> &amp; </paraminfo>
+			</param>
+			<param name="month">
+				<paraminfo> &amp; </paraminfo>
+			</param>
+			<param name="day">
+				<paraminfo> &amp; </paraminfo>
+			</param>
+		</member>
+		<member name="M:gettime" syntax="gettime(&amp;hour, &amp;minute, &amp;second)">
+			<attribute name="native"/>
+			<referrer name="dcmd_debug"/>
+			<referrer name="WorldSelect"/>
+			<referrer name="CameraSelect"/>
+			<param name="hour">
+				<paraminfo> &amp; </paraminfo>
+			</param>
+			<param name="minute">
+				<paraminfo> &amp; </paraminfo>
+			</param>
+			<param name="second">
+				<paraminfo> &amp; </paraminfo>
+			</param>
+		</member>
+		<member name="M:print" syntax="print(string[])">
+			<attribute name="native"/>
+			<referrer name="dcmd_debug"/>
+			<referrer name="OnFilterScriptInit"/>
+			<referrer name="OnFilterScriptExit"/>
+			<referrer name="WorldSelect"/>
+			<referrer name="CameraSelect"/>
+			<param name="string">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:printf" syntax="printf(format[], ...)">
+			<attribute name="native"/>
+			<referrer name="dcmd_vsel"/>
+			<referrer name="OnFilterScriptInit"/>
+			<referrer name="WorldSelect"/>
+			<referrer name="CameraSelect"/>
+			<referrer name="VehicleSelect"/>
+			<param name="format">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="...">
+				<paraminfo> {Float,_} </paraminfo>
+			</param>
+		</member>
+		<member name="M:strcmp" syntax="strcmp(string1[], string2[], ignorecase, length)">
+			<attribute name="native"/>
+			<referrer name="dcmd_debug"/>
+			<referrer name="dcmd_object"/>
+			<referrer name="dcmd_camera"/>
+			<referrer name="OnPlayerCommandText"/>
+			<param name="string1">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="string2">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="ignorecase">
+				<paraminfo>bool </paraminfo>
+			</param>
+			<param name="length">
+			</param>
+		</member>
+		<member name="M:strfind" syntax="strfind(string[], sub[], ignorecase, pos)">
+			<attribute name="native"/>
+			<referrer name="GetVehicleModelIDFromName"/>
+			<referrer name="GetWeaponModelIDFromName"/>
+			<param name="string">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="sub">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="ignorecase">
+				<paraminfo>bool </paraminfo>
+			</param>
+			<param name="pos">
+			</param>
+		</member>
+		<member name="M:strlen" syntax="strlen(string[])">
+			<attribute name="native"/>
+			<referrer name="dcmd_object"/>
+			<referrer name="dcmd_camera"/>
+			<referrer name="dcmd_g"/>
+			<referrer name="dcmd_w"/>
+			<referrer name="dcmd_t"/>
+			<referrer name="dcmd_s"/>
+			<referrer name="dcmd_goto"/>
+			<referrer name="dcmd_setloc"/>
+			<referrer name="dcmd_bring"/>
+			<referrer name="dcmd_w2"/>
+			<referrer name="strtok"/>
+			<param name="string">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:strtok" syntax="strtok(string[], &amp;index)">
+			<stacksize value="23"/>
+			<referrer name="dcmd_object"/>
+			<referrer name="dcmd_camera"/>
+			<referrer name="dcmd_w"/>
+			<referrer name="dcmd_t"/>
+			<referrer name="dcmd_s"/>
+			<referrer name="dcmd_goto"/>
+			<referrer name="dcmd_setloc"/>
+			<referrer name="dcmd_bring"/>
+			<referrer name="dcmd_w2"/>
+			<dependency name="EOS"/>
+			<dependency name="strlen"/>
+			<dependency name="strtok"/>
+			<param name="string">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="index">
+				<paraminfo> &amp; </paraminfo>
+			</param>
+		</member>
+		<member name="M:strval" syntax="strval(string[])">
+			<attribute name="native"/>
+			<referrer name="dcmd_object"/>
+			<referrer name="dcmd_camera"/>
+			<referrer name="dcmd_w"/>
+			<referrer name="dcmd_t"/>
+			<referrer name="dcmd_v"/>
+			<referrer name="dcmd_s"/>
+			<referrer name="dcmd_goto"/>
+			<referrer name="dcmd_setloc"/>
+			<referrer name="dcmd_bring"/>
+			<referrer name="dcmd_w2"/>
+			<param name="string">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+
+	</members>
+</doc>

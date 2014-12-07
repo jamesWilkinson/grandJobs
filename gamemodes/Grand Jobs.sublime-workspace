@@ -1,0 +1,307 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/core/playerConnection/handleWelcomeMessage.pwn",
+			"settings":
+			{
+				"buffer_size": 2133,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/core/internal/callbackHooks.pwn",
+			"settings":
+			{
+				"buffer_size": 3369,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "Packages/User/jay_amx.sublime-build",
+	"command_palette":
+	{
+		"height": 380.0,
+		"selected_items":
+		[
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerConnection/handleWelcomeMessage.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/internal/callbackHooks.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerAccount/database/API/AccountPassword.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/gj.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/internal/libaries/API.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerAccount/database/controller.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerAccount/database/API/Account.pwn",
+		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/trunk/Elements/Player/playerHandler.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerAccount/database/API/IsPlayerRegistered.pwn",
+		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/trunk/Resources/Minigames/Core/DeathmatchHandler.pwn",
+		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/trunk/Resources/Minigames/Core/Race/Projectiles/Rocket.pwn",
+		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/trunk/Resources/Minigames/Core/Race/core.pwn",
+		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/trunk/Resources/Minigames/Core/Robbery.pwn",
+		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/trunk/Resources/Minigames/Core/Brief.pwn",
+		"/C/Users/James/Downloads/CSSAMP.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerAccount/playerAccountCheckLogin.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerAccount/playerAccountMiscCommands.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerAccount/playerAccountChatBoxMessageHandling.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/internal/includes.pwn",
+		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/branches/LVP 2.94.12/Sources/Minigames/Races/DowntownRavage.pwn",
+		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/branches/LVP 2.94.12/Elements/Vehicle/Core.pwn",
+		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/branches/LVP 2.94.12/Elements/Player/playerHandler.pwn",
+		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/branches/LVP 2.94.12/Elements/Player/LVPRadio.pwn",
+		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/branches/LVP 2.94.12/Natives/DateTime.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/initialisation/initialiseDatabase/initialiseDatabase.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/internal/libaries/third_party/a_mysql.inc",
+		"/C/Users/James/Downloads/YSI-dc301d2df7c73dbbd917984a3975001239cdf16c/YSI-dc301d2df7c73dbbd917984a3975001239cdf16c/gamemodes/YSI/y_classes_test.pwn",
+		"/C/Users/James/Downloads/YSI-dc301d2df7c73dbbd917984a3975001239cdf16c/YSI-dc301d2df7c73dbbd917984a3975001239cdf16c/gamemodes/YSI/y_admins.pwn",
+		"/C/Users/James/Downloads/YSI-dc301d2df7c73dbbd917984a3975001239cdf16c/YSI-dc301d2df7c73dbbd917984a3975001239cdf16c/gamemodes/y_formatin.pwn",
+		"/C/Users/James/Downloads/YSI-dc301d2df7c73dbbd917984a3975001239cdf16c/YSI-dc301d2df7c73dbbd917984a3975001239cdf16c/gamemodes/ycmd.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/filterscripts/ls_apartments1.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/filterscripts/sf_zombotech.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/filterscripts/modular_island.pwn",
+		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/branches/LVP 2.94.12/Elements/Player/Houses.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/internal/namingConventionDefines.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/internal/settings.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerAccount/database/API/IsPlayerLoggedIn.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/initialisation/initialiseGamemode.pwn",
+		"/C/Users/James/Desktop/website_animation.pwn",
+		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/trunk/Features/Account/AccountData.pwn",
+		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/trunk/Features/Account/Account.pwn",
+		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/trunk/Features/Account/AccountSaver.pwn",
+		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/trunk/Features/Account/EnterPasswordDialog.pwn",
+		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/trunk/Features/Account/NicknameGenerator.pwn",
+		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/trunk/Features/Account/SerializationData.pwn",
+		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/trunk/Features/Account/Bans/BanManager.pwn",
+		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/trunk/Features/Account/Bans/BanCommands.pwn",
+		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/trunk/Features/Account/LegacyAccountBridge.pwn",
+		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/trunk/Interface/main/LVP.pwn",
+		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/trunk/Interface/TimerController.pwn",
+		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/trunk/Interface/MySQL.pwn",
+		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/trunk/Interface/JSON.pwn",
+		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/trunk/Interface/MySQL/QueryBuilder.pwn",
+		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/trunk/Interface/MySQL/Database.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerAccount/database/API/CheckAccountPassword.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerAccount/database/API/CheckAccountPassword",
+		"/C/Users/James/Desktop/jay_aimbot.pwn",
+		"/C/Users/James/Desktop/jay_anticheat.pwn",
+		"/C/Users/James/Desktop/cake.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/internal/libaries/sprintf.pwn",
+		"/C/Users/James/Desktop/jay_reaction.pwn",
+		"/C/Users/James/Desktop/jay_runaway.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerAccount/playerAccountCheckLogin",
+		"/C/Users/James/Desktop/SA-MP/source/filterscripts/gl_npcs.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/filterscripts/npc_record.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerConnection/security.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerConnection/main.pwn",
+		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/trunk/lvp.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerConnection/handleWelcomeMessage.xml",
+		"/C/Users/James/AppData/Roaming/Sublime Text 2/Packages/User/jay_amx.sublime-build",
+		"/C/Users/James/AppData/Roaming/Sublime Text 2/Packages/User/AMX Build.sublime-build",
+		"/C/Users/James/AppData/Roaming/Sublime Text 2/Packages/User/Pawn.sublime-build",
+		"/C/Users/James/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/C/Users/James/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"pusername",
+			"ppassword",
+			"playerinfo[",
+			"whirlpool",
+			"inline_playerid",
+			"returnplayername",
+			"commandtext",
+			"controller",
+			"registered",
+			"checklogin",
+			"playerAccountCheckLogin",
+			"cheatcount[",
+			"opossible mod",
+			"API",
+			"takedamage",
+			"weapon",
+			"weaponshot"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"playerid"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/core/playerConnection/handleWelcomeMessage.pwn",
+					"settings":
+					{
+						"buffer_size": 2133,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1810,
+								1810
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Pawn syntax/Pawn.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 462.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/core/internal/callbackHooks.pwn",
+					"settings":
+					{
+						"buffer_size": 3369,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								584,
+								584
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Pawn syntax/Pawn.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 174.0
+	},
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 180.0,
+	"status_bar_visible": true
+}

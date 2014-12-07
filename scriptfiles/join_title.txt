@@ -1,0 +1,27 @@
+// TextDraw developed using Zamaroht's Textdraw Editor 1.0
+
+// On top of script:
+new Text:handleWelcomeMessageTitle;
+new Text:handleWelcomeMessageAuthor;
+
+// In OnGameModeInit prefferably, we procced to create our textdraws:
+handleWelcomeMessageTitle = TextDrawCreate(234.000000, 343.000000, "Grand Jobs v0.0.1");
+TextDrawBackgroundColor(handleWelcomeMessageTitle, 255);
+TextDrawFont(handleWelcomeMessageTitle, 1);
+TextDrawLetterSize(handleWelcomeMessageTitle, 0.529999, 2.199999);
+TextDrawColor(handleWelcomeMessageTitle, -1);
+TextDrawSetOutline(handleWelcomeMessageTitle, 0);
+TextDrawSetProportional(handleWelcomeMessageTitle, 1);
+TextDrawSetShadow(handleWelcomeMessageTitle, 1);
+
+handleWelcomeMessageAuthor = TextDrawCreate(282.000000, 366.000000, "Created by Jay");
+TextDrawBackgroundColor(handleWelcomeMessageAuthor, 255);
+TextDrawFont(handleWelcomeMessageAuthor, 2);
+TextDrawLetterSize(handleWelcomeMessageAuthor, 0.370000, 1.400000);
+TextDrawColor(handleWelcomeMessageAuthor, 16777215);
+TextDrawSetOutline(handleWelcomeMessageAuthor, 0);
+TextDrawSetProportional(handleWelcomeMessageAuthor, 1);
+TextDrawSetShadow(handleWelcomeMessageAuthor, 1);
+
+// You can now use TextDrawShowForPlayer(-ForAll), TextDrawHideForPlayer(-ForAll) and
+// TextDrawDestroy functions to show, hide, and destroy the textdraw.
