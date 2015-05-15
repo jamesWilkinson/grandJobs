@@ -1344,7 +1344,7 @@ public OnPlayerDisconnect(playerid,reason)
 	curPlayerVehM[playerid] = MIN_VEHI_ID; // Current Player Vehicle ID
 	curPlayerVehI[playerid] = -1;
 
-	return 0;
+	return 1;
 }
 
 public OnPlayerConnect(playerid)
@@ -1352,7 +1352,7 @@ public OnPlayerConnect(playerid)
     curPlayerCamD[playerid][CMODE] = CMODE_A;
     curPlayerCamD[playerid][RATE]  = 2.0;
 
-	return 0;
+	return 1;
 }
 
 public OnPlayerClickMap(playerid, Float:fX, Float:fY, Float:fZ) {

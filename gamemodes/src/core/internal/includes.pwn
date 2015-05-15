@@ -4,6 +4,7 @@
 #include "core\internal\namingConventionDefines.pwn"
 
 /** LIBRARIES **/
+#include "core\internal\libaries\third_party\YSI\y_dialog.inc"
 #include "core\internal\libaries\third_party\zcmd.inc"
 #include "core\internal\libaries\third_party\translate\translate.inc"
 #include "core\internal\libaries\third_party\screenfade.inc"
@@ -39,7 +40,9 @@
 #include "core\playerAccount\database\API\IsPlayerLoggedIn.pwn"
 #include "core\playerAccount\database\API\AccountPassword.pwn"
 #include "core\playerAccount\database\API\Account.pwn"
-#include "core\playerAccount\database\controller.pwn"
+#include "core\playerAccount\database\Controllers\retrieveData.pwn"
+#include "core\playerAccount\database\Controllers\registerPlayer.pwn"
+#include "core\playerAccount\database\Controllers\loginPlayer.pwn"
 #include "core\playerAccount\playerAccountCheckLogin.pwn"
 
 /** Language and chatbox **/

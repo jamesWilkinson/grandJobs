@@ -7,13 +7,24 @@
 #define 	INVALID_USER_ID		-1
 
 
+// A lot of the string sizes are hardcoded throughout this model.
+// These defines keep things consistent
+#define EMAIL_STRING_SIZE				256
+#define ENCRYPTED_PASSWORD_STRING_SIZE 	256
+#define PASSWORD_SALT_STRING_SIZE		256 
+#define EMAIL_ACTIVATION_STRING_SIZE	256
+#define GPCI_STRING_SIZE				256
+
+
+// Please note: when adding new values please update the construct method which resets them when the player connects.
+// In addition, there should be a getter and setter for each entity
 enum USER_DATA {
-	EncryptedPassword[256],
-	PasswordSalt[256],
-	Email[256],
+	EncryptedPassword[ENCRYPTED_PASSWORD_STRING_SIZE],
+	PasswordSalt[PASSWORD_SALT_STRING_SIZE],
+	Email[EMAIL_STRING_SIZE],
 	bool:isEmailActivated,
-	emailActivationCode[256],
-	GPCI[256],
+	emailActivationCode[EMAIL_ACTIVATION_STRING_SIZE],
+	GPCI[GPCI_STRING_SIZE],
 	ID
 }
 
@@ -21,6 +32,8 @@ static userData[SLOTS][USER_DATA];
 
 // Called when the player connects to reset all of the
 // default values
+// TODO: Find a way to automate this -
+// Should be possible to loop through the enum and set a string to EOS, int to 0 and boolean to false
 this.construct(playerid) {
 	userData[playerid][EncryptedPassword] = EOS;
 	userData[playerid][PasswordSalt] = EOS;
@@ -34,7 +47,7 @@ this.construct(playerid) {
 
 // This is an exception for the naming convention - the word "user" is present
 // because ID is a special keyword which may cause some confusion
-this.getUserID(playerid) {
+this.stock getUserID(playerid) {
 	userData[playerid][ID];
 }
 
@@ -43,54 +56,54 @@ this.setUserID(playerid, userid) {
 }
 
 
-this.getEmail(playerid) {
+this.stock getEmail(playerid) {
 	return userData[playerid][Email];
 }
 
 this.setEmail(playerid, email[]) {
-	userData[playerid][Email] = email;
+	format(userData[playerid][Email], EMAIL_STRING_SIZE, "%s", email);
 }
 
 
-this.isEmailActivated(playerid) {
+this.stock isEmailActivated(playerid) {
 	return userData[playerid][isEmailActivated[playerid];
 }
 
-this.setEmailActivated(playerid, bool:activated) {
+this.stock setEmailActivated(playerid, bool:activated) {
 	userData[playerid][isEmailActivated] = activated;
 }
 
-this.getEmailActivationCode(playerid) {
+this.stock getEmailActivationCode(playerid) {
 	return userData[playerid][emailActivationCode];
 }
 
-this.setEmailActivationCode(playerid, code[]) {
+this.stock setEmailActivationCode(playerid, code[]) {
 	userData[playerid][EmailActivationCode] = code;
 }
 
 this.getEncryptedPassword(playerid) {
 	new str[256];
-	format(str, 256, "%s", userData[playerid][EncryptedPassword]);
+	format(str, ENCRYPTED_PASSWORD_STRING_SIZE, "%s", userData[playerid][EncryptedPassword]);
 	return str;
 }
 
 this.setEncryptedPassword(playerid, password[]){
-	format(userData[playerid][EncryptedPassword], 256, "%s", password);
+	format(userData[playerid][EncryptedPassword], ENCRYPTED_PASSWORD_STRING_SIZE, "%s", password);
 }
 
 this.getEncryptedPasswordSalt(playerid) {
 	new str[256];
-	format(str, 256, "%s", userData[playerid][PasswordSalt]);
+	format(str, PASSWORD_SALT_STRING_SIZE, "%s", userData[playerid][PasswordSalt]);
 	return str;
 }
 
 
 this.setEncryptedPasswordSalt(playerid, salt[]) {
-	format(userData[playerid][PasswordSalt], 256, "%s", salt);
+	format(userData[playerid][PasswordSalt], PASSWORD_SALT_STRING_SIZE, "%s", salt);
 }
 
 
-this.getGPCI(playerid) {
+this.stock getGPCI(playerid) {
 	return userData[playerid][GPCI];
 }
 
@@ -98,7 +111,7 @@ this.getGPCI(playerid) {
 // Based on the gpci native
 // More information:  http://forum.sa-mp.com/showpost.php?p=2293942&postcount=9 
 this.setGPCI(playerid, gpci[]) {
-	format(userData[playerid][GPCI], 256, "%s", gpci);
+	format(userData[playerid][GPCI], GPCI_STRING_SIZE, "%s", gpci);
 }
 
 

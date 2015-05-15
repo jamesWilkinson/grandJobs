@@ -1,161 +1,121 @@
-//-------------------------------------------------
-//
-//  NPC initialisation for Grand Larceny
-//
-//-------------------------------------------------
+/**
+	SERVER SIDE AMMUNATION BY SA-MP BETA TESTER Jay_
 
-#pragma tabsize 0
+	The purpose of this script is to allow servers to improve their anticheat by 
+	controlling ammunation from their server side scripts and disabling all client side ammunation
+	functionality.
+
+**/
+
 #include <a_samp>
 
-//-------------------------------------------------
 
-public OnFilterScriptInit()
-{
-	ConnectNPC("TrainDriverLV","train_lv");
-	ConnectNPC("TrainDriverLS","train_ls");
-	ConnectNPC("TrainDriverSF","train_sf");
-	ConnectNPC("PilotLV","at400_lv");
-	ConnectNPC("PilotSF","at400_sf");
-	ConnectNPC("PilotLS","at400_ls");
+#define NUMBER_OF_AMMUNATIONS 	5
 
-	// Testing
-	//ConnectNPC("DriverTest1","mat_test");
-	//ConnectNPC("DriverTest2","driver_test2");
-	//ConnectNPC("DriverTest3","driver_test3");
+// Gets appended with the ammunation guys ID, eg Ammunation1, Ammunation2, etc
+new npcName[MAX_PLAYER_NAME] = "Ammunation";
 
-	return 1;
+new npcid[NUMBER_OF_AMMUNATIONS] = {INVALID_PLAYER_ID, ...};
+new ammuNationNPCSkinId = 179;
+
+new bool:IsPlayerInAnyAmmunation[MAX_PLAYERS];
+
+new Float:ammunationInteriorInfo[NUMBER_OF_AMMUNATIONS][11] = {
+	// interiorId, posX, posY, posZ, NPCSpawnX, NPCSpawnY, NPCSpawnZ, NPCSpawnPosAng, checkpointX, checkpointY, checkpointZ
+	// Source: http://wiki.sa-mp.com/wiki/Interiors
+	{1.0, 286.148987, -40.644398, 1001.569946, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0},
+	{4.0, 286.800995, -82.547600, 1001.539978, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0},
+	{6.0, 296.919983, -108.071999, 1001.569946, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0},
+	{7.0, 314.820984, -141.431992, 999.661987, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0},
+	{6.0, 316.524994, -167.706985, 999.661987, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0}
+};
+
+
+
+
+
+public OnFilterScriptInit() {
+	new name[MAX_PLAYER_NAME];
+	// Connect the relevant number of NPCs based on how many ammunations there are
+	for(new i = 0; i < NUMBER_OF_AMMUNATIONS; i++) {
+		format(name, MAX_PLAYER_NAME, "%s%d", npcName, i);
+		ConnectNPC(name, "idle");
+	}
 }
 
-//-------------------------------------------------
-// IMPORTANT: This restricts NPCs connecting from
-// an IP address outside this server. If you need
-// to connect NPCs externally you will need to modify
-// the code in this callback.
-
-public OnPlayerConnect(playerid)
-{
-	if(IsPlayerNPC(playerid)) {
-	    new ip_addr_npc[64+1];
-	    new ip_addr_server[64+1];
-	    GetServerVarAsString("bind",ip_addr_server,64);
-	    GetPlayerIp(playerid,ip_addr_npc,64);
-	    
-		if(!strlen(ip_addr_server)) {
-		    ip_addr_server = "127.0.0.1";
+// Join all the relevant ammunation bots when the filterscript is launched
+public OnFilterScriptExit() {
+	for(new i = 0; i < NUMBER_OF_AMMUNATIONS; i++) {
+		// Just an additional check here incase a gamemode script kicks the NPC
+		// or something for any reason - wouldn't want it kicking a player ID!
+		if(IsPlayerNPC(npcid[i])) 
+			Kick(npcid[i]);
+	}
+	// For any players in an ammunation, disable the checkpoint
+	// so we're not leaving anything behind!
+	for(new i = 0; i < MAX_PLAYERS; i++) {
+		if(IsPlayerInAnyAmmunation[i] == true) {
+			DisablePlayerCheckpoint(i);
 		}
-		
-		if(strcmp(ip_addr_npc,ip_addr_server,true) != 0) {
-		    // this bot is remote connecting
-		    printf("NPC: Got a remote NPC connecting from %s and I'm kicking it.",ip_addr_npc);
-		    Kick(playerid);
-		    return 0;
+	}
+}
+
+// When an ammunation NPC connects to the server, spawn it immediately at the relevant ammunation
+public OnPlayerConnect(playerid) {
+	IsPlayerInAnyAmmunation[playerid] = false;
+	for(new i = 0; i < NUMBER_OF_AMMUNATIONS; i++) {
+		if(!strcmp(npcName[i], ReturnPlayerName(playerid))) {
+			npcid[i] = playerid;
+			SetSpawnInfo(playerid, NO_TEAM, ammuNationNPCSkinId, ammunationInteriorInfo[i][4], ammunationInteriorInfo[i][5], ammunationInteriorInfo[i][6], ammunationInteriorInfo[i][7], 0,0,0,0,0,0);
+			SpawnPlayer(playerid);
+			// Wrong to use floatround here but oh well 
+			SetPlayerInterior(playerid, floatround(ammunationInteriorInfo[i][0]));
 		}
-        printf("NPC: Connection from %s is allowed.",ip_addr_npc);
 	}
-	
-	return 1;
 }
 
-//-------------------------------------------------
 
-public OnPlayerRequestClass(playerid, classid)
-{
-	if(!IsPlayerNPC(playerid)) return 0; // We only deal with NPC players in this script
-	
-	new playername[64];
-	GetPlayerName(playerid,playername,64);
-
- 	if(!strcmp(playername,"TrainDriverLV",true)) {
-        SetSpawnInfo(playerid,69,255,1462.0745,2630.8787,10.8203,0.0,-1,-1,-1,-1,-1,-1);
-	}
-	else if(!strcmp(playername,"TrainDriverSF",true)) {
-	    SetSpawnInfo(playerid,69,255,-1942.7950,168.4164,27.0006,0.0,-1,-1,-1,-1,-1,-1);
-	}
-	else if(!strcmp(playername,"TrainDriverLS",true)) {
-	    SetSpawnInfo(playerid,69,255,1700.7551,-1953.6531,14.8756,0.0,-1,-1,-1,-1,-1,-1);
-	}
-	else if(!strcmp(playername,"PilotLV",true)) {
-	    SetSpawnInfo(playerid,69,61,0.0,0.0,0.0,0.0,-1,-1,-1,-1,-1,-1);
-	}
-	else if(!strcmp(playername,"PilotSF",true)) {
-	    SetSpawnInfo(playerid,69,61,0.0,0.0,0.0,0.0,-1,-1,-1,-1,-1,-1);
-	}
-	else if(!strcmp(playername,"PilotLS",true)) {
-	    SetSpawnInfo(playerid,69,61,0.0,0.0,0.0,0.0,-1,-1,-1,-1,-1,-1);
-	}
-	else if(!strcmp(playername,"DriverTest1",true)) {
-	    SetSpawnInfo(playerid,69,61,2388.1003,-1279.8933,25.1291,94.3321,-1,-1,-1,-1,-1,-1);
-	}
-	else if(!strcmp(playername,"DriverTest2",true)) {
-	    SetSpawnInfo(playerid,69,61,2388.1003,-1279.8933,25.1291,94.3321,-1,-1,-1,-1,-1,-1);
-	}
-	else if(!strcmp(playername,"DriverTest3",true)) {
-	    SetSpawnInfo(playerid,69,61,2388.1003,-1279.8933,25.1291,94.3321,-1,-1,-1,-1,-1,-1);
-	}
-
-	return 0;
+forward OnPlayerEnterAmmunation(playerid, ammunationid);
+public OnPlayerEnterAmmunation(playerid, ammunationid) {
+	// ammunation IDs are 0-5 based on the first 5 listed here (BOOTH AND RANGE NOT INCLUDED): http://wiki.sa-mp.com/wiki/Interiors
+	printf("Player %d entering ammunation ID %d", playerid, ammunationid);
+	IsPlayerInAnyAmmunation[playerid] = true;
+	SetPlayerShopName(playerid, "");
 }
 
-//-------------------------------------------------
+forward OnPlayerLeaveAmmunation(playerid, ammunationid);
+public OnPlayerLeaveAmmunation(playerid, ammunationid) {
+	printf("Player %d leaving ammunation ID %d", playerid, ammunationid);
+	IsPlayerInAnyAmmunation[playerid] = false;
+}
+ 
 
-stock SetVehicleTireStatus(vehicleid, tirestatus)
-{
-    new panels, doors, lights, tires;
-    GetVehicleDamageStatus(vehicleid, panels, doors, lights, tires);
-    UpdateVehicleDamageStatus(vehicleid, panels, doors, lights, tirestatus);
+
+/** 
+	Few functions for the API
+**/
+
+stock ReturnPlayerName(playerid) {
+	new name[MAX_PLAYER_NAME];
+	GetPlayerName(playerid, name, MAX_PLAYER_NAME);
+	return name;
 }
 
-//-------------------------------------------------
+/** Wrapper for detecting when a player enters ammu-nation **/
+public OnPlayerInteriorChange(playerid, newinteriorid, oldinteriorid) {
+	#pragma unused oldinteriorid
+	for(new i = 0; i < NUMBER_OF_AMMUNATIONS; i++ ) {
 
-public OnPlayerSpawn(playerid)
-{
-	if(!IsPlayerNPC(playerid)) return 1; // We only deal with NPC players in this script
+		// Do we have an ammu-nation interior ID?
+		if(newinteriorid != ammunationInteriorInfo[i][0]) {
+			continue;
+		}
 
-	new playername[64];
-	GetPlayerName(playerid,playername,64);
+		if(!IsPlayerInRangeOfPoint(playerid, 5, ammunationInteriorInfo[i][1], ammunationInteriorInfo[i][2], ammunationInteriorInfo[i][3])) { 
+			continue; 
+		}
 
-	if(!strcmp(playername,"TrainDriverLV",true)) {
-        PutPlayerInVehicle(playerid,1,0);
-        SetPlayerColor(playerid,0xFFFFFFFF);
- 	}
-	else if(!strcmp(playername,"TrainDriverSF",true)) {
-	    PutPlayerInVehicle(playerid,5,0);
-	    SetPlayerColor(playerid,0xFFFFFFFF);
+		OnPlayerEnterAmmunation(playerid, i);
+		break;
 	}
-	else if(!strcmp(playername,"TrainDriverLS",true)) {
-	    PutPlayerInVehicle(playerid,9,0);
-	    SetPlayerColor(playerid,0xFFFFFFFF);
-	}
-	else if(!strcmp(playername,"PilotLV",true)) {
-	    PutPlayerInVehicle(playerid,13,0);
-	    SetPlayerColor(playerid,0xFFFFFFFF);
-	}
-	else if(!strcmp(playername,"PilotSF",true)) {
-	    PutPlayerInVehicle(playerid,14,0);
-	    SetPlayerColor(playerid,0xFFFFFFFF);
-	}
-	else if(!strcmp(playername,"PilotLS",true)) {
-	    PutPlayerInVehicle(playerid,15,0);
-	    SetPlayerColor(playerid,0xFFFFFFFF);
-	}
-	else if(!strcmp(playername,"DriverTest1",true)) {
-	    PutPlayerInVehicle(playerid,876,0);
-	    SetPlayerColor(playerid,0xFFFFFFFF);
-	}
-	else if(!strcmp(playername,"DriverTest3",true)) {
-	    PutPlayerInVehicle(playerid,875,0);
-	    SetPlayerColor(playerid,0xFFFFFFFF);
-	}
-	else if(!strcmp(playername,"DriverTest2",true)) {
-		//SetVehicleTireStatus(876,0xFF);
-	    PutPlayerInVehicle(playerid,876,0);
-	    SetPlayerColor(playerid,0xFFFFFFFF);
-	}
-
-	return 1;
 }
-
-//-------------------------------------------------
-// EOF
-
-

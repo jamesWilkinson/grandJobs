@@ -24,6 +24,10 @@ enum AttachmentEnum
 }
 
 new AttachmentObjects[][AttachmentEnum] = {
+
+{331, "Brass Knuckle"},
+{333, "Golfclub"},
+{346, "Pistol"},
 {18632, "FishingRod"},
 {18633, "GTASAWrench1"},
 {18634, "GTASACrowbar1"},
@@ -373,7 +377,7 @@ public OnPlayerEditAttachedObject( playerid, response, index, modelid, boneid,
         index,modelid,boneid,fOffsetX,fOffsetY,fOffsetZ,fRotX,fRotY,fRotZ,fScaleX,fScaleY,fScaleZ);
 
 	print(debug_string);
-    //SendClientMessage(playerid, 0xFFFFFFFF, debug_string);
+    SendClientMessage(playerid, 0xFFFFFFFF, debug_string);
     
     SetPlayerAttachedObject(playerid,index,modelid,boneid,fOffsetX,fOffsetY,fOffsetZ,fRotX,fRotY,fRotZ,fScaleX,fScaleY,fScaleZ);
     SendClientMessage(playerid, 0xFFFFFFFF, "You finished editing an attached object");

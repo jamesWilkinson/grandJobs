@@ -25,14 +25,15 @@ public OnGameModeExit()
 
 public OnPlayerRequestClass(playerid, classid)
 {
-	return 0;
+	SpawnPlayer(playerid);
+	return 1;
 }
 
 public OnPlayerConnect(playerid)
 {
 	// Contains threaded mysql queries - this comes first!#
 	// P: 1 - Contains mysql q
-	database::API->controller.construct(playerid);
+	database::Controllers->retrieveData.construct(playerid);
 
 
 	FadePlayerConnect(playerid);
@@ -57,6 +58,19 @@ public OnPlayerSpawn(playerid)
 
 public OnPlayerDeath(playerid, killerid, reason)
 {
+	// Killed camera affect
+	// Hardcoded here for now - should be added to a handler somewhere in the future!!!
+    new
+        Float:x[ 2 ],
+        Float:y[ 2 ],
+        Float:z[ 2 ];
+
+    GetPlayerPos( playerid, x[ 0 ], y[ 0 ], z[ 0 ] );
+    GetPlayerPos( killerid, x[ 1 ], y[ 1 ], z[ 1 ] );
+
+    GetPosInFrontOfPlayer(killerid, x[ 1 ], y[ 1 ],   -1.5 );
+    SetPlayerCameraPos   (playerid, x[ 1 ], y[ 1 ], z[ 1 ] + 1.0 );
+    SetPlayerCameraLookAt(playerid, x[ 0 ], y[ 0 ], z[ 0 ] );
 	return 1;
 }
 
@@ -97,6 +111,13 @@ public OnPlayerExitVehicle(playerid, vehicleid)
 
 public OnPlayerStateChange(playerid, newstate, oldstate)
 {
+	if(newstate == PLAYER_STATE_DRIVER)
+	{
+		PlayAudioStreamForPlayer(playerid, "http://play.sa-mp.nl:8000/stream/1/");
+	}
+	else if (oldstate == PLAYER_STATE_DRIVER) {
+		StopAudioStreamForPlayer(playerid);
+	}
 	return 1;
 }
 

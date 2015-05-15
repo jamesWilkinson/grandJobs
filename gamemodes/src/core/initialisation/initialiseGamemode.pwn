@@ -12,7 +12,7 @@ initialiseGamemode()
 
 	SetGameModeText("Grand Missions");
 	UsePlayerPedAnims();
-	DisableInteriorEnterExits();
+	//DisableInteriorEnterExits();
 	SetWorldTime(19);
 	SetModeRestartTime(1);
 }

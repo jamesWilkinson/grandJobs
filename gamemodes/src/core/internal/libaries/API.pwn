@@ -71,3 +71,54 @@ stock strcpy(dest[], const source[], maxlength=sizeof dest)
 {
     strcat((dest[0] = EOS, dest), source, maxlength);
 }*/
+
+stock IsValidEmail(const email[]) //By Jan "DracoBlue" Schütze
+{
+	new len=strlen(email);
+	new cstate=0;
+	for(new i=0;i<len;i++)
+	{
+		if ((cstate==0 || cstate==1) && (email[i]>='A' && email[i]<='Z') || (email[i]>='a' && email[i]<='z')  || (email[i]=='.')  || (email[i]=='-')  || (email[i]=='_'))
+		{
+		}
+		else
+		{
+			if ((cstate==0) &&(email[i]=='@'))
+			{
+				cstate=1;
+			}
+			else
+			{
+				return false;
+			}
+		}
+	}
+	if (cstate<1)
+	{
+		return false;
+	}
+	if (len<6)
+	{
+		return false;
+	}
+	if ((email[len-3]=='.') || (email[len-4]=='.') || (email[len-5]=='.'))
+	{
+		return true;
+	}
+	return false;
+}
+
+
+stock GetPosInFrontOfPlayer( playerid, &Float:x, &Float:y, Float:distance )
+{
+    new Float:a;
+
+    GetPlayerPos        ( playerid, x, y, a );
+    GetPlayerFacingAngle( playerid,       a );
+
+    if ( GetPlayerVehicleID( playerid ) )
+        GetVehicleZAngle( GetPlayerVehicleID( playerid ), a );
+
+    x += ( distance * floatsin( -a, degrees ) );
+    y += ( distance * floatcos( -a, degrees ) );
+}

@@ -8,7 +8,7 @@
 // in the database 
 this.encrypt(password[], salt[])
 {
-	new encryptedPassword[256];
+	new encryptedPassword[512];
 	WP_Hash(encryptedPassword, sizeof(encryptedPassword), sprintf("%s%s", salt, password));
 	return encryptedPassword;
 }
@@ -19,7 +19,7 @@ this.encrypt(password[], salt[])
 */
 this.validate(playerid, passwordToValidate[])
 {
-	new hashedPassword[256];
+	new hashedPassword[512];
 	WP_Hash(hashedPassword, sizeof(hashedPassword), sprintf("%s%s",  database::API->Account.getEncryptedPasswordSalt(playerid), passwordToValidate));
 
 	if(!strcmp(hashedPassword, database::API->Account.getEncryptedPassword(playerid), false))

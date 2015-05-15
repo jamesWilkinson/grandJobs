@@ -30,4 +30,7 @@
 #define IsPlayerLoggedIn.%0( %0b(
 #define AccountPassword.%0( %0c(
 #define Account.%0( %0d(
-#define controller.%0( %0e(
+#define Controllers->%0( %0l(
+#define retrieveData.%0( %0e(
+#define registerPlayer.%0( %0f(
+#define loginPlayer.%0( %0g(

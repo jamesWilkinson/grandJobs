@@ -26,31 +26,3 @@ main()
 	}
 }
 
-COMMAND:register(playerid, params[]) {
-
-	if(database::API->IsPlayerRegistered.get(playerid)) {
-		return SendClientCommandError(playerid, "You are already registered.");
-	}
-
-	database::API->controller.registerPlayer(playerid, "omghax", "wilkinson_929@hotmail.com");
-	SendClientCommandSuccess(playerid, "done");
-	return 1;
-}
-
-COMMAND:check(playerid, params[])
-{
-	if(isnull(params)) {
-		return SendClientCommandUse(playerid, "Use: /check [password]");
-	}
-
-	if(database::API->AccountPassword.validate(playerid, params))
-	{
-		SendClientCommandSuccess(playerid, "Worked!");
-	}
-	else
-	{
-		SendClientCommandError(playerid, "Failed!");
-	}
-
-	return 1;
-}
