@@ -1,0 +1,38 @@
+//0Sprites Editor by Zh3r0
+
+#include <a_samp>new Text:Sprite0;
+new Text:Sprite1;
+
+
+public OnFilterScriptInit()
+{
+    Sprite0 = TextDrawCreate(245.500, 7.000, "outro:outro");
+    TextDrawFont(Sprite0, 4);
+    TextDrawTextSize(Sprite0, 100.000, 100.000);
+    TextDrawColor(Sprite0, -1);
+
+    Sprite1 = TextDrawCreate(-5.000, -2.000, "loadsc12:loadsc12");
+    TextDrawFont(Sprite1, 4);
+    TextDrawTextSize(Sprite1, 872.500, 814.000);
+    TextDrawColor(Sprite1, -1);
+
+    return 1;
+}
+
+
+public OnFilterScriptExit()
+{
+    TextDrawHideForAll(Sprite0);
+    TextDrawDestroy(Sprite0);
+    TextDrawHideForAll(Sprite1);
+    TextDrawDestroy(Sprite1);
+    return 1;
+}
+
+
+public OnPlayerConnect(playerid)
+{
+    TextDrawShowForPlayer(playerid,Sprite0);
+    TextDrawShowForPlayer(playerid,Sprite1);
+    return 1;
+}

@@ -1,0 +1,177 @@
+[27/6/2015] [16:51:9] [20]: OnGameModeInit
+[27/6/2015] [16:51:9] [20]: Loading games from file: gameList.csv
+[27/6/2015] [16:51:9] [20]: Read string: Jay's DM,jaydm,1
+
+[27/6/2015] [16:51:9] [20]: Added game 0 to cache. GameName: Jay's DM, FileName: jaydm, Type: 1
+[27/6/2015] [16:51:9] [20]: Read string: 
+
+[27/6/2015] [16:51:10] [18308016]: Callback: OnGameModeExit
+[27/6/2015] [16:51:11] [20]: gameUnloader init: No game currently loaded.
+[27/6/2015] [16:51:23] [20]: OnGameModeInit
+[27/6/2015] [16:51:23] [20]: Loading games from file: gameList.csv
+[27/6/2015] [16:51:23] [20]: Read string: Jay's DM,jaydm,1
+
+[27/6/2015] [16:51:23] [20]: Added game 0 to cache. GameName: Jay's DM, FileName: jaydm, Type: 1
+[27/6/2015] [16:51:23] [20]: Read string: 
+
+[27/6/2015] [16:52:11] [10]: Callback: OnPlayerConnect(0)
+[27/6/2015] [16:52:11] [10]: Callback: OnPlayerRequestClass(0, 0)
+[27/6/2015] [16:52:11] [10]: Callback: OnPlayerStateChange(0, 9, 0
+[27/6/2015] [16:52:12] [20]: Screen fade: show textdraw
+[27/6/2015] [16:52:16] [10]: Callback: OnPlayerStateChange(0, 8, 9
+[27/6/2015] [16:52:16] [10]: Callback: OnPlayerSpawn(0)
+[27/6/2015] [16:52:16] [10]: Callback: OnPlayerStateChange(0, 1, 8
+[27/6/2015] [16:52:20] [10]: Callback: OnDialogResponse(0, 0, 1, -1, sanandreas
+[27/6/2015] [16:52:22] [10]: Callback: OnDialogResponse(0, 0, 1, -1, omghax
+[27/6/2015] [16:52:23] [20]: screen fade: hide textdraw
+[27/6/2015] [16:52:44] [10]: Callback: OnPlayerKeyStateChange(0, 8, 0)
+[27/6/2015] [16:52:45] [10]: Callback: OnPlayerKeyStateChange(0, 0, 8)
+[27/6/2015] [16:54:9] [10]: Callback: OnPlayerKeyStateChange(0, 1024, 0)
+[27/6/2015] [16:54:12] [10]: Callback: OnPlayerKeyStateChange(0, 0, 1024)
+[27/6/2015] [16:54:15] [20]: gameUnloader init: No game currently loaded.
+[27/6/2015] [16:54:16] [10]: Callback: OnPlayerKeyStateChange(0, 8, 0)
+[27/6/2015] [16:54:17] [10]: Callback: OnPlayerKeyStateChange(0, 0, 8)
+[27/6/2015] [16:54:17] [10]: Callback: OnPlayerKeyStateChange(0, 1024, 0)
+[27/6/2015] [16:54:21] [10]: Callback: OnPlayerKeyStateChange(0, 0, 1024)
+[27/6/2015] [16:54:25] [20]: Choosing a game: parameter: -1
+[27/6/2015] [16:54:25] [20]: GetGameFileName(0): jaydm
+[27/6/2015] [16:54:28] [50]: Could not load game: request timed out.
+[27/6/2015] [16:54:33] [20]: ----------------
+[27/6/2015] [16:54:33] [20]: GetGameName(0): Jay's DM
+[27/6/2015] [16:54:33] [20]: Unloading game: Jay's DM
+[27/6/2015] [16:54:33] [20]: GetGameFileName(0): jaydm
+[27/6/2015] [16:54:34] [20]: Screen fade: show textdraw
+[27/6/2015] [16:54:35] [10]: Callback: OnPlayerStateChange(0, 8, 1
+[27/6/2015] [16:54:35] [10]: Callback: OnPlayerSpawn(0)
+[27/6/2015] [16:54:35] [10]: Callback: OnPlayerStateChange(0, 1, 8
+[27/6/2015] [16:54:58] [20]: Choosing a game: parameter: -1
+[27/6/2015] [16:54:58] [20]: GetGameFileName(0): jaydm
+[27/6/2015] [16:55:2] [50]: Could not load game: request timed out.
+[27/6/2015] [16:55:5] [20]: ----------------
+[27/6/2015] [16:55:5] [20]: GetGameName(0): Jay's DM
+[27/6/2015] [16:55:5] [20]: Unloading game: Jay's DM
+[27/6/2015] [16:55:5] [20]: GetGameFileName(0): jaydm
+[27/6/2015] [16:55:6] [20]: Screen fade: show textdraw
+[27/6/2015] [16:55:7] [10]: Callback: OnPlayerStateChange(0, 8, 1
+[27/6/2015] [16:55:7] [10]: Callback: OnPlayerSpawn(0)
+[27/6/2015] [16:55:7] [10]: Callback: OnPlayerStateChange(0, 1, 8
+[27/6/2015] [16:55:41] [20]: gameUnloader init: No game currently loaded.
+[27/6/2015] [16:55:45] [20]: Choosing a game: parameter: -1
+[27/6/2015] [16:55:45] [20]: GetGameFileName(0): jaydm
+[27/6/2015] [16:55:48] [50]: Could not load game: request timed out.
+[27/6/2015] [16:55:52] [20]: ----------------
+[27/6/2015] [16:55:52] [20]: GetGameName(0): Jay's DM
+[27/6/2015] [16:55:52] [20]: Unloading game: Jay's DM
+[27/6/2015] [16:55:52] [20]: GetGameFileName(0): jaydm
+[27/6/2015] [16:55:53] [20]: Screen fade: show textdraw
+[27/6/2015] [16:55:55] [10]: Callback: OnPlayerStateChange(0, 8, 1
+[27/6/2015] [16:55:55] [10]: Callback: OnPlayerSpawn(0)
+[27/6/2015] [16:55:55] [10]: Callback: OnPlayerStateChange(0, 1, 8
+[27/6/2015] [16:55:58] [10]: Callback: OnPlayerKeyStateChange(0, 1024, 0)
+[27/6/2015] [17:9:17] [20]: OnGameModeInit
+[27/6/2015] [17:9:17] [20]: Loading games from file: gameList.csv
+[27/6/2015] [17:9:17] [20]: Read string: Jay's DM,jaydm,1
+
+[27/6/2015] [17:9:17] [20]: Added game 0 to cache. GameName: Jay's DM, FileName: jaydm, Type: 1
+[27/6/2015] [17:9:17] [20]: Read string: 
+
+[27/6/2015] [17:9:26] [10]: Callback: OnPlayerConnect(0)
+[27/6/2015] [17:9:26] [10]: Callback: OnPlayerRequestClass(0, 0)
+[27/6/2015] [17:9:26] [10]: Callback: OnPlayerStateChange(0, 9, 0
+[27/6/2015] [17:9:28] [20]: Screen fade: show textdraw
+[27/6/2015] [17:9:32] [10]: Callback: OnPlayerStateChange(0, 8, 9
+[27/6/2015] [17:9:32] [10]: Callback: OnPlayerSpawn(0)
+[27/6/2015] [17:9:32] [10]: Callback: OnPlayerStateChange(0, 1, 8
+[27/6/2015] [17:9:35] [10]: Callback: OnDialogResponse(0, 0, 1, -1, omghax
+[27/6/2015] [17:9:36] [20]: screen fade: hide textdraw
+[27/6/2015] [17:9:40] [20]: Choosing a game: parameter: -1
+[27/6/2015] [17:9:40] [20]: GetGameFileName(0): jaydm
+[27/6/2015] [17:9:40] [20]: GameInit called from a filterscript
+[27/6/2015] [17:9:40] [20]: GetGameName(0): Jay's DM
+[27/6/2015] [17:9:40] [20]: GetGameName(0): Jay's DM
+[27/6/2015] [17:9:40] [0]: Loading Game: Jay's DM (ID:0)
+[27/6/2015] [17:9:43] [50]: Could not load game: request timed out.
+[27/6/2015] [17:9:43] [20]: ----------------
+[27/6/2015] [17:9:43] [20]: GetGameName(0): Jay's DM
+[27/6/2015] [17:9:43] [20]: Unloading game: Jay's DM
+[27/6/2015] [17:9:43] [20]: GetGameFileName(0): jaydm
+[27/6/2015] [17:9:45] [20]: Screen fade: show textdraw
+[27/6/2015] [17:9:46] [10]: Callback: OnPlayerStateChange(0, 8, 1
+[27/6/2015] [17:9:46] [10]: Callback: OnPlayerSpawn(0)
+[27/6/2015] [17:9:46] [10]: Callback: OnPlayerStateChange(0, 1, 8
+[27/6/2015] [17:9:46] [20]: ExitGameChangerScreen
+[27/6/2015] [17:9:47] [20]: screen fade: hide textdraw
+[27/6/2015] [17:10:9] [10]: Callback: OnPlayerKeyStateChange(0, 1024, 0)
+[27/6/2015] [17:15:15] [20]: OnGameModeInit
+[27/6/2015] [17:15:15] [20]: Loading games from file: gameList.csv
+[27/6/2015] [17:15:15] [20]: Read string: Jay's DM,jaydm,1
+
+[27/6/2015] [17:15:15] [20]: Added game 0 to cache. GameName: Jay's DM, FileName: jaydm, Type: 1
+[27/6/2015] [17:15:15] [20]: Read string: 
+
+[27/6/2015] [17:15:39] [10]: Callback: OnPlayerConnect(0)
+[27/6/2015] [17:15:39] [10]: Callback: OnPlayerRequestClass(0, 0)
+[27/6/2015] [17:15:39] [10]: Callback: OnPlayerStateChange(0, 9, 0
+[27/6/2015] [17:15:40] [20]: Screen fade: show textdraw
+[27/6/2015] [17:15:44] [10]: Callback: OnPlayerStateChange(0, 8, 9
+[27/6/2015] [17:15:44] [10]: Callback: OnPlayerSpawn(0)
+[27/6/2015] [17:15:44] [10]: Callback: OnPlayerStateChange(0, 1, 8
+[27/6/2015] [17:15:49] [10]: Callback: OnDialogResponse(0, 0, 1, -1, omghax
+[27/6/2015] [17:15:51] [20]: screen fade: hide textdraw
+[27/6/2015] [17:16:1] [20]: Choosing a game: parameter: -1
+[27/6/2015] [17:16:1] [20]: GetGameFileName(0): jaydm
+[27/6/2015] [17:16:1] [20]: GameInit called from a filterscript
+[27/6/2015] [17:16:1] [20]: GetGameName(0): Jay's DM
+[27/6/2015] [17:16:1] [20]: GetGameName(0): Jay's DM
+[27/6/2015] [17:16:1] [0]: Loading Game: Jay's DM (ID:0)
+[27/6/2015] [17:16:4] [50]: Could not load game: request timed out.
+[27/6/2015] [17:16:4] [20]: ----------------
+[27/6/2015] [17:16:4] [20]: GetGameName(0): Jay's DM
+[27/6/2015] [17:16:4] [20]: Unloading game: Jay's DM
+[27/6/2015] [17:16:4] [20]: GetGameFileName(0): jaydm
+[27/6/2015] [17:16:5] [20]: Screen fade: show textdraw
+[27/6/2015] [17:16:6] [20]: ExitGameChangerScreen
+[27/6/2015] [17:16:6] [10]: Callback: OnPlayerStateChange(0, 8, 1
+[27/6/2015] [17:16:6] [10]: Callback: OnPlayerSpawn(0)
+[27/6/2015] [17:16:6] [10]: Callback: OnPlayerStateChange(0, 1, 8
+[27/6/2015] [17:16:8] [20]: screen fade: hide textdraw
+[27/6/2015] [17:16:9] [10]: Callback: OnPlayerKeyStateChange(0, 8, 0)
+[27/6/2015] [17:16:10] [10]: Callback: OnPlayerKeyStateChange(0, 40, 8)
+[27/6/2015] [17:16:10] [10]: Callback: OnPlayerKeyStateChange(0, 8, 40)
+[27/6/2015] [17:16:11] [10]: Callback: OnPlayerKeyStateChange(0, 40, 8)
+[27/6/2015] [17:16:11] [10]: Callback: OnPlayerKeyStateChange(0, 8, 40)
+[27/6/2015] [17:16:11] [10]: Callback: OnPlayerKeyStateChange(0, 0, 8)
+[27/6/2015] [17:16:13] [10]: Callback: OnPlayerKeyStateChange(0, 1024, 0)
+[27/6/2015] [17:18:17] [20]: OnGameModeInit
+[27/6/2015] [17:18:17] [20]: Loading games from file: gameList.csv
+[27/6/2015] [17:18:17] [20]: Read string: Jay's DM,jaydm,1
+
+[27/6/2015] [17:18:17] [20]: Added game 0 to cache. GameName: Jay's DM, FileName: jaydm, Type: 1
+[27/6/2015] [17:18:17] [20]: Read string: 
+
+[27/6/2015] [17:18:38] [10]: Callback: OnPlayerConnect(0)
+[27/6/2015] [17:18:38] [10]: Callback: OnPlayerRequestClass(0, 0)
+[27/6/2015] [17:18:38] [10]: Callback: OnPlayerStateChange(0, 9, 0
+[27/6/2015] [17:18:39] [20]: Screen fade: show textdraw
+[27/6/2015] [17:18:43] [10]: Callback: OnPlayerStateChange(0, 8, 9
+[27/6/2015] [17:18:43] [10]: Callback: OnPlayerSpawn(0)
+[27/6/2015] [17:18:43] [10]: Callback: OnPlayerStateChange(0, 1, 8
+[27/6/2015] [17:18:46] [10]: Callback: OnDialogResponse(0, 0, 1, -1, omghax
+[27/6/2015] [17:18:50] [20]: Choosing a game: parameter: -1
+[27/6/2015] [17:18:50] [20]: GetGameFileName(0): jaydm
+[27/6/2015] [17:18:50] [20]: GameInit called from a filterscript
+[27/6/2015] [17:18:50] [20]: GetGameName(0): Jay's DM
+[27/6/2015] [17:18:50] [20]: GetGameName(0): Jay's DM
+[27/6/2015] [17:18:50] [0]: Loading Game: Jay's DM (ID:0)
+[27/6/2015] [17:18:53] [50]: Could not load game: request timed out.
+[27/6/2015] [17:18:53] [20]: ----------------
+[27/6/2015] [17:18:53] [20]: GetGameName(0): Jay's DM
+[27/6/2015] [17:18:53] [20]: Unloading game: Jay's DM
+[27/6/2015] [17:18:53] [20]: GetGameFileName(0): jaydm
+[27/6/2015] [17:18:54] [20]: Screen fade: show textdraw
+[27/6/2015] [17:18:55] [20]: ExitGameChangerScreen
+[27/6/2015] [17:18:55] [10]: Callback: OnPlayerStateChange(0, 8, 1
+[27/6/2015] [17:18:55] [10]: Callback: OnPlayerSpawn(0)
+[27/6/2015] [17:18:55] [10]: Callback: OnPlayerStateChange(0, 1, 8
+[27/6/2015] [17:18:57] [20]: screen fade: hide textdraw
+[27/6/2015] [17:19:4] [10]: Callback: OnPlayerDisconnect(0, 1)

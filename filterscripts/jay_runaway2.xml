@@ -1,0 +1,2916 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet href="file:///C|/Program Files (x86)/PAWN Compiler/xml/pawndoc.xsl" type="text/xsl"?>
+<doc source="C:\Users\James\Desktop\SA-MP\source\filterscripts\jay_runaway2.pwn">
+	<assembly>
+		<name>jay_runaway2.pwn</name>
+	</assembly>
+
+	<!-- general -->
+	<general>
+		END OF CONFIG - DONT TOUCH UNLESS YOU KNOW WHAT YOU'RE DOING THANKS *
+	</general>
+
+	<members>
+
+		<!-- enumerations -->
+
+		<!-- constants -->
+		<member name="C:E_STREAMER_WORLD_ID" value="42">
+			<referrer name="OnFilterScriptInit"/>
+		</member>
+		<member name="C:cellmax" value="2147483647">
+			<referrer name="operator!(Float:)"/>
+		</member>
+		<member name="C:cellmin" value="-2147483648">
+			<referrer name="operator-(Float:)"/>
+		</member>
+		<member name="C:false" value="0">
+			<tagname value="bool"/>
+			<referrer name="initDb"/>
+			<referrer name="insertDbRecord"/>
+			<referrer name="updateBestPlayersAndTimes"/>
+			<referrer name="IsPlayerSignedUp"/>
+			<referrer name="OnPlayerCommandText"/>
+			<referrer name="CheckGameEnd"/>
+			<referrer name="StartGame"/>
+			<referrer name="HandleCheckpointEntry"/>
+			<referrer name="EndGame"/>
+			<referrer name="RemovePlayerFromGame"/>
+		</member>
+		<member name="C:true" value="1">
+			<tagname value="bool"/>
+			<referrer name="IsPlayerSignedUp"/>
+			<referrer name="OnPlayerCommandText"/>
+			<referrer name="HandleCheckpointEntry"/>
+		</member>
+
+		<!-- variables -->
+		<member name="F:CurrentGameState">
+			<referrer name="OnPlayerCommandText"/>
+			<referrer name="CheckGameEnd"/>
+			<referrer name="StartGame"/>
+			<referrer name="HandleCheckpointEntry"/>
+			<referrer name="OnPlayerSpawn"/>
+			<referrer name="EndGame"/>
+			<referrer name="RemovePlayerFromGame"/>
+		</member>
+		<member name="F:HasAnyoneWon">
+			<tagname value="bool"/>
+			<referrer name="StartGame"/>
+			<referrer name="HandleCheckpointEntry"/>
+		</member>
+		<member name="F:HasPlayerSignedUp">
+			<tagname value="bool"/>
+			<referrer name="IsPlayerSignedUp"/>
+			<referrer name="OnPlayerCommandText"/>
+			<referrer name="RemovePlayerFromGame"/>
+			HANDLER VARIABLES 
+		</member>
+		<member name="F:Streamer_IncludeFileVersion">
+			<attribute name="public"/>
+		</member>
+		<member name="F:Top3Names">
+			<referrer name="updateBestPlayersAndTimes"/>
+			<referrer name="DisplayTop3"/>
+		</member>
+		<member name="F:Top3Times">
+			<referrer name="updateBestPlayersAndTimes"/>
+			<referrer name="DisplayTop3"/>
+		</member>
+		<member name="F:UseDatabase">
+			<tagname value="bool"/>
+			<referrer name="initDb"/>
+			<referrer name="insertDbRecord"/>
+			<referrer name="updateBestPlayersAndTimes"/>
+		</member>
+		<member name="F:c1">
+			<referrer name="c11"/>
+			<referrer name="c12"/>
+			<referrer name="OnFilterScriptInit"/>
+		</member>
+		<member name="F:c2">
+			<referrer name="c21"/>
+			<referrer name="c22"/>
+			<referrer name="OnFilterScriptInit"/>
+		</member>
+		<member name="F:c3">
+			<referrer name="c31"/>
+			<referrer name="c32"/>
+			<referrer name="OnFilterScriptInit"/>
+		</member>
+		<member name="F:cmdName">
+			<referrer name="OnFilterScriptInit"/>
+			<referrer name="promo"/>
+			<referrer name="OnPlayerCommandText"/>
+			<referrer name="StartGame"/>
+		</member>
+		<member name="F:countdown">
+			<tagname value="Text"/>
+			<referrer name="OnFilterScriptInit"/>
+			<referrer name="processGame"/>
+		</member>
+		<member name="F:db_name">
+			<referrer name="OnFilterScriptInit"/>
+			<referrer name="initDb"/>
+			<referrer name="insertDbRecord"/>
+			<referrer name="updateBestPlayersAndTimes"/>
+		</member>
+		<member name="F:db_table">
+			<referrer name="insertDbRecord"/>
+			<referrer name="updateBestPlayersAndTimes"/>
+		</member>
+		<member name="F:e1">
+			<referrer name="e11"/>
+			<referrer name="e12"/>
+			<referrer name="OnFilterScriptInit"/>
+			GAME SPECIFIC GLOBAL VARIABLES AND FORWARDS - THESE WHERE DONE BY LR
+		</member>
+		<member name="F:e2">
+			<referrer name="e21"/>
+			<referrer name="e22"/>
+			<referrer name="OnFilterScriptInit"/>
+		</member>
+		<member name="F:endInfo">
+			<tagname value="PlayerText"/>
+			<referrer name="HandleCheckpointEntry"/>
+			<referrer name="RemovePlayerFromGame"/>
+		</member>
+		<member name="F:endPos">
+			<tagname value="Float"/>
+			<referrer name="StartGame"/>
+			<referrer name="checkCheckpointRange"/>
+		</member>
+		<member name="F:endTitle">
+			<tagname value="Text"/>
+			<referrer name="OnFilterScriptInit"/>
+			<referrer name="HandleCheckpointEntry"/>
+			<referrer name="RemovePlayerFromGame"/>
+		</member>
+		<member name="F:gameTitle">
+			<referrer name="OnFilterScriptInit"/>
+			<referrer name="promo"/>
+			<referrer name="initDb"/>
+			<referrer name="insertDbRecord"/>
+			<referrer name="OnFilterScriptExit"/>
+			<referrer name="OnPlayerCommandText"/>
+			<referrer name="CheckGameEnd"/>
+			<referrer name="StartGame"/>
+			<referrer name="HandleCheckpointEntry"/>
+			<referrer name="OnPlayerSpawn"/>
+		</member>
+		<member name="F:gateObject">
+			<referrer name="OnFilterScriptExit"/>
+		</member>
+		<member name="F:getReady">
+			<tagname value="Text"/>
+			<referrer name="OnFilterScriptInit"/>
+			<referrer name="processGame"/>
+		</member>
+		<member name="F:instructions">
+			<tagname value="Text"/>
+			<referrer name="OnFilterScriptInit"/>
+			<referrer name="processGame"/>
+		</member>
+		<member name="F:interpolateCamLookAt">
+			<tagname value="Float"/>
+			<referrer name="StartGame"/>
+		</member>
+		<member name="F:interpolateCamPos">
+			<tagname value="Float"/>
+			<referrer name="StartGame"/>
+		</member>
+		<member name="F:isTop3Showing">
+			<tagname value="bool"/>
+			<referrer name="OnPlayerCommandText"/>
+		</member>
+		<member name="F:mapObjects">
+			<referrer name="OnFilterScriptInit"/>
+			<referrer name="OnFilterScriptExit"/>
+		</member>
+		<member name="F:musicUrl">
+			<referrer name="startMusic"/>
+			MAP AND GAME CONFIGURATION 
+		</member>
+		<member name="F:numberOfPeopleFinished">
+			<referrer name="StartGame"/>
+			<referrer name="HandleCheckpointEntry"/>
+		</member>
+		<member name="F:playerCheckpointRangeTimer">
+			<referrer name="processGame"/>
+			<referrer name="HandleCheckpointEntry"/>
+			<referrer name="RemovePlayerFromGame"/>
+		</member>
+		<member name="F:playerCountdownSeconds">
+			<referrer name="StartGame"/>
+			<referrer name="processGame"/>
+			<referrer name="RemovePlayerFromGame"/>
+		</member>
+		<member name="F:playerCountdownTimer">
+			<referrer name="StartGame"/>
+			<referrer name="processGame"/>
+			<referrer name="RemovePlayerFromGame"/>
+		</member>
+		<member name="F:playerHeightCheckTimer">
+			<referrer name="processGame"/>
+			<referrer name="HandleCheckpointEntry"/>
+			<referrer name="RemovePlayerFromGame"/>
+		</member>
+		<member name="F:playerLastSafePoint">
+			<referrer name="checkSafepointRange"/>
+			<referrer name="TeleportPlayerToGame"/>
+			<referrer name="RemovePlayerFromGame"/>
+		</member>
+		<member name="F:playerSafePointTimer">
+			<referrer name="processGame"/>
+			<referrer name="HandleCheckpointEntry"/>
+			<referrer name="RemovePlayerFromGame"/>
+		</member>
+		<member name="F:playerStartTimeTicks">
+			<referrer name="processGame"/>
+			<referrer name="updatePlayerTime"/>
+			<referrer name="HandleCheckpointEntry"/>
+		</member>
+		<member name="F:playerTimeUpdateTimer">
+			<referrer name="processGame"/>
+			<referrer name="HandleCheckpointEntry"/>
+			<referrer name="RemovePlayerFromGame"/>
+		</member>
+		<member name="F:safePointCount">
+			<referrer name="processGame"/>
+			<referrer name="checkSafepointRange"/>
+			<referrer name="addSafePoint"/>
+			<referrer name="RemoveSafePointTexts"/>
+		</member>
+		<member name="F:safePointText">
+			<tagname value="Text3D"/>
+			<referrer name="addSafePoint"/>
+			<referrer name="RemoveSafePointTexts"/>
+		</member>
+		<member name="F:safePoints">
+			<referrer name="checkSafepointRange"/>
+			<referrer name="addSafePoint"/>
+			<referrer name="TeleportPlayerToGame"/>
+		</member>
+		<member name="F:signup">
+			<tagname value="Text"/>
+			<referrer name="OnFilterScriptInit"/>
+			<referrer name="StartGame"/>
+		</member>
+		<member name="F:startPos">
+			<tagname value="Float"/>
+			<referrer name="TeleportPlayerToGame"/>
+		</member>
+		<member name="F:textdrawInstructions">
+			<referrer name="OnFilterScriptInit"/>
+		</member>
+		<member name="F:textdrawTitle">
+			<referrer name="OnFilterScriptInit"/>
+		</member>
+		<member name="F:title">
+			<tagname value="Text"/>
+			<referrer name="OnFilterScriptInit"/>
+			<referrer name="processGame"/>
+		</member>
+		<member name="F:top3CmdName">
+			<referrer name="OnFilterScriptInit"/>
+			<referrer name="promo"/>
+			<referrer name="OnPlayerCommandText"/>
+		</member>
+		<member name="F:top3Times">
+			<tagname value="Text"/>
+			<referrer name="OnFilterScriptInit"/>
+			<referrer name="updateBestPlayersAndTimes"/>
+			<referrer name="OnPlayerCommandText"/>
+			<referrer name="processGame"/>
+			<referrer name="RemovePlayerFromGame"/>
+		</member>
+		<member name="F:top3timesTitle">
+			<tagname value="Text"/>
+			<referrer name="OnFilterScriptInit"/>
+			<referrer name="processGame"/>
+			<referrer name="RemovePlayerFromGame"/>
+		</member>
+		<member name="F:yourTime">
+			<tagname value="PlayerText"/>
+			<referrer name="processGame"/>
+			<referrer name="updatePlayerTime"/>
+			<referrer name="RemovePlayerFromGame"/>
+		</member>
+
+		<!-- functions -->
+		<member name="M:operator!(Float:)" syntax="operator!(Float:)(oper)">
+			<tagname value="bool"/>
+			<stacksize value="1"/>
+			<dependency name="cellmax"/>
+			<param name="oper">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator%(_:,Float:)" syntax="operator%(_:,Float:)(oper1, oper2)">
+			<stacksize value="1"/>
+			<param name="oper1">
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator%(Float:,_:)" syntax="operator%(Float:,_:)(oper1, oper2)">
+			<stacksize value="1"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator%(Float:,Float:)" syntax="operator%(Float:,Float:)(oper1, oper2)">
+			<stacksize value="1"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator!=(Float:,_:)" syntax="operator!=(Float:,_:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator!=(Float:,Float:)" syntax="operator!=(Float:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator-(_:,Float:)" syntax="operator-(_:,Float:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatsub"/>
+			<param name="oper1">
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator-(Float:,_:)" syntax="operator-(Float:,_:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatsub"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator+(Float:,_:)" syntax="operator+(Float:,_:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatadd"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator/(_:,Float:)" syntax="operator/(_:,Float:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatdiv"/>
+			<param name="oper1">
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator/(Float:,_:)" syntax="operator/(Float:,_:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatdiv"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator*(Float:,_:)" syntax="operator*(Float:,_:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatmul"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator++(Float:)" syntax="operator++(Float:)(oper)">
+			<tagname value="Float"/>
+			<stacksize value="1"/>
+			<dependency name="operator+(Float:,Float:)"/>
+			<param name="oper">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator-(Float:)" syntax="operator-(Float:)(oper)">
+			<tagname value="Float"/>
+			<stacksize value="1"/>
+			<dependency name="cellmin"/>
+			<param name="oper">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator--(Float:)" syntax="operator--(Float:)(oper)">
+			<tagname value="Float"/>
+			<stacksize value="1"/>
+			<dependency name="operator-(Float:,Float:)"/>
+			<param name="oper">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator-(Float:,Float:)" syntax="operator-(Float:,Float:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="operator--(Float:)"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator+(Float:,Float:)" syntax="operator+(Float:,Float:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="operator++(Float:)"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:Float:operator=(_:)" syntax="Float:operator=(_:)(oper)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="StartGame"/>
+			<referrer name="processGame"/>
+			<referrer name="checkCheckpointRange"/>
+			<referrer name="checkSafepointRange"/>
+			<referrer name="addSafePoint"/>
+			<referrer name="TeleportPlayerToGame"/>
+			<param name="oper">
+			</param>
+		</member>
+		<member name="M:operator==(Float:,Float:)" syntax="operator==(Float:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator==(Float:,_:)" syntax="operator==(Float:,_:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator&gt;(Float:,Float:)" syntax="operator&gt;(Float:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator&gt;(Float:,_:)" syntax="operator&gt;(Float:,_:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator&gt;(_:,Float:)" syntax="operator&gt;(_:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator&gt;=(Float:,Float:)" syntax="operator&gt;=(Float:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator&gt;=(Float:,_:)" syntax="operator&gt;=(Float:,_:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator&gt;=(_:,Float:)" syntax="operator&gt;=(_:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator&lt;(Float:,Float:)" syntax="operator&lt;(Float:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator&lt;(Float:,_:)" syntax="operator&lt;(Float:,_:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<referrer name="checkMinimumHeight"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator&lt;(_:,Float:)" syntax="operator&lt;(_:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator&lt;=(Float:,Float:)" syntax="operator&lt;=(Float:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator&lt;=(Float:,_:)" syntax="operator&lt;=(Float:,_:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator&lt;=(_:,Float:)" syntax="operator&lt;=(_:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:@receivepacket" syntax="@receivepacket(packet[], size, source[])">
+			<attribute name="public"/>
+			<stacksize value="1"/>
+			<param name="packet">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="size">
+			</param>
+			<param name="source">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:@receivestring" syntax="@receivestring(message[], source[])">
+			<attribute name="public"/>
+			<stacksize value="1"/>
+			<param name="message">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="source">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:CheckGameEnd" syntax="CheckGameEnd()">
+			<attribute name="public"/>
+			<stacksize value="135"/>
+			<dependency name="CurrentGameState"/>
+			<dependency name="EndGame"/>
+			<dependency name="IsPlayerConnected"/>
+			<dependency name="IsPlayerNPC"/>
+			<dependency name="IsPlayerSignedUp"/>
+			<dependency name="SendClientMessageToAll"/>
+			<dependency name="false"/>
+			<dependency name="format"/>
+			<dependency name="gameTitle"/>
+			Check every two seconds if the game is running  check to end it in case no players are left 
+		</member>
+		<member name="M:Create3DTextLabel" syntax="Create3DTextLabel(text[], color, X, Y, Z, DrawDistance, virtualworld, testLOS)">
+			<tagname value="Text3D"/>
+			<attribute name="native"/>
+			<referrer name="addSafePoint"/>
+			<param name="text">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="color">
+			</param>
+			<param name="X">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="Y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="Z">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="DrawDistance">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="virtualworld">
+			</param>
+			<param name="testLOS">
+			</param>
+		</member>
+		<member name="M:CreateDynamicObject" syntax="CreateDynamicObject(modelid, x, y, z, rx, ry, rz, worldid, interiorid, playerid, streamdistance, drawdistance)">
+			<attribute name="native"/>
+			<referrer name="OnFilterScriptInit"/>
+			<param name="modelid">
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="rx">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="ry">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="rz">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="worldid">
+			</param>
+			<param name="interiorid">
+			</param>
+			<param name="playerid">
+			</param>
+			<param name="streamdistance">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="drawdistance">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:CreatePlayerTextDraw" syntax="CreatePlayerTextDraw(playerid, x, y, text[])">
+			<tagname value="PlayerText"/>
+			<attribute name="native"/>
+			<referrer name="processGame"/>
+			<referrer name="HandleCheckpointEntry"/>
+			<param name="playerid">
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="text">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:Delete3DTextLabel" syntax="Delete3DTextLabel(id)">
+			<attribute name="native"/>
+			<referrer name="RemoveSafePointTexts"/>
+			<param name="id">
+				<paraminfo>Text3D </paraminfo>
+			</param>
+		</member>
+		<member name="M:DestroyDynamicObject" syntax="DestroyDynamicObject(objectid)">
+			<attribute name="native"/>
+			<referrer name="OnFilterScriptExit"/>
+			<param name="objectid">
+			</param>
+		</member>
+		<member name="M:DisablePlayerCheckpoint" syntax="DisablePlayerCheckpoint(playerid)">
+			<attribute name="native"/>
+			<referrer name="RemovePlayerFromGame"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:DisablePlayerRaceCheckpoint" syntax="DisablePlayerRaceCheckpoint(playerid)">
+			<attribute name="native"/>
+			<referrer name="checkCheckpointRange"/>
+			<referrer name="HandleCheckpointEntry"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:DisplayTop3" syntax="DisplayTop3()">
+			<stacksize value="6"/>
+			<dependency name="Top3Names"/>
+			<dependency name="Top3Names"/>
+			<dependency name="Top3Times"/>
+			<dependency name="printf"/>
+		</member>
+		<member name="M:EndGame" syntax="EndGame()">
+			<stacksize value="5"/>
+			<referrer name="OnFilterScriptExit"/>
+			<referrer name="CheckGameEnd"/>
+			<dependency name="CurrentGameState"/>
+			<dependency name="IsPlayerConnected"/>
+			<dependency name="IsPlayerNPC"/>
+			<dependency name="IsPlayerSignedUp"/>
+			<dependency name="RemovePlayerFromGame"/>
+			<dependency name="false"/>
+		</member>
+		<member name="M:FormatTime" syntax="FormatTime(iTime)">
+			<stacksize value="139"/>
+			<referrer name="updateBestPlayersAndTimes"/>
+			<referrer name="updatePlayerTime"/>
+			<referrer name="HandleCheckpointEntry"/>
+			<dependency name="FormatTime"/>
+			<dependency name="format"/>
+			<param name="iTime">
+			</param>
+		</member>
+		<member name="M:GameTextForAll" syntax="GameTextForAll(string[], time, style)">
+			<attribute name="native"/>
+			<referrer name="StartGame"/>
+			<param name="string">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="time">
+			</param>
+			<param name="style">
+			</param>
+		</member>
+		<member name="M:GameTextForPlayer" syntax="GameTextForPlayer(playerid, string[], time, style)">
+			<attribute name="native"/>
+			<referrer name="processGame"/>
+			<referrer name="checkMinimumHeight"/>
+			<referrer name="checkSafepointRange"/>
+			<param name="playerid">
+			</param>
+			<param name="string">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="time">
+			</param>
+			<param name="style">
+			</param>
+		</member>
+		<member name="M:GetPlayerName" syntax="GetPlayerName(playerid, name[], len)">
+			<attribute name="native"/>
+			<referrer name="HandleCheckpointEntry"/>
+			<param name="playerid">
+			</param>
+			<param name="name">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="len">
+			</param>
+		</member>
+		<member name="M:GetPlayerPos" syntax="GetPlayerPos(playerid, &amp;x, &amp;y, &amp;z)">
+			<attribute name="native"/>
+			<referrer name="checkMinimumHeight"/>
+			<param name="playerid">
+			</param>
+			<param name="x">
+				<paraminfo>Float &amp; </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float &amp; </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float &amp; </paraminfo>
+			</param>
+		</member>
+		<member name="M:GetTickCount" syntax="GetTickCount()">
+			<attribute name="native"/>
+			<referrer name="processGame"/>
+			<referrer name="updatePlayerTime"/>
+			<referrer name="HandleCheckpointEntry"/>
+		</member>
+		<member name="M:HandleCheckpointEntry" syntax="HandleCheckpointEntry(playerid)">
+			<attribute name="public"/>
+			<stacksize value="162"/>
+			<referrer name="OnPlayerEnterRaceCheckpoint"/>
+			<dependency name="CreatePlayerTextDraw"/>
+			<dependency name="CurrentGameState"/>
+			<dependency name="DisablePlayerRaceCheckpoint"/>
+			<dependency name="FormatTime"/>
+			<dependency name="GetPlayerName"/>
+			<dependency name="GetTickCount"/>
+			<dependency name="HasAnyoneWon"/>
+			<dependency name="IsPlayerSignedUp"/>
+			<dependency name="KillTimer"/>
+			<dependency name="PlayAudioStreamForPlayer"/>
+			<dependency name="PlayerTextDrawBackgroundColor"/>
+			<dependency name="PlayerTextDrawColor"/>
+			<dependency name="PlayerTextDrawDestroy"/>
+			<dependency name="PlayerTextDrawFont"/>
+			<dependency name="PlayerTextDrawLetterSize"/>
+			<dependency name="PlayerTextDrawSetOutline"/>
+			<dependency name="PlayerTextDrawSetProportional"/>
+			<dependency name="PlayerTextDrawSetShadow"/>
+			<dependency name="PlayerTextDrawShow"/>
+			<dependency name="SendClientMessage"/>
+			<dependency name="SendClientMessageToAll"/>
+			<dependency name="SetCameraBehindPlayer"/>
+			<dependency name="SetTimerEx"/>
+			<dependency name="TextDrawShowForPlayer"/>
+			<dependency name="TogglePlayerControllable"/>
+			<dependency name="endInfo"/>
+			<dependency name="endTitle"/>
+			<dependency name="false"/>
+			<dependency name="format"/>
+			<dependency name="gameTitle"/>
+			<dependency name="insertDbRecord"/>
+			<dependency name="numberOfPeopleFinished"/>
+			<dependency name="ordinal"/>
+			<dependency name="playerCheckpointRangeTimer"/>
+			<dependency name="playerHeightCheckTimer"/>
+			<dependency name="playerSafePointTimer"/>
+			<dependency name="playerStartTimeTicks"/>
+			<dependency name="playerTimeUpdateTimer"/>
+			<dependency name="true"/>
+			<dependency name="updateBestPlayersAndTimes"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:InterpolateCameraLookAt" syntax="InterpolateCameraLookAt(playerid, FromX, FromY, FromZ, ToX, ToY, ToZ, time, cut)">
+			<attribute name="native"/>
+			<referrer name="StartGame"/>
+			<param name="playerid">
+			</param>
+			<param name="FromX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="FromY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="FromZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="ToX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="ToY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="ToZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="time">
+			</param>
+			<param name="cut">
+			</param>
+		</member>
+		<member name="M:InterpolateCameraPos" syntax="InterpolateCameraPos(playerid, FromX, FromY, FromZ, ToX, ToY, ToZ, time, cut)">
+			<attribute name="native"/>
+			<referrer name="StartGame"/>
+			<param name="playerid">
+			</param>
+			<param name="FromX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="FromY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="FromZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="ToX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="ToY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="ToZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="time">
+			</param>
+			<param name="cut">
+			</param>
+		</member>
+		<member name="M:IsPlayerConnected" syntax="IsPlayerConnected(playerid)">
+			<attribute name="native"/>
+			<referrer name="IsPlayerSignedUp"/>
+			<referrer name="CheckGameEnd"/>
+			<referrer name="StartGame"/>
+			<referrer name="EndGame"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:IsPlayerInRangeOfPoint" syntax="IsPlayerInRangeOfPoint(playerid, range, x, y, z)">
+			<attribute name="native"/>
+			<referrer name="checkCheckpointRange"/>
+			<referrer name="checkSafepointRange"/>
+			<param name="playerid">
+			</param>
+			<param name="range">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:IsPlayerNPC" syntax="IsPlayerNPC(playerid)">
+			<attribute name="native"/>
+			<referrer name="CheckGameEnd"/>
+			<referrer name="StartGame"/>
+			<referrer name="EndGame"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:IsPlayerSignedUp" syntax="IsPlayerSignedUp(playerid)">
+			<tagname value="bool"/>
+			<stacksize value="3"/>
+			<referrer name="OnPlayerCommandText"/>
+			<referrer name="CheckGameEnd"/>
+			<referrer name="StartGame"/>
+			<referrer name="HandleCheckpointEntry"/>
+			<referrer name="OnPlayerSpawn"/>
+			<referrer name="EndGame"/>
+			<dependency name="HasPlayerSignedUp"/>
+			<dependency name="IsPlayerConnected"/>
+			<dependency name="false"/>
+			<dependency name="true"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:KillTimer" syntax="KillTimer(timerid)">
+			<attribute name="native"/>
+			<referrer name="processGame"/>
+			<referrer name="HandleCheckpointEntry"/>
+			<referrer name="RemovePlayerFromGame"/>
+			<param name="timerid">
+			</param>
+		</member>
+		<member name="M:MoveDynamicObject" syntax="MoveDynamicObject(objectid, x, y, z, speed, rx, ry, rz)">
+			<attribute name="native"/>
+			<referrer name="e11"/>
+			<referrer name="e12"/>
+			<referrer name="e21"/>
+			<referrer name="e22"/>
+			<referrer name="c11"/>
+			<referrer name="c12"/>
+			<referrer name="c21"/>
+			<referrer name="c22"/>
+			<referrer name="c31"/>
+			<referrer name="c32"/>
+			<param name="objectid">
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="speed">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="rx">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="ry">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="rz">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnActorStreamIn" syntax="OnActorStreamIn(actorid, forplayerid)">
+			<stacksize value="1"/>
+			<param name="actorid">
+			</param>
+			<param name="forplayerid">
+			</param>
+		</member>
+		<member name="M:OnActorStreamOut" syntax="OnActorStreamOut(actorid, forplayerid)">
+			<stacksize value="1"/>
+			<param name="actorid">
+			</param>
+			<param name="forplayerid">
+			</param>
+		</member>
+		<member name="M:OnDialogResponse" syntax="OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="dialogid">
+			</param>
+			<param name="response">
+			</param>
+			<param name="listitem">
+			</param>
+			<param name="inputtext">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnDynamicObjectMoved" syntax="OnDynamicObjectMoved(objectid)">
+			<stacksize value="1"/>
+			<param name="objectid">
+			</param>
+		</member>
+		<member name="M:OnEnterExitModShop" syntax="OnEnterExitModShop(playerid, enterexit, interiorid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="enterexit">
+			</param>
+			<param name="interiorid">
+			</param>
+		</member>
+		<member name="M:OnFilterScriptExit" syntax="OnFilterScriptExit()">
+			<attribute name="public"/>
+			<stacksize value="134"/>
+			<dependency name="DestroyDynamicObject"/>
+			<dependency name="EndGame"/>
+			<dependency name="RemoveSafePointTexts"/>
+			<dependency name="SendClientMessageToAll"/>
+			<dependency name="format"/>
+			<dependency name="gameTitle"/>
+			<dependency name="gateObject"/>
+			<dependency name="mapObjects"/>
+		</member>
+		<member name="M:OnFilterScriptInit" syntax="OnFilterScriptInit()">
+			<attribute name="public"/>
+			<stacksize value="142"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="E_STREAMER_WORLD_ID"/>
+			<dependency name="SendClientMessageToAll"/>
+			<dependency name="SetTimer"/>
+			<dependency name="Streamer_SetIntData"/>
+			<dependency name="TextDrawBackgroundColor"/>
+			<dependency name="TextDrawColor"/>
+			<dependency name="TextDrawCreate"/>
+			<dependency name="TextDrawFont"/>
+			<dependency name="TextDrawLetterSize"/>
+			<dependency name="TextDrawSetOutline"/>
+			<dependency name="TextDrawSetProportional"/>
+			<dependency name="TextDrawSetShadow"/>
+			<dependency name="addSafePoint"/>
+			<dependency name="c1"/>
+			<dependency name="c2"/>
+			<dependency name="c3"/>
+			<dependency name="cmdName"/>
+			<dependency name="countdown"/>
+			<dependency name="db_name"/>
+			<dependency name="e1"/>
+			<dependency name="e2"/>
+			<dependency name="endTitle"/>
+			<dependency name="fexist"/>
+			<dependency name="format"/>
+			<dependency name="gameTitle"/>
+			<dependency name="getReady"/>
+			<dependency name="initDb"/>
+			<dependency name="instructions"/>
+			<dependency name="mapObjects"/>
+			<dependency name="signup"/>
+			<dependency name="textdrawInstructions"/>
+			<dependency name="textdrawTitle"/>
+			<dependency name="title"/>
+			<dependency name="top3CmdName"/>
+			<dependency name="top3Times"/>
+			<dependency name="top3timesTitle"/>
+			<dependency name="updateBestPlayersAndTimes"/>
+		</member>
+		<member name="M:OnGameModeExit" syntax="OnGameModeExit()">
+			<stacksize value="1"/>
+		</member>
+		<member name="M:OnGameModeInit" syntax="OnGameModeInit()">
+			<attribute name="public"/>
+			<stacksize value="3"/>
+			<dependency name="SendRconCommand"/>
+		</member>
+		<member name="M:OnIncomingConnection" syntax="OnIncomingConnection(playerid, ip_address[], port)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="ip_address">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="port">
+			</param>
+		</member>
+		<member name="M:OnObjectMoved" syntax="OnObjectMoved(objectid)">
+			<stacksize value="1"/>
+			<param name="objectid">
+			</param>
+		</member>
+		<member name="M:OnPlayerClickMap" syntax="OnPlayerClickMap(playerid, fX, fY, fZ)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="fX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerClickPlayer" syntax="OnPlayerClickPlayer(playerid, clickedplayerid, source)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="clickedplayerid">
+			</param>
+			<param name="source">
+			</param>
+		</member>
+		<member name="M:OnPlayerClickPlayerTextDraw" syntax="OnPlayerClickPlayerTextDraw(playerid, playertextid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="playertextid">
+				<paraminfo>PlayerText </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerClickTextDraw" syntax="OnPlayerClickTextDraw(playerid, clickedid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="clickedid">
+				<paraminfo>Text </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerCommandText" syntax="OnPlayerCommandText(playerid, cmdtext[])">
+			<attribute name="public"/>
+			<stacksize value="134"/>
+			<dependency name="CurrentGameState"/>
+			<dependency name="HasPlayerSignedUp"/>
+			<dependency name="IsPlayerSignedUp"/>
+			<dependency name="RemovePlayerFromGame"/>
+			<dependency name="SendClientMessage"/>
+			<dependency name="StartGame"/>
+			<dependency name="TextDrawHideForPlayer"/>
+			<dependency name="TextDrawShowForPlayer"/>
+			<dependency name="cmdName"/>
+			<dependency name="false"/>
+			<dependency name="format"/>
+			<dependency name="gameTitle"/>
+			<dependency name="isTop3Showing"/>
+			<dependency name="strcmp"/>
+			<dependency name="top3CmdName"/>
+			<dependency name="top3Times"/>
+			<dependency name="true"/>
+			<param name="playerid">
+			</param>
+			<param name="cmdtext">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerConnect" syntax="OnPlayerConnect(playerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerDeath" syntax="OnPlayerDeath(playerid, killerid, reason)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="killerid">
+			</param>
+			<param name="reason">
+			</param>
+		</member>
+		<member name="M:OnPlayerDisconnect" syntax="OnPlayerDisconnect(playerid, reason)">
+			<attribute name="public"/>
+			<stacksize value="135"/>
+			<dependency name="RemovePlayerFromGame"/>
+			<dependency name="SendClientMessageToAll"/>
+			<dependency name="SendRconCommand"/>
+			<dependency name="format"/>
+			<dependency name="print"/>
+			<param name="playerid">
+			</param>
+			<param name="reason">
+			</param>
+		</member>
+		<member name="M:OnPlayerEditAttachedObject" syntax="OnPlayerEditAttachedObject(playerid, response, index, modelid, boneid, fOffsetX, fOffsetY, fOffsetZ, fRotX, fRotY, fRotZ, fScaleX, fScaleY, fScaleZ)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="response">
+			</param>
+			<param name="index">
+			</param>
+			<param name="modelid">
+			</param>
+			<param name="boneid">
+			</param>
+			<param name="fOffsetX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fOffsetY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fOffsetZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fRotX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fRotY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fRotZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fScaleX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fScaleY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fScaleZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerEditDynamicObject" syntax="OnPlayerEditDynamicObject(playerid, objectid, response, x, y, z, rx, ry, rz)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="objectid">
+			</param>
+			<param name="response">
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="rx">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="ry">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="rz">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerEditObject" syntax="OnPlayerEditObject(playerid, playerobject, objectid, response, fX, fY, fZ, fRotX, fRotY, fRotZ)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="playerobject">
+			</param>
+			<param name="objectid">
+			</param>
+			<param name="response">
+			</param>
+			<param name="fX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fRotX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fRotY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fRotZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerEnterCheckpoint" syntax="OnPlayerEnterCheckpoint(playerid)">
+			<attribute name="public"/>
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerEnterDynamicArea" syntax="OnPlayerEnterDynamicArea(playerid, areaid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="areaid">
+			</param>
+		</member>
+		<member name="M:OnPlayerEnterDynamicCP" syntax="OnPlayerEnterDynamicCP(playerid, checkpointid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="checkpointid">
+			</param>
+		</member>
+		<member name="M:OnPlayerEnterDynamicRaceCP" syntax="OnPlayerEnterDynamicRaceCP(playerid, checkpointid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="checkpointid">
+			</param>
+		</member>
+		<member name="M:OnPlayerEnterRaceCheckpoint" syntax="OnPlayerEnterRaceCheckpoint(playerid)">
+			<attribute name="public"/>
+			<stacksize value="4"/>
+			<dependency name="HandleCheckpointEntry"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerEnterVehicle" syntax="OnPlayerEnterVehicle(playerid, vehicleid, ispassenger)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="vehicleid">
+			</param>
+			<param name="ispassenger">
+			</param>
+		</member>
+		<member name="M:OnPlayerExitVehicle" syntax="OnPlayerExitVehicle(playerid, vehicleid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="vehicleid">
+			</param>
+		</member>
+		<member name="M:OnPlayerExitedMenu" syntax="OnPlayerExitedMenu(playerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerGiveDamage" syntax="OnPlayerGiveDamage(playerid, damagedid, amount, weaponid, bodypart)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="damagedid">
+			</param>
+			<param name="amount">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="weaponid">
+			</param>
+			<param name="bodypart">
+			</param>
+		</member>
+		<member name="M:OnPlayerInteriorChange" syntax="OnPlayerInteriorChange(playerid, newinteriorid, oldinteriorid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="newinteriorid">
+			</param>
+			<param name="oldinteriorid">
+			</param>
+		</member>
+		<member name="M:OnPlayerKeyStateChange" syntax="OnPlayerKeyStateChange(playerid, newkeys, oldkeys)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="newkeys">
+			</param>
+			<param name="oldkeys">
+			</param>
+		</member>
+		<member name="M:OnPlayerLeaveCheckpoint" syntax="OnPlayerLeaveCheckpoint(playerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerLeaveDynamicArea" syntax="OnPlayerLeaveDynamicArea(playerid, areaid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="areaid">
+			</param>
+		</member>
+		<member name="M:OnPlayerLeaveDynamicCP" syntax="OnPlayerLeaveDynamicCP(playerid, checkpointid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="checkpointid">
+			</param>
+		</member>
+		<member name="M:OnPlayerLeaveDynamicRaceCP" syntax="OnPlayerLeaveDynamicRaceCP(playerid, checkpointid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="checkpointid">
+			</param>
+		</member>
+		<member name="M:OnPlayerLeaveRaceCheckpoint" syntax="OnPlayerLeaveRaceCheckpoint(playerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerObjectMoved" syntax="OnPlayerObjectMoved(playerid, objectid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="objectid">
+			</param>
+		</member>
+		<member name="M:OnPlayerPickUpDynamicPickup" syntax="OnPlayerPickUpDynamicPickup(playerid, pickupid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="pickupid">
+			</param>
+		</member>
+		<member name="M:OnPlayerPickUpPickup" syntax="OnPlayerPickUpPickup(playerid, pickupid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="pickupid">
+			</param>
+		</member>
+		<member name="M:OnPlayerRequestClass" syntax="OnPlayerRequestClass(playerid, classid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="classid">
+			</param>
+		</member>
+		<member name="M:OnPlayerRequestSpawn" syntax="OnPlayerRequestSpawn(playerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerSelectDynamicObject" syntax="OnPlayerSelectDynamicObject(playerid, objectid, modelid, x, y, z)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="objectid">
+			</param>
+			<param name="modelid">
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerSelectObject" syntax="OnPlayerSelectObject(playerid, type, objectid, modelid, fX, fY, fZ)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="type">
+			</param>
+			<param name="objectid">
+			</param>
+			<param name="modelid">
+			</param>
+			<param name="fX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerSelectedMenuRow" syntax="OnPlayerSelectedMenuRow(playerid, row)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="row">
+			</param>
+		</member>
+		<member name="M:OnPlayerShootDynamicObject" syntax="OnPlayerShootDynamicObject(playerid, weaponid, objectid, x, y, z)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="weaponid">
+			</param>
+			<param name="objectid">
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerSpawn" syntax="OnPlayerSpawn(playerid)">
+			<attribute name="public"/>
+			<stacksize value="134"/>
+			<dependency name="CurrentGameState"/>
+			<dependency name="IsPlayerSignedUp"/>
+			<dependency name="RemovePlayerFromGame"/>
+			<dependency name="SendClientMessage"/>
+			<dependency name="format"/>
+			<dependency name="gameTitle"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerStateChange" syntax="OnPlayerStateChange(playerid, newstate, oldstate)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="newstate">
+			</param>
+			<param name="oldstate">
+			</param>
+		</member>
+		<member name="M:OnPlayerStreamIn" syntax="OnPlayerStreamIn(playerid, forplayerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="forplayerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerStreamOut" syntax="OnPlayerStreamOut(playerid, forplayerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="forplayerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerTakeDamage" syntax="OnPlayerTakeDamage(playerid, issuerid, amount, weaponid, bodypart)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="issuerid">
+			</param>
+			<param name="amount">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="weaponid">
+			</param>
+			<param name="bodypart">
+			</param>
+		</member>
+		<member name="M:OnPlayerText" syntax="OnPlayerText(playerid, text[])">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="text">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerUpdate" syntax="OnPlayerUpdate(playerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerWeaponShot" syntax="OnPlayerWeaponShot(playerid, weaponid, hittype, hitid, fX, fY, fZ)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="weaponid">
+			</param>
+			<param name="hittype">
+			</param>
+			<param name="hitid">
+			</param>
+			<param name="fX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnRconCommand" syntax="OnRconCommand(cmd[])">
+			<stacksize value="1"/>
+			<param name="cmd">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnRconLoginAttempt" syntax="OnRconLoginAttempt(ip[], password[], success)">
+			<stacksize value="1"/>
+			<param name="ip">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="password">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="success">
+			</param>
+		</member>
+		<member name="M:OnTrailerUpdate" syntax="OnTrailerUpdate(playerid, vehicleid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="vehicleid">
+			</param>
+		</member>
+		<member name="M:OnUnoccupiedVehicleUpdate" syntax="OnUnoccupiedVehicleUpdate(vehicleid, playerid, passenger_seat, new_x, new_y, new_z, vel_x, vel_y, vel_z)">
+			<stacksize value="1"/>
+			<param name="vehicleid">
+			</param>
+			<param name="playerid">
+			</param>
+			<param name="passenger_seat">
+			</param>
+			<param name="new_x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="new_y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="new_z">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="vel_x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="vel_y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="vel_z">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnVehicleDamageStatusUpdate" syntax="OnVehicleDamageStatusUpdate(vehicleid, playerid)">
+			<stacksize value="1"/>
+			<param name="vehicleid">
+			</param>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnVehicleDeath" syntax="OnVehicleDeath(vehicleid, killerid)">
+			<stacksize value="1"/>
+			<param name="vehicleid">
+			</param>
+			<param name="killerid">
+			</param>
+		</member>
+		<member name="M:OnVehicleMod" syntax="OnVehicleMod(playerid, vehicleid, componentid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="vehicleid">
+			</param>
+			<param name="componentid">
+			</param>
+		</member>
+		<member name="M:OnVehiclePaintjob" syntax="OnVehiclePaintjob(playerid, vehicleid, paintjobid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="vehicleid">
+			</param>
+			<param name="paintjobid">
+			</param>
+		</member>
+		<member name="M:OnVehicleRespray" syntax="OnVehicleRespray(playerid, vehicleid, color1, color2)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="vehicleid">
+			</param>
+			<param name="color1">
+			</param>
+			<param name="color2">
+			</param>
+		</member>
+		<member name="M:OnVehicleSirenStateChange" syntax="OnVehicleSirenStateChange(playerid, vehicleid, newstate)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="vehicleid">
+			</param>
+			<param name="newstate">
+			</param>
+		</member>
+		<member name="M:OnVehicleSpawn" syntax="OnVehicleSpawn(vehicleid)">
+			<stacksize value="1"/>
+			<param name="vehicleid">
+			</param>
+		</member>
+		<member name="M:OnVehicleStreamIn" syntax="OnVehicleStreamIn(vehicleid, forplayerid)">
+			<stacksize value="1"/>
+			<param name="vehicleid">
+			</param>
+			<param name="forplayerid">
+			</param>
+		</member>
+		<member name="M:OnVehicleStreamOut" syntax="OnVehicleStreamOut(vehicleid, forplayerid)">
+			<stacksize value="1"/>
+			<param name="vehicleid">
+			</param>
+			<param name="forplayerid">
+			</param>
+		</member>
+		<member name="M:PlayAudioStreamForPlayer" syntax="PlayAudioStreamForPlayer(playerid, url[], posX, posY, posZ, distance, usepos)">
+			<attribute name="native"/>
+			<referrer name="startMusic"/>
+			<referrer name="HandleCheckpointEntry"/>
+			<param name="playerid">
+			</param>
+			<param name="url">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="posX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="posY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="posZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="distance">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="usepos">
+			</param>
+		</member>
+		<member name="M:PlayerPlaySound" syntax="PlayerPlaySound(playerid, soundid, x, y, z)">
+			<attribute name="native"/>
+			<referrer name="processGame"/>
+			<referrer name="checkSafepointRange"/>
+			<param name="playerid">
+			</param>
+			<param name="soundid">
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:PlayerTextDrawBackgroundColor" syntax="PlayerTextDrawBackgroundColor(playerid, text, color)">
+			<attribute name="native"/>
+			<referrer name="processGame"/>
+			<referrer name="HandleCheckpointEntry"/>
+			<param name="playerid">
+			</param>
+			<param name="text">
+				<paraminfo>PlayerText </paraminfo>
+			</param>
+			<param name="color">
+			</param>
+		</member>
+		<member name="M:PlayerTextDrawColor" syntax="PlayerTextDrawColor(playerid, text, color)">
+			<attribute name="native"/>
+			<referrer name="processGame"/>
+			<referrer name="HandleCheckpointEntry"/>
+			<param name="playerid">
+			</param>
+			<param name="text">
+				<paraminfo>PlayerText </paraminfo>
+			</param>
+			<param name="color">
+			</param>
+		</member>
+		<member name="M:PlayerTextDrawDestroy" syntax="PlayerTextDrawDestroy(playerid, text)">
+			<attribute name="native"/>
+			<referrer name="HandleCheckpointEntry"/>
+			<referrer name="RemovePlayerFromGame"/>
+			<param name="playerid">
+			</param>
+			<param name="text">
+				<paraminfo>PlayerText </paraminfo>
+			</param>
+		</member>
+		<member name="M:PlayerTextDrawFont" syntax="PlayerTextDrawFont(playerid, text, font)">
+			<attribute name="native"/>
+			<referrer name="processGame"/>
+			<referrer name="HandleCheckpointEntry"/>
+			<param name="playerid">
+			</param>
+			<param name="text">
+				<paraminfo>PlayerText </paraminfo>
+			</param>
+			<param name="font">
+			</param>
+		</member>
+		<member name="M:PlayerTextDrawLetterSize" syntax="PlayerTextDrawLetterSize(playerid, text, x, y)">
+			<attribute name="native"/>
+			<referrer name="processGame"/>
+			<referrer name="HandleCheckpointEntry"/>
+			<param name="playerid">
+			</param>
+			<param name="text">
+				<paraminfo>PlayerText </paraminfo>
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:PlayerTextDrawSetOutline" syntax="PlayerTextDrawSetOutline(playerid, text, size)">
+			<attribute name="native"/>
+			<referrer name="processGame"/>
+			<referrer name="HandleCheckpointEntry"/>
+			<param name="playerid">
+			</param>
+			<param name="text">
+				<paraminfo>PlayerText </paraminfo>
+			</param>
+			<param name="size">
+			</param>
+		</member>
+		<member name="M:PlayerTextDrawSetProportional" syntax="PlayerTextDrawSetProportional(playerid, text, set)">
+			<attribute name="native"/>
+			<referrer name="processGame"/>
+			<referrer name="HandleCheckpointEntry"/>
+			<param name="playerid">
+			</param>
+			<param name="text">
+				<paraminfo>PlayerText </paraminfo>
+			</param>
+			<param name="set">
+			</param>
+		</member>
+		<member name="M:PlayerTextDrawSetShadow" syntax="PlayerTextDrawSetShadow(playerid, text, size)">
+			<attribute name="native"/>
+			<referrer name="processGame"/>
+			<referrer name="HandleCheckpointEntry"/>
+			<param name="playerid">
+			</param>
+			<param name="text">
+				<paraminfo>PlayerText </paraminfo>
+			</param>
+			<param name="size">
+			</param>
+		</member>
+		<member name="M:PlayerTextDrawSetString" syntax="PlayerTextDrawSetString(playerid, text, string[])">
+			<attribute name="native"/>
+			<referrer name="updatePlayerTime"/>
+			<param name="playerid">
+			</param>
+			<param name="text">
+				<paraminfo>PlayerText </paraminfo>
+			</param>
+			<param name="string">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:PlayerTextDrawShow" syntax="PlayerTextDrawShow(playerid, text)">
+			<attribute name="native"/>
+			<referrer name="processGame"/>
+			<referrer name="HandleCheckpointEntry"/>
+			<param name="playerid">
+			</param>
+			<param name="text">
+				<paraminfo>PlayerText </paraminfo>
+			</param>
+		</member>
+		<member name="M:RemovePlayerFromGame" syntax="RemovePlayerFromGame(playerid)">
+			<attribute name="public"/>
+			<stacksize value="4"/>
+			<referrer name="OnPlayerDisconnect"/>
+			<referrer name="OnPlayerCommandText"/>
+			<referrer name="OnPlayerSpawn"/>
+			<referrer name="EndGame"/>
+			<dependency name="CurrentGameState"/>
+			<dependency name="DisablePlayerCheckpoint"/>
+			<dependency name="HasPlayerSignedUp"/>
+			<dependency name="KillTimer"/>
+			<dependency name="PlayerTextDrawDestroy"/>
+			<dependency name="SpawnPlayer"/>
+			<dependency name="StopAudioStreamForPlayer"/>
+			<dependency name="TextDrawHideForPlayer"/>
+			<dependency name="endInfo"/>
+			<dependency name="endTitle"/>
+			<dependency name="false"/>
+			<dependency name="playerCheckpointRangeTimer"/>
+			<dependency name="playerCountdownSeconds"/>
+			<dependency name="playerCountdownTimer"/>
+			<dependency name="playerHeightCheckTimer"/>
+			<dependency name="playerLastSafePoint"/>
+			<dependency name="playerSafePointTimer"/>
+			<dependency name="playerTimeUpdateTimer"/>
+			<dependency name="top3Times"/>
+			<dependency name="top3timesTitle"/>
+			<dependency name="yourTime"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:RemoveSafePointTexts" syntax="RemoveSafePointTexts()">
+			<stacksize value="4"/>
+			<referrer name="OnFilterScriptExit"/>
+			<dependency name="Delete3DTextLabel"/>
+			<dependency name="safePointCount"/>
+			<dependency name="safePointText"/>
+		</member>
+		<member name="M:ResetPlayerWeapons" syntax="ResetPlayerWeapons(playerid)">
+			<attribute name="native"/>
+			<referrer name="StartGame"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:SendClientMessage" syntax="SendClientMessage(playerid, color, message[])">
+			<attribute name="native"/>
+			<referrer name="OnPlayerCommandText"/>
+			<referrer name="HandleCheckpointEntry"/>
+			<referrer name="OnPlayerSpawn"/>
+			<param name="playerid">
+			</param>
+			<param name="color">
+			</param>
+			<param name="message">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:SendClientMessageToAll" syntax="SendClientMessageToAll(color, message[])">
+			<attribute name="native"/>
+			<referrer name="OnFilterScriptInit"/>
+			<referrer name="promo"/>
+			<referrer name="OnFilterScriptExit"/>
+			<referrer name="OnPlayerDisconnect"/>
+			<referrer name="CheckGameEnd"/>
+			<referrer name="StartGame"/>
+			<referrer name="HandleCheckpointEntry"/>
+			<param name="color">
+			</param>
+			<param name="message">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:SendRconCommand" syntax="SendRconCommand(command[])">
+			<attribute name="native"/>
+			<referrer name="OnGameModeInit"/>
+			<referrer name="OnPlayerDisconnect"/>
+			<param name="command">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:SetCameraBehindPlayer" syntax="SetCameraBehindPlayer(playerid)">
+			<attribute name="native"/>
+			<referrer name="processGame"/>
+			<referrer name="HandleCheckpointEntry"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:SetPlayerFacingAngle" syntax="SetPlayerFacingAngle(playerid, ang)">
+			<attribute name="native"/>
+			<referrer name="TeleportPlayerToGame"/>
+			<param name="playerid">
+			</param>
+			<param name="ang">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:SetPlayerPos" syntax="SetPlayerPos(playerid, x, y, z)">
+			<attribute name="native"/>
+			<referrer name="TeleportPlayerToGame"/>
+			<param name="playerid">
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:SetPlayerRaceCheckpoint" syntax="SetPlayerRaceCheckpoint(playerid, type, x, y, z, nextx, nexty, nextz, size)">
+			<attribute name="native"/>
+			<referrer name="StartGame"/>
+			<referrer name="checkCheckpointRange"/>
+			<param name="playerid">
+			</param>
+			<param name="type">
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="nextx">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="nexty">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="nextz">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="size">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:SetPlayerVirtualWorld" syntax="SetPlayerVirtualWorld(playerid, worldid)">
+			<attribute name="native"/>
+			<referrer name="TeleportPlayerToGame"/>
+			<param name="playerid">
+			</param>
+			<param name="worldid">
+			</param>
+		</member>
+		<member name="M:SetTimer" syntax="SetTimer(funcname[], interval, repeating)">
+			<attribute name="native"/>
+			<referrer name="e11"/>
+			<referrer name="e12"/>
+			<referrer name="e21"/>
+			<referrer name="e22"/>
+			<referrer name="c11"/>
+			<referrer name="c12"/>
+			<referrer name="c21"/>
+			<referrer name="c22"/>
+			<referrer name="c31"/>
+			<referrer name="c32"/>
+			<referrer name="OnFilterScriptInit"/>
+			<referrer name="StartGame"/>
+			<param name="funcname">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="interval">
+			</param>
+			<param name="repeating">
+			</param>
+		</member>
+		<member name="M:SetTimerEx" syntax="SetTimerEx(funcname[], interval, repeating, format[], ...)">
+			<attribute name="native"/>
+			<referrer name="StartGame"/>
+			<referrer name="processGame"/>
+			<referrer name="HandleCheckpointEntry"/>
+			<param name="funcname">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="interval">
+			</param>
+			<param name="repeating">
+			</param>
+			<param name="format">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="...">
+				<paraminfo> {Float,_} </paraminfo>
+			</param>
+		</member>
+		<member name="M:SpawnPlayer" syntax="SpawnPlayer(playerid)">
+			<attribute name="native"/>
+			<referrer name="RemovePlayerFromGame"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:StartGame" syntax="StartGame()">
+			<attribute name="public"/>
+			<stacksize value="135"/>
+			<referrer name="OnPlayerCommandText"/>
+			<dependency name="Float:operator=(_:)"/>
+			<dependency name="CurrentGameState"/>
+			<dependency name="GameTextForAll"/>
+			<dependency name="HasAnyoneWon"/>
+			<dependency name="InterpolateCameraLookAt"/>
+			<dependency name="InterpolateCameraPos"/>
+			<dependency name="IsPlayerConnected"/>
+			<dependency name="IsPlayerNPC"/>
+			<dependency name="IsPlayerSignedUp"/>
+			<dependency name="ResetPlayerWeapons"/>
+			<dependency name="SendClientMessageToAll"/>
+			<dependency name="SetPlayerRaceCheckpoint"/>
+			<dependency name="SetTimer"/>
+			<dependency name="SetTimerEx"/>
+			<dependency name="Streamer_Update"/>
+			<dependency name="TeleportPlayerToGame"/>
+			<dependency name="TextDrawHideForAll"/>
+			<dependency name="TextDrawShowForAll"/>
+			<dependency name="TogglePlayerControllable"/>
+			<dependency name="cmdName"/>
+			<dependency name="endPos"/>
+			<dependency name="false"/>
+			<dependency name="format"/>
+			<dependency name="gameTitle"/>
+			<dependency name="interpolateCamLookAt"/>
+			<dependency name="interpolateCamPos"/>
+			<dependency name="numberOfPeopleFinished"/>
+			<dependency name="playerCountdownSeconds"/>
+			<dependency name="playerCountdownTimer"/>
+			<dependency name="signup"/>
+			<dependency name="updateBestPlayersAndTimes"/>
+		</member>
+		<member name="M:StopAudioStreamForPlayer" syntax="StopAudioStreamForPlayer(playerid)">
+			<attribute name="native"/>
+			<referrer name="RemovePlayerFromGame"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:StopDynamicObject" syntax="StopDynamicObject(objectid)">
+			<attribute name="native"/>
+			<referrer name="e11"/>
+			<referrer name="e12"/>
+			<referrer name="e21"/>
+			<referrer name="e22"/>
+			<referrer name="c11"/>
+			<referrer name="c12"/>
+			<referrer name="c21"/>
+			<referrer name="c22"/>
+			<referrer name="c31"/>
+			<referrer name="c32"/>
+			<param name="objectid">
+			</param>
+		</member>
+		<member name="M:Streamer_SetIntData" syntax="Streamer_SetIntData(type, id, data, value)">
+			<attribute name="native"/>
+			<referrer name="OnFilterScriptInit"/>
+			<param name="type">
+			</param>
+			<param name="id">
+				<paraminfo> {Text3D,_} </paraminfo>
+			</param>
+			<param name="data">
+			</param>
+			<param name="value">
+			</param>
+		</member>
+		<member name="M:Streamer_Update" syntax="Streamer_Update(playerid)">
+			<attribute name="native"/>
+			<referrer name="StartGame"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:TeleportPlayerToGame" syntax="TeleportPlayerToGame(playerid)">
+			<stacksize value="6"/>
+			<referrer name="StartGame"/>
+			<referrer name="checkMinimumHeight"/>
+			<dependency name="Float:operator=(_:)"/>
+			<dependency name="SetPlayerFacingAngle"/>
+			<dependency name="SetPlayerPos"/>
+			<dependency name="SetPlayerVirtualWorld"/>
+			<dependency name="playerLastSafePoint"/>
+			<dependency name="safePoints"/>
+			<dependency name="startPos"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:TextDrawBackgroundColor" syntax="TextDrawBackgroundColor(text, color)">
+			<attribute name="native"/>
+			<referrer name="OnFilterScriptInit"/>
+			<param name="text">
+				<paraminfo>Text </paraminfo>
+			</param>
+			<param name="color">
+			</param>
+		</member>
+		<member name="M:TextDrawColor" syntax="TextDrawColor(text, color)">
+			<attribute name="native"/>
+			<referrer name="OnFilterScriptInit"/>
+			<param name="text">
+				<paraminfo>Text </paraminfo>
+			</param>
+			<param name="color">
+			</param>
+		</member>
+		<member name="M:TextDrawCreate" syntax="TextDrawCreate(x, y, text[])">
+			<tagname value="Text"/>
+			<attribute name="native"/>
+			<referrer name="OnFilterScriptInit"/>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="text">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:TextDrawFont" syntax="TextDrawFont(text, font)">
+			<attribute name="native"/>
+			<referrer name="OnFilterScriptInit"/>
+			<param name="text">
+				<paraminfo>Text </paraminfo>
+			</param>
+			<param name="font">
+			</param>
+		</member>
+		<member name="M:TextDrawHideForAll" syntax="TextDrawHideForAll(text)">
+			<attribute name="native"/>
+			<referrer name="StartGame"/>
+			<param name="text">
+				<paraminfo>Text </paraminfo>
+			</param>
+		</member>
+		<member name="M:TextDrawHideForPlayer" syntax="TextDrawHideForPlayer(playerid, text)">
+			<attribute name="native"/>
+			<referrer name="OnPlayerCommandText"/>
+			<referrer name="processGame"/>
+			<referrer name="RemovePlayerFromGame"/>
+			<param name="playerid">
+			</param>
+			<param name="text">
+				<paraminfo>Text </paraminfo>
+			</param>
+		</member>
+		<member name="M:TextDrawLetterSize" syntax="TextDrawLetterSize(text, x, y)">
+			<attribute name="native"/>
+			<referrer name="OnFilterScriptInit"/>
+			<param name="text">
+				<paraminfo>Text </paraminfo>
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:TextDrawSetOutline" syntax="TextDrawSetOutline(text, size)">
+			<attribute name="native"/>
+			<referrer name="OnFilterScriptInit"/>
+			<param name="text">
+				<paraminfo>Text </paraminfo>
+			</param>
+			<param name="size">
+			</param>
+		</member>
+		<member name="M:TextDrawSetProportional" syntax="TextDrawSetProportional(text, set)">
+			<attribute name="native"/>
+			<referrer name="OnFilterScriptInit"/>
+			<param name="text">
+				<paraminfo>Text </paraminfo>
+			</param>
+			<param name="set">
+			</param>
+		</member>
+		<member name="M:TextDrawSetShadow" syntax="TextDrawSetShadow(text, size)">
+			<attribute name="native"/>
+			<referrer name="OnFilterScriptInit"/>
+			<param name="text">
+				<paraminfo>Text </paraminfo>
+			</param>
+			<param name="size">
+			</param>
+		</member>
+		<member name="M:TextDrawSetString" syntax="TextDrawSetString(text, string[])">
+			<attribute name="native"/>
+			<referrer name="updateBestPlayersAndTimes"/>
+			<referrer name="processGame"/>
+			<param name="text">
+				<paraminfo>Text </paraminfo>
+			</param>
+			<param name="string">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:TextDrawShowForAll" syntax="TextDrawShowForAll(text)">
+			<attribute name="native"/>
+			<referrer name="StartGame"/>
+			<param name="text">
+				<paraminfo>Text </paraminfo>
+			</param>
+		</member>
+		<member name="M:TextDrawShowForPlayer" syntax="TextDrawShowForPlayer(playerid, text)">
+			<attribute name="native"/>
+			<referrer name="OnPlayerCommandText"/>
+			<referrer name="processGame"/>
+			<referrer name="HandleCheckpointEntry"/>
+			<param name="playerid">
+			</param>
+			<param name="text">
+				<paraminfo>Text </paraminfo>
+			</param>
+		</member>
+		<member name="M:TogglePlayerControllable" syntax="TogglePlayerControllable(playerid, toggle)">
+			<attribute name="native"/>
+			<referrer name="StartGame"/>
+			<referrer name="processGame"/>
+			<referrer name="HandleCheckpointEntry"/>
+			<param name="playerid">
+			</param>
+			<param name="toggle">
+			</param>
+		</member>
+		<member name="M:addSafePoint" syntax="addSafePoint(x, y, z)">
+			<stacksize value="10"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="Float:operator=(_:)"/>
+			<dependency name="Create3DTextLabel"/>
+			<dependency name="floatround"/>
+			<dependency name="safePointCount"/>
+			<dependency name="safePointText"/>
+			<dependency name="safePoints"/>
+			<dependency name="safePoints"/>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:c11" syntax="c11()">
+			<attribute name="public"/>
+			<stacksize value="10"/>
+			<dependency name="MoveDynamicObject"/>
+			<dependency name="SetTimer"/>
+			<dependency name="StopDynamicObject"/>
+			<dependency name="c1"/>
+		</member>
+		<member name="M:c12" syntax="c12()">
+			<attribute name="public"/>
+			<stacksize value="10"/>
+			<dependency name="MoveDynamicObject"/>
+			<dependency name="SetTimer"/>
+			<dependency name="StopDynamicObject"/>
+			<dependency name="c1"/>
+		</member>
+		<member name="M:c21" syntax="c21()">
+			<attribute name="public"/>
+			<stacksize value="10"/>
+			<dependency name="MoveDynamicObject"/>
+			<dependency name="SetTimer"/>
+			<dependency name="StopDynamicObject"/>
+			<dependency name="c2"/>
+		</member>
+		<member name="M:c22" syntax="c22()">
+			<attribute name="public"/>
+			<stacksize value="10"/>
+			<dependency name="MoveDynamicObject"/>
+			<dependency name="SetTimer"/>
+			<dependency name="StopDynamicObject"/>
+			<dependency name="c2"/>
+		</member>
+		<member name="M:c31" syntax="c31()">
+			<attribute name="public"/>
+			<stacksize value="10"/>
+			<dependency name="MoveDynamicObject"/>
+			<dependency name="SetTimer"/>
+			<dependency name="StopDynamicObject"/>
+			<dependency name="c3"/>
+		</member>
+		<member name="M:c32" syntax="c32()">
+			<attribute name="public"/>
+			<stacksize value="10"/>
+			<dependency name="MoveDynamicObject"/>
+			<dependency name="SetTimer"/>
+			<dependency name="StopDynamicObject"/>
+			<dependency name="c3"/>
+		</member>
+		<member name="M:checkCheckpointRange" syntax="checkCheckpointRange(playerid)">
+			<attribute name="public"/>
+			<stacksize value="11"/>
+			<dependency name="Float:operator=(_:)"/>
+			<dependency name="DisablePlayerRaceCheckpoint"/>
+			<dependency name="IsPlayerInRangeOfPoint"/>
+			<dependency name="SetPlayerRaceCheckpoint"/>
+			<dependency name="endPos"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:checkMinimumHeight" syntax="checkMinimumHeight(playerid)">
+			<attribute name="public"/>
+			<stacksize value="9"/>
+			<dependency name="operator&lt;(Float:,_:)"/>
+			<dependency name="GameTextForPlayer"/>
+			<dependency name="GetPlayerPos"/>
+			<dependency name="TeleportPlayerToGame"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:checkSafepointRange" syntax="checkSafepointRange(playerid)">
+			<attribute name="public"/>
+			<stacksize value="8"/>
+			<dependency name="Float:operator=(_:)"/>
+			<dependency name="GameTextForPlayer"/>
+			<dependency name="IsPlayerInRangeOfPoint"/>
+			<dependency name="PlayerPlaySound"/>
+			<dependency name="playerLastSafePoint"/>
+			<dependency name="safePointCount"/>
+			<dependency name="safePoints"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:db_close" syntax="db_close(db)">
+			<attribute name="native"/>
+			<referrer name="initDb"/>
+			<referrer name="insertDbRecord"/>
+			<referrer name="updateBestPlayersAndTimes"/>
+			<param name="db">
+				<paraminfo>DB </paraminfo>
+			</param>
+		</member>
+		<member name="M:db_get_field_assoc" syntax="db_get_field_assoc(dbresult, field[], result[], maxlength)">
+			<attribute name="native"/>
+			<referrer name="updateBestPlayersAndTimes"/>
+			<param name="dbresult">
+				<paraminfo>DBResult </paraminfo>
+			</param>
+			<param name="field">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="result">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="maxlength">
+			</param>
+		</member>
+		<member name="M:db_next_row" syntax="db_next_row(dbresult)">
+			<attribute name="native"/>
+			<referrer name="updateBestPlayersAndTimes"/>
+			<param name="dbresult">
+				<paraminfo>DBResult </paraminfo>
+			</param>
+		</member>
+		<member name="M:db_num_rows" syntax="db_num_rows(dbresult)">
+			<attribute name="native"/>
+			<referrer name="updateBestPlayersAndTimes"/>
+			<param name="dbresult">
+				<paraminfo>DBResult </paraminfo>
+			</param>
+		</member>
+		<member name="M:db_open" syntax="db_open(name[])">
+			<tagname value="DB"/>
+			<attribute name="native"/>
+			<referrer name="initDb"/>
+			<referrer name="insertDbRecord"/>
+			<referrer name="updateBestPlayersAndTimes"/>
+			<param name="name">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:db_query" syntax="db_query(db, query[])">
+			<tagname value="DBResult"/>
+			<attribute name="native"/>
+			<referrer name="initDb"/>
+			<referrer name="insertDbRecord"/>
+			<referrer name="updateBestPlayersAndTimes"/>
+			<param name="db">
+				<paraminfo>DB </paraminfo>
+			</param>
+			<param name="query">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:e11" syntax="e11()">
+			<attribute name="public"/>
+			<stacksize value="10"/>
+			<dependency name="MoveDynamicObject"/>
+			<dependency name="SetTimer"/>
+			<dependency name="StopDynamicObject"/>
+			<dependency name="e1"/>
+		</member>
+		<member name="M:e12" syntax="e12()">
+			<attribute name="public"/>
+			<stacksize value="10"/>
+			<dependency name="MoveDynamicObject"/>
+			<dependency name="SetTimer"/>
+			<dependency name="StopDynamicObject"/>
+			<dependency name="e1"/>
+		</member>
+		<member name="M:e21" syntax="e21()">
+			<attribute name="public"/>
+			<stacksize value="10"/>
+			<dependency name="MoveDynamicObject"/>
+			<dependency name="SetTimer"/>
+			<dependency name="StopDynamicObject"/>
+			<dependency name="e2"/>
+		</member>
+		<member name="M:e22" syntax="e22()">
+			<attribute name="public"/>
+			<stacksize value="10"/>
+			<dependency name="MoveDynamicObject"/>
+			<dependency name="SetTimer"/>
+			<dependency name="StopDynamicObject"/>
+			<dependency name="e2"/>
+		</member>
+		<member name="M:fclose" syntax="fclose(handle)">
+			<tagname value="bool"/>
+			<attribute name="native"/>
+			<referrer name="initDb"/>
+			<param name="handle">
+				<paraminfo>File </paraminfo>
+			</param>
+		</member>
+		<member name="M:fexist" syntax="fexist(pattern[])">
+			<attribute name="native"/>
+			<referrer name="OnFilterScriptInit"/>
+			<referrer name="insertDbRecord"/>
+			<referrer name="updateBestPlayersAndTimes"/>
+			<param name="pattern">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:float" syntax="float(value)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="operator*(Float:,_:)"/>
+			<referrer name="operator/(Float:,_:)"/>
+			<referrer name="operator/(_:,Float:)"/>
+			<referrer name="operator+(Float:,_:)"/>
+			<referrer name="operator-(Float:,_:)"/>
+			<referrer name="operator-(_:,Float:)"/>
+			<referrer name="operator==(Float:,_:)"/>
+			<referrer name="operator!=(Float:,_:)"/>
+			<referrer name="operator&gt;(Float:,_:)"/>
+			<referrer name="operator&gt;(_:,Float:)"/>
+			<referrer name="operator&gt;=(Float:,_:)"/>
+			<referrer name="operator&gt;=(_:,Float:)"/>
+			<referrer name="operator&lt;(Float:,_:)"/>
+			<referrer name="operator&lt;(_:,Float:)"/>
+			<referrer name="operator&lt;=(Float:,_:)"/>
+			<referrer name="operator&lt;=(_:,Float:)"/>
+			<param name="value">
+			</param>
+		</member>
+		<member name="M:floatadd" syntax="floatadd(oper1, oper2)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="operator+(Float:,_:)"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:floatcmp" syntax="floatcmp(oper1, oper2)">
+			<attribute name="native"/>
+			<referrer name="operator==(Float:,Float:)"/>
+			<referrer name="operator==(Float:,_:)"/>
+			<referrer name="operator!=(Float:,Float:)"/>
+			<referrer name="operator!=(Float:,_:)"/>
+			<referrer name="operator&gt;(Float:,Float:)"/>
+			<referrer name="operator&gt;(Float:,_:)"/>
+			<referrer name="operator&gt;(_:,Float:)"/>
+			<referrer name="operator&gt;=(Float:,Float:)"/>
+			<referrer name="operator&gt;=(Float:,_:)"/>
+			<referrer name="operator&gt;=(_:,Float:)"/>
+			<referrer name="operator&lt;(Float:,Float:)"/>
+			<referrer name="operator&lt;(Float:,_:)"/>
+			<referrer name="operator&lt;(_:,Float:)"/>
+			<referrer name="operator&lt;=(Float:,Float:)"/>
+			<referrer name="operator&lt;=(Float:,_:)"/>
+			<referrer name="operator&lt;=(_:,Float:)"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:floatdiv" syntax="floatdiv(dividend, divisor)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="operator/(Float:,_:)"/>
+			<referrer name="operator/(_:,Float:)"/>
+			<param name="dividend">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="divisor">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:floatmul" syntax="floatmul(oper1, oper2)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="operator*(Float:,_:)"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:floatround" syntax="floatround(value, method)">
+			<attribute name="native"/>
+			<referrer name="addSafePoint"/>
+			<param name="value">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="method">
+				<paraminfo>floatround_method </paraminfo>
+			</param>
+		</member>
+		<member name="M:floatsub" syntax="floatsub(oper1, oper2)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="operator-(Float:,_:)"/>
+			<referrer name="operator-(_:,Float:)"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:fopen" syntax="fopen(name[], mode)">
+			<tagname value="File"/>
+			<attribute name="native"/>
+			<referrer name="initDb"/>
+			<param name="name">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="mode">
+				<paraminfo>filemode </paraminfo>
+			</param>
+		</member>
+		<member name="M:format" syntax="format(output[], len, format[], ...)">
+			<attribute name="native"/>
+			<referrer name="OnFilterScriptInit"/>
+			<referrer name="promo"/>
+			<referrer name="insertDbRecord"/>
+			<referrer name="updateBestPlayersAndTimes"/>
+			<referrer name="OnFilterScriptExit"/>
+			<referrer name="OnPlayerDisconnect"/>
+			<referrer name="OnPlayerCommandText"/>
+			<referrer name="CheckGameEnd"/>
+			<referrer name="StartGame"/>
+			<referrer name="processGame"/>
+			<referrer name="updatePlayerTime"/>
+			<referrer name="HandleCheckpointEntry"/>
+			<referrer name="OnPlayerSpawn"/>
+			<referrer name="ordinal"/>
+			<referrer name="FormatTime"/>
+			<param name="output">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="len">
+			</param>
+			<param name="format">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="...">
+				<paraminfo> {Float,_} </paraminfo>
+			</param>
+		</member>
+		<member name="M:initDb" syntax="initDb()">
+			<stacksize value="7"/>
+			<referrer name="OnFilterScriptInit"/>
+			<referrer name="insertDbRecord"/>
+			<referrer name="updateBestPlayersAndTimes"/>
+			<dependency name="UseDatabase"/>
+			<dependency name="db_close"/>
+			<dependency name="db_name"/>
+			<dependency name="db_open"/>
+			<dependency name="db_query"/>
+			<dependency name="false"/>
+			<dependency name="fclose"/>
+			<dependency name="fopen"/>
+			<dependency name="gameTitle"/>
+			<dependency name="printf"/>
+		</member>
+		<member name="M:insertDbRecord" syntax="insertDbRecord(PlayerName[], playerTime)">
+			<stacksize value="138"/>
+			<referrer name="HandleCheckpointEntry"/>
+			<dependency name="UseDatabase"/>
+			<dependency name="db_close"/>
+			<dependency name="db_name"/>
+			<dependency name="db_open"/>
+			<dependency name="db_query"/>
+			<dependency name="db_table"/>
+			<dependency name="false"/>
+			<dependency name="fexist"/>
+			<dependency name="format"/>
+			<dependency name="gameTitle"/>
+			<dependency name="initDb"/>
+			<dependency name="printf"/>
+			<param name="PlayerName">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="playerTime">
+			</param>
+		</member>
+		<member name="M:ordinal" syntax="ordinal(iNumber)">
+			<stacksize value="26"/>
+			<referrer name="HandleCheckpointEntry"/>
+			<dependency name="format"/>
+			<dependency name="ordinal"/>
+			<param name="iNumber">
+			</param>
+		</member>
+		<member name="M:print" syntax="print(string[])">
+			<attribute name="native"/>
+			<referrer name="OnPlayerDisconnect"/>
+			<param name="string">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:printf" syntax="printf(format[], ...)">
+			<attribute name="native"/>
+			<referrer name="initDb"/>
+			<referrer name="insertDbRecord"/>
+			<referrer name="updateBestPlayersAndTimes"/>
+			<referrer name="DisplayTop3"/>
+			<param name="format">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="...">
+				<paraminfo> {Float,_} </paraminfo>
+			</param>
+		</member>
+		<member name="M:processGame" syntax="processGame(playerid)">
+			<attribute name="public"/>
+			<stacksize value="30"/>
+			<dependency name="Float:operator=(_:)"/>
+			<dependency name="CreatePlayerTextDraw"/>
+			<dependency name="GameTextForPlayer"/>
+			<dependency name="GetTickCount"/>
+			<dependency name="KillTimer"/>
+			<dependency name="PlayerPlaySound"/>
+			<dependency name="PlayerTextDrawBackgroundColor"/>
+			<dependency name="PlayerTextDrawColor"/>
+			<dependency name="PlayerTextDrawFont"/>
+			<dependency name="PlayerTextDrawLetterSize"/>
+			<dependency name="PlayerTextDrawSetOutline"/>
+			<dependency name="PlayerTextDrawSetProportional"/>
+			<dependency name="PlayerTextDrawSetShadow"/>
+			<dependency name="PlayerTextDrawShow"/>
+			<dependency name="SetCameraBehindPlayer"/>
+			<dependency name="SetTimerEx"/>
+			<dependency name="TextDrawHideForPlayer"/>
+			<dependency name="TextDrawSetString"/>
+			<dependency name="TextDrawShowForPlayer"/>
+			<dependency name="TogglePlayerControllable"/>
+			<dependency name="countdown"/>
+			<dependency name="format"/>
+			<dependency name="getReady"/>
+			<dependency name="instructions"/>
+			<dependency name="playerCheckpointRangeTimer"/>
+			<dependency name="playerCountdownSeconds"/>
+			<dependency name="playerCountdownTimer"/>
+			<dependency name="playerHeightCheckTimer"/>
+			<dependency name="playerSafePointTimer"/>
+			<dependency name="playerStartTimeTicks"/>
+			<dependency name="playerTimeUpdateTimer"/>
+			<dependency name="safePointCount"/>
+			<dependency name="startMusic"/>
+			<dependency name="title"/>
+			<dependency name="top3Times"/>
+			<dependency name="top3timesTitle"/>
+			<dependency name="yourTime"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:promo" syntax="promo()">
+			<attribute name="public"/>
+			<stacksize value="135"/>
+			<dependency name="SendClientMessageToAll"/>
+			<dependency name="cmdName"/>
+			<dependency name="format"/>
+			<dependency name="gameTitle"/>
+			<dependency name="top3CmdName"/>
+		</member>
+		<member name="M:startMusic" syntax="startMusic(playerid)">
+			<attribute name="public"/>
+			<stacksize value="9"/>
+			<referrer name="processGame"/>
+			<dependency name="PlayAudioStreamForPlayer"/>
+			<dependency name="musicUrl"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:strcmp" syntax="strcmp(string1[], string2[], ignorecase, length)">
+			<attribute name="native"/>
+			<referrer name="OnPlayerCommandText"/>
+			<param name="string1">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="string2">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="ignorecase">
+				<paraminfo>bool </paraminfo>
+			</param>
+			<param name="length">
+			</param>
+		</member>
+		<member name="M:strval" syntax="strval(string[])">
+			<attribute name="native"/>
+			<referrer name="updateBestPlayersAndTimes"/>
+			<param name="string">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:updateBestPlayersAndTimes" syntax="updateBestPlayersAndTimes()">
+			<stacksize value="273"/>
+			<referrer name="OnFilterScriptInit"/>
+			<referrer name="StartGame"/>
+			<referrer name="HandleCheckpointEntry"/>
+			<dependency name="FormatTime"/>
+			<dependency name="TextDrawSetString"/>
+			<dependency name="Top3Names"/>
+			<dependency name="Top3Names"/>
+			<dependency name="Top3Times"/>
+			<dependency name="UseDatabase"/>
+			<dependency name="db_close"/>
+			<dependency name="db_get_field_assoc"/>
+			<dependency name="db_name"/>
+			<dependency name="db_next_row"/>
+			<dependency name="db_num_rows"/>
+			<dependency name="db_open"/>
+			<dependency name="db_query"/>
+			<dependency name="db_table"/>
+			<dependency name="false"/>
+			<dependency name="fexist"/>
+			<dependency name="format"/>
+			<dependency name="initDb"/>
+			<dependency name="printf"/>
+			<dependency name="strval"/>
+			<dependency name="top3Times"/>
+		</member>
+		<member name="M:updatePlayerTime" syntax="updatePlayerTime(playerid)">
+			<attribute name="public"/>
+			<stacksize value="135"/>
+			<dependency name="FormatTime"/>
+			<dependency name="GetTickCount"/>
+			<dependency name="PlayerTextDrawSetString"/>
+			<dependency name="format"/>
+			<dependency name="playerStartTimeTicks"/>
+			<dependency name="yourTime"/>
+			<param name="playerid">
+			</param>
+		</member>
+
+	</members>
+</doc>

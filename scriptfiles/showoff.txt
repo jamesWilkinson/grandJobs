@@ -1,0 +1,26 @@
+// TextDraw developed using Zamaroht's Textdraw Editor 1.0
+
+// On top of script:
+new Text:featureShowOffTitle;
+new Text:featureShowOff;
+
+// In OnGameModeInit prefferably, we procced to create our textdraws:
+featureShowOffTitle = TextDrawCreate(30.000000, 301.000000, "WELCOME TO GRAND JOBS");
+TextDrawBackgroundColor(featureShowOffTitle, 255);
+TextDrawFont(featureShowOffTitle, 2);
+TextDrawLetterSize(featureShowOffTitle, 0.320000, 1.300000);
+TextDrawColor(featureShowOffTitle, 16711935);
+TextDrawSetOutline(featureShowOffTitle, 1);
+TextDrawSetProportional(featureShowOffTitle, 1);
+
+featureShowOff = TextDrawCreate(30.000000, 320.000000, "New Textdraw");
+TextDrawBackgroundColor(featureShowOff, 255);
+TextDrawFont(featureShowOff, 1);
+TextDrawLetterSize(featureShowOff, 0.310000, 1.100000);
+TextDrawColor(featureShowOff, -1);
+TextDrawSetOutline(featureShowOff, 0);
+TextDrawSetProportional(featureShowOff, 1);
+TextDrawSetShadow(featureShowOff, 1);
+
+// You can now use TextDrawShowForPlayer(-ForAll), TextDrawHideForPlayer(-ForAll) and
+// TextDrawDestroy functions to show, hide, and destroy the textdraw.

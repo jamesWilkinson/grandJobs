@@ -1,0 +1,1833 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet href="file:///C|/Program Files (x86)/PAWN Compiler/xml/pawndoc.xsl" type="text/xsl"?>
+<doc source="C:\Users\James\Desktop\SA-MP\source\filterscripts\ammunation\ammunation.pwn">
+	<assembly>
+		<name>ammunation.pwn</name>
+	</assembly>
+
+	<!-- general -->
+	<general>
+		SERVER SIDE AMMUN-NATION BY SA-MP BETA TESTER JAY_  SOME UTILITY FUNCTIONS FOR HOUSEKEEPING 
+	</general>
+
+	<members>
+
+		<!-- enumerations -->
+
+		<!-- constants -->
+		<member name="C:EOS" value="0">
+			<referrer name="strtok"/>
+		</member>
+		<member name="C:cellmax" value="2147483647">
+			<referrer name="operator!(Float:)"/>
+		</member>
+		<member name="C:cellmin" value="-2147483648">
+			<referrer name="operator-(Float:)"/>
+		</member>
+		<member name="C:false" value="0">
+			<tagname value="bool"/>
+			<referrer name="OnPlayerInteriorChange"/>
+			<referrer name="OnPlayerConnect"/>
+		</member>
+		<member name="C:true" value="1">
+			<tagname value="bool"/>
+			<referrer name="OnPlayerInteriorChange"/>
+			<referrer name="ammunationCheck"/>
+			<referrer name="OnPlayerCommandText"/>
+		</member>
+
+		<!-- variables -->
+		<member name="F:ArmorMenu">
+			<tagname value="Menu"/>
+			<referrer name="InitMenus"/>
+			<referrer name="OnPlayerSelectedMenuRow"/>
+		</member>
+		<member name="F:AssaultMenu">
+			<tagname value="Menu"/>
+			<referrer name="InitMenus"/>
+			<referrer name="OnPlayerSelectedMenuRow"/>
+			<referrer name="OnPlayerExitedMenu"/>
+		</member>
+		<member name="F:IsPlayerInAnyAmmunation">
+			<tagname value="bool"/>
+			<referrer name="OnPlayerInteriorChange"/>
+			<referrer name="ammunationCheck"/>
+			<referrer name="OnPlayerEnterCheckpoint"/>
+			<referrer name="CheckToShowAmmuCheckpoint"/>
+			<referrer name="OnPlayerConnect"/>
+			Server Side Ammu-Nation by SA-MP BETA Tester Jay_  Utils for loading store data and actors, and checking when  a player enters/exits a store 
+		</member>
+		<member name="F:MainMenu">
+			<tagname value="Menu"/>
+			<referrer name="InitMenus"/>
+			<referrer name="OnPlayerSelectedMenuRow"/>
+			<referrer name="OnPlayerExitedMenu"/>
+			<referrer name="OnPlayerEnterCheckpoint"/>
+			Server-side ammunation script by SA-MP BETA Tester Jay_ 
+		</member>
+		<member name="F:MicroSMGMenu">
+			<tagname value="Menu"/>
+			<referrer name="InitMenus"/>
+			<referrer name="OnPlayerSelectedMenuRow"/>
+		</member>
+		<member name="F:PistolMenu">
+			<tagname value="Menu"/>
+			<referrer name="InitMenus"/>
+			<referrer name="OnPlayerSelectedMenuRow"/>
+			<referrer name="OnPlayerExitedMenu"/>
+		</member>
+		<member name="F:SMGMenu">
+			<tagname value="Menu"/>
+			<referrer name="InitMenus"/>
+			<referrer name="OnPlayerSelectedMenuRow"/>
+		</member>
+		<member name="F:ShotgunMenu">
+			<tagname value="Menu"/>
+			<referrer name="InitMenus"/>
+			<referrer name="OnPlayerSelectedMenuRow"/>
+		</member>
+		<member name="F:ammunationActorIDs">
+			<referrer name="initActors"/>
+			<referrer name="removeActors"/>
+			<referrer name="SetPlayerAmmunationCamera"/>
+		</member>
+		<member name="F:ammunationInteriorInfo">
+			<tagname value="Float"/>
+			<referrer name="initActors"/>
+			<referrer name="OnPlayerInteriorChange"/>
+			<referrer name="ammunationCheck"/>
+			<referrer name="CheckToShowAmmuCheckpoint"/>
+		</member>
+		<member name="F:menuColumnWidth">
+			<tagname value="Float"/>
+			<referrer name="InitMenus"/>
+		</member>
+		<member name="F:menuHeader">
+			<referrer name="InitMenus"/>
+		</member>
+		<member name="F:menuX">
+			<tagname value="Float"/>
+			<referrer name="InitMenus"/>
+		</member>
+		<member name="F:menuY">
+			<tagname value="Float"/>
+			<referrer name="InitMenus"/>
+		</member>
+		<member name="F:playerAmmunationID">
+			<referrer name="OnPlayerInteriorChange"/>
+			<referrer name="ammunationCheck"/>
+			<referrer name="OnPlayerEnterCheckpoint"/>
+			<referrer name="CheckToShowAmmuCheckpoint"/>
+			<referrer name="OnPlayerConnect"/>
+		</member>
+		<member name="F:state1">
+			<referrer name="AnimateAmmunationActor"/>
+		</member>
+		<member name="F:version">
+			<referrer name="OnFilterScriptInit"/>
+			SERVER SIDE AMMUNATION BY SA-MP BETA TESTER Jay_  The purpose of this script is to allow servers to improve their anticheat by   controlling ammunation from their server side scripts and disabling all client side ammunation  functionality.  December 2014 
+		</member>
+
+		<!-- functions -->
+		<member name="M:operator!(Float:)" syntax="operator!(Float:)(oper)">
+			<tagname value="bool"/>
+			<stacksize value="1"/>
+			<dependency name="cellmax"/>
+			<param name="oper">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator%(_:,Float:)" syntax="operator%(_:,Float:)(oper1, oper2)">
+			<stacksize value="1"/>
+			<param name="oper1">
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator%(Float:,_:)" syntax="operator%(Float:,_:)(oper1, oper2)">
+			<stacksize value="1"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator%(Float:,Float:)" syntax="operator%(Float:,Float:)(oper1, oper2)">
+			<stacksize value="1"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator!=(Float:,_:)" syntax="operator!=(Float:,_:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator!=(Float:,Float:)" syntax="operator!=(Float:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator-(_:,Float:)" syntax="operator-(_:,Float:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatsub"/>
+			<param name="oper1">
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator-(Float:,_:)" syntax="operator-(Float:,_:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatsub"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator+(Float:,_:)" syntax="operator+(Float:,_:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatadd"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator/(_:,Float:)" syntax="operator/(_:,Float:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatdiv"/>
+			<param name="oper1">
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator/(Float:,_:)" syntax="operator/(Float:,_:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatdiv"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator*(Float:,_:)" syntax="operator*(Float:,_:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatmul"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator++(Float:)" syntax="operator++(Float:)(oper)">
+			<tagname value="Float"/>
+			<stacksize value="1"/>
+			<dependency name="operator+(Float:,Float:)"/>
+			<param name="oper">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator-(Float:)" syntax="operator-(Float:)(oper)">
+			<tagname value="Float"/>
+			<stacksize value="1"/>
+			<referrer name="GetXYInFrontOfActor"/>
+			<dependency name="cellmin"/>
+			<param name="oper">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator--(Float:)" syntax="operator--(Float:)(oper)">
+			<tagname value="Float"/>
+			<stacksize value="1"/>
+			<dependency name="operator-(Float:,Float:)"/>
+			<param name="oper">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator-(Float:,Float:)" syntax="operator-(Float:,Float:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="operator--(Float:)"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator+(Float:,Float:)" syntax="operator+(Float:,Float:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="operator++(Float:)"/>
+			<referrer name="GetXYInFrontOfActor"/>
+			<referrer name="SetPlayerAmmunationCamera"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator*(Float:,Float:)" syntax="operator*(Float:,Float:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="GetXYInFrontOfActor"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:Float:operator=(_:)" syntax="Float:operator=(_:)(oper)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="initActors"/>
+			<referrer name="SetPlayerAmmunationCamera"/>
+			<referrer name="ammunationCheck"/>
+			<param name="oper">
+			</param>
+		</member>
+		<member name="M:operator==(Float:,Float:)" syntax="operator==(Float:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator==(Float:,_:)" syntax="operator==(Float:,_:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<referrer name="OnPlayerInteriorChange"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator&gt;(Float:,Float:)" syntax="operator&gt;(Float:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator&gt;(Float:,_:)" syntax="operator&gt;(Float:,_:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator&gt;(_:,Float:)" syntax="operator&gt;(_:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator&gt;=(Float:,Float:)" syntax="operator&gt;=(Float:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator&gt;=(Float:,_:)" syntax="operator&gt;=(Float:,_:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator&gt;=(_:,Float:)" syntax="operator&gt;=(_:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator&lt;(Float:,Float:)" syntax="operator&lt;(Float:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator&lt;(Float:,_:)" syntax="operator&lt;(Float:,_:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator&lt;(_:,Float:)" syntax="operator&lt;(_:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator&lt;=(Float:,Float:)" syntax="operator&lt;=(Float:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator&lt;=(Float:,_:)" syntax="operator&lt;=(Float:,_:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator&lt;=(_:,Float:)" syntax="operator&lt;=(_:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:@receivepacket" syntax="@receivepacket(packet[], size, source[])">
+			<attribute name="public"/>
+			<stacksize value="1"/>
+			<param name="packet">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="size">
+			</param>
+			<param name="source">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:@receivestring" syntax="@receivestring(message[], source[])">
+			<attribute name="public"/>
+			<stacksize value="1"/>
+			<param name="message">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="source">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:ActorMoveTo" syntax="ActorMoveTo(actorid, movetype, X, Y, Z)">
+			<attribute name="native"/>
+			<referrer name="initActors"/>
+			<param name="actorid">
+			</param>
+			<param name="movetype">
+			</param>
+			<param name="X">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="Y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="Z">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:AddMenuItem" syntax="AddMenuItem(menuid, column, menutext[])">
+			<attribute name="native"/>
+			<referrer name="InitMenus"/>
+			<param name="menuid">
+				<paraminfo>Menu </paraminfo>
+			</param>
+			<param name="column">
+			</param>
+			<param name="menutext">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:AnimateAmmunationActor" syntax="AnimateAmmunationActor(actorid, weaponid)">
+			<attribute name="public"/>
+			<stacksize value="11"/>
+			<referrer name="OnPlayerCommandText"/>
+			<dependency name="ApplyActorAnimation"/>
+			<dependency name="SetTimerEx"/>
+			<dependency name="state1"/>
+			<param name="actorid">
+			</param>
+			<param name="weaponid">
+			</param>
+		</member>
+		<member name="M:ApplyActorAnimation" syntax="ApplyActorAnimation(actorid, animlib[], animname[], fDelta, loop, lockx, locky, freeze, time)">
+			<attribute name="native"/>
+			<referrer name="AnimateAmmunationActor"/>
+			<param name="actorid">
+			</param>
+			<param name="animlib">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="animname">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="fDelta">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="loop">
+			</param>
+			<param name="lockx">
+			</param>
+			<param name="locky">
+			</param>
+			<param name="freeze">
+			</param>
+			<param name="time">
+			</param>
+		</member>
+		<member name="M:CallLocalFunction" syntax="CallLocalFunction(function[], format[], ...)">
+			<attribute name="native"/>
+			<referrer name="ammunationCheck"/>
+			<referrer name="OnPlayerEnterCheckpoint"/>
+			<param name="function">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="format">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="...">
+				<paraminfo> {Float,_} </paraminfo>
+			</param>
+		</member>
+		<member name="M:CheckToShowAmmuCheckpoint" syntax="CheckToShowAmmuCheckpoint(playerid)">
+			<attribute name="public"/>
+			<stacksize value="8"/>
+			<referrer name="OnPlayerExitedMenu"/>
+			<dependency name="GetPlayerInterior"/>
+			<dependency name="IsPlayerConnected"/>
+			<dependency name="IsPlayerInAnyAmmunation"/>
+			<dependency name="IsPlayerInRangeOfPoint"/>
+			<dependency name="SetPlayerCheckpoint"/>
+			<dependency name="SetTimerEx"/>
+			<dependency name="ammunationInteriorInfo"/>
+			<dependency name="playerAmmunationID"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:Create3DTextLabel" syntax="Create3DTextLabel(text[], color, X, Y, Z, DrawDistance, virtualworld, testLOS)">
+			<tagname value="Text3D"/>
+			<attribute name="native"/>
+			<referrer name="initActors"/>
+			<param name="text">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="color">
+			</param>
+			<param name="X">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="Y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="Z">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="DrawDistance">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="virtualworld">
+			</param>
+			<param name="testLOS">
+			</param>
+		</member>
+		<member name="M:CreateActor" syntax="CreateActor(modelid, X, Y, Z, Rotation)">
+			<attribute name="native"/>
+			<referrer name="initActors"/>
+			<param name="modelid">
+			</param>
+			<param name="X">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="Y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="Z">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="Rotation">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:CreateMenu" syntax="CreateMenu(title[], columns, x, y, col1width, col2width)">
+			<tagname value="Menu"/>
+			<attribute name="native"/>
+			<referrer name="InitMenus"/>
+			<param name="title">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="columns">
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="col1width">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="col2width">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:DestroyActor" syntax="DestroyActor(actorid)">
+			<attribute name="native"/>
+			<referrer name="removeActors"/>
+			<param name="actorid">
+			</param>
+		</member>
+		<member name="M:DisablePlayerCheckpoint" syntax="DisablePlayerCheckpoint(playerid)">
+			<attribute name="native"/>
+			<referrer name="OnPlayerInteriorChange"/>
+			<referrer name="OnPlayerEnterCheckpoint"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:GetActorFacingAngle" syntax="GetActorFacingAngle(actorid, &amp;ang)">
+			<attribute name="native"/>
+			<referrer name="GetXYInFrontOfActor"/>
+			<param name="actorid">
+			</param>
+			<param name="ang">
+				<paraminfo>Float &amp; </paraminfo>
+			</param>
+		</member>
+		<member name="M:GetActorPos" syntax="GetActorPos(actorid, &amp;X, &amp;Y, &amp;Z)">
+			<attribute name="native"/>
+			<referrer name="GetXYInFrontOfActor"/>
+			<referrer name="SetPlayerAmmunationCamera"/>
+			<param name="actorid">
+			</param>
+			<param name="X">
+				<paraminfo>Float &amp; </paraminfo>
+			</param>
+			<param name="Y">
+				<paraminfo>Float &amp; </paraminfo>
+			</param>
+			<param name="Z">
+				<paraminfo>Float &amp; </paraminfo>
+			</param>
+		</member>
+		<member name="M:GetModelFromWeaponID" syntax="GetModelFromWeaponID(weaponid)">
+			<stacksize value="1"/>
+			<param name="weaponid">
+			</param>
+			Return the weapon object model id based on the weapon id 
+		</member>
+		<member name="M:GetPlayerFacingAngle" syntax="GetPlayerFacingAngle(playerid, &amp;ang)">
+			<attribute name="native"/>
+			<referrer name="OnPlayerCommandText"/>
+			<param name="playerid">
+			</param>
+			<param name="ang">
+				<paraminfo>Float &amp; </paraminfo>
+			</param>
+		</member>
+		<member name="M:GetPlayerInterior" syntax="GetPlayerInterior(playerid)">
+			<attribute name="native"/>
+			<referrer name="CheckToShowAmmuCheckpoint"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:GetPlayerMenu" syntax="GetPlayerMenu(playerid)">
+			<tagname value="Menu"/>
+			<attribute name="native"/>
+			<referrer name="OnPlayerSelectedMenuRow"/>
+			<referrer name="OnPlayerExitedMenu"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:GetPlayerName" syntax="GetPlayerName(playerid, name[], len)">
+			<attribute name="native"/>
+			<referrer name="ReturnPlayerName"/>
+			<param name="playerid">
+			</param>
+			<param name="name">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="len">
+			</param>
+		</member>
+		<member name="M:GetPlayerPos" syntax="GetPlayerPos(playerid, &amp;x, &amp;y, &amp;z)">
+			<attribute name="native"/>
+			<referrer name="OnPlayerCommandText"/>
+			<param name="playerid">
+			</param>
+			<param name="x">
+				<paraminfo>Float &amp; </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float &amp; </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float &amp; </paraminfo>
+			</param>
+		</member>
+		<member name="M:GetXYInFrontOfActor" syntax="GetXYInFrontOfActor(actorid, &amp;x, &amp;y, distance)">
+			<stacksize value="7"/>
+			<referrer name="SetPlayerAmmunationCamera"/>
+			<dependency name="operator-(Float:)"/>
+			<dependency name="operator+(Float:,Float:)"/>
+			<dependency name="operator*(Float:,Float:)"/>
+			<dependency name="GetActorFacingAngle"/>
+			<dependency name="GetActorPos"/>
+			<dependency name="degrees"/>
+			<dependency name="floatcos"/>
+			<dependency name="floatsin"/>
+			<param name="actorid">
+			</param>
+			<param name="x">
+				<paraminfo>Float &amp; </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float &amp; </paraminfo>
+			</param>
+			<param name="distance">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:InitMenus" syntax="InitMenus()">
+			<stacksize value="8"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="AddMenuItem"/>
+			<dependency name="ArmorMenu"/>
+			<dependency name="AssaultMenu"/>
+			<dependency name="CreateMenu"/>
+			<dependency name="MainMenu"/>
+			<dependency name="MicroSMGMenu"/>
+			<dependency name="PistolMenu"/>
+			<dependency name="SMGMenu"/>
+			<dependency name="ShotgunMenu"/>
+			<dependency name="menuColumnWidth"/>
+			<dependency name="menuHeader"/>
+			<dependency name="menuX"/>
+			<dependency name="menuY"/>
+		</member>
+		<member name="M:IsPlayerConnected" syntax="IsPlayerConnected(playerid)">
+			<attribute name="native"/>
+			<referrer name="CheckToShowAmmuCheckpoint"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:IsPlayerInRangeOfPoint" syntax="IsPlayerInRangeOfPoint(playerid, range, x, y, z)">
+			<attribute name="native"/>
+			<referrer name="ammunationCheck"/>
+			<referrer name="CheckToShowAmmuCheckpoint"/>
+			<param name="playerid">
+			</param>
+			<param name="range">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnActorStreamIn" syntax="OnActorStreamIn(actorid, forplayerid)">
+			<stacksize value="1"/>
+			<param name="actorid">
+			</param>
+			<param name="forplayerid">
+			</param>
+		</member>
+		<member name="M:OnActorStreamOut" syntax="OnActorStreamOut(actorid, forplayerid)">
+			<stacksize value="1"/>
+			<param name="actorid">
+			</param>
+			<param name="forplayerid">
+			</param>
+		</member>
+		<member name="M:OnDialogResponse" syntax="OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="dialogid">
+			</param>
+			<param name="response">
+			</param>
+			<param name="listitem">
+			</param>
+			<param name="inputtext">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnEnterExitModShop" syntax="OnEnterExitModShop(playerid, enterexit, interiorid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="enterexit">
+			</param>
+			<param name="interiorid">
+			</param>
+		</member>
+		<member name="M:OnFilterScriptExit" syntax="OnFilterScriptExit()">
+			<attribute name="public"/>
+			<stacksize value="3"/>
+			<dependency name="removeActors"/>
+		</member>
+		<member name="M:OnFilterScriptInit" syntax="OnFilterScriptInit()">
+			<attribute name="public"/>
+			<stacksize value="4"/>
+			<dependency name="InitMenus"/>
+			<dependency name="initActors"/>
+			<dependency name="printf"/>
+			<dependency name="version"/>
+		</member>
+		<member name="M:OnGameModeExit" syntax="OnGameModeExit()">
+			<stacksize value="1"/>
+		</member>
+		<member name="M:OnGameModeInit" syntax="OnGameModeInit()">
+			<stacksize value="1"/>
+		</member>
+		<member name="M:OnIncomingConnection" syntax="OnIncomingConnection(playerid, ip_address[], port)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="ip_address">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="port">
+			</param>
+		</member>
+		<member name="M:OnObjectMoved" syntax="OnObjectMoved(objectid)">
+			<stacksize value="1"/>
+			<param name="objectid">
+			</param>
+		</member>
+		<member name="M:OnPlayerClickMap" syntax="OnPlayerClickMap(playerid, fX, fY, fZ)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="fX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerClickPlayer" syntax="OnPlayerClickPlayer(playerid, clickedplayerid, source)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="clickedplayerid">
+			</param>
+			<param name="source">
+			</param>
+		</member>
+		<member name="M:OnPlayerClickPlayerTextDraw" syntax="OnPlayerClickPlayerTextDraw(playerid, playertextid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="playertextid">
+				<paraminfo>PlayerText </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerClickTextDraw" syntax="OnPlayerClickTextDraw(playerid, clickedid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="clickedid">
+				<paraminfo>Text </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerCommandText" syntax="OnPlayerCommandText(playerid, cmdtext[])">
+			<attribute name="public"/>
+			<stacksize value="972"/>
+			<dependency name="AnimateAmmunationActor"/>
+			<dependency name="GetPlayerFacingAngle"/>
+			<dependency name="GetPlayerPos"/>
+			<dependency name="SendClientMessage"/>
+			<dependency name="SetPlayerPos"/>
+			<dependency name="fclose"/>
+			<dependency name="fopen"/>
+			<dependency name="format"/>
+			<dependency name="fwrite"/>
+			<dependency name="io_append"/>
+			<dependency name="strcmp"/>
+			<dependency name="strtok"/>
+			<dependency name="true"/>
+			<param name="playerid">
+			</param>
+			<param name="cmdtext">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerConnect" syntax="OnPlayerConnect(playerid)">
+			<attribute name="public"/>
+			<stacksize value="1"/>
+			<dependency name="IsPlayerInAnyAmmunation"/>
+			<dependency name="false"/>
+			<dependency name="playerAmmunationID"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerDeath" syntax="OnPlayerDeath(playerid, killerid, reason)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="killerid">
+			</param>
+			<param name="reason">
+			</param>
+		</member>
+		<member name="M:OnPlayerDisconnect" syntax="OnPlayerDisconnect(playerid, reason)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="reason">
+			</param>
+		</member>
+		<member name="M:OnPlayerEditAttachedObject" syntax="OnPlayerEditAttachedObject(playerid, response, index, modelid, boneid, fOffsetX, fOffsetY, fOffsetZ, fRotX, fRotY, fRotZ, fScaleX, fScaleY, fScaleZ)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="response">
+			</param>
+			<param name="index">
+			</param>
+			<param name="modelid">
+			</param>
+			<param name="boneid">
+			</param>
+			<param name="fOffsetX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fOffsetY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fOffsetZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fRotX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fRotY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fRotZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fScaleX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fScaleY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fScaleZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerEditObject" syntax="OnPlayerEditObject(playerid, playerobject, objectid, response, fX, fY, fZ, fRotX, fRotY, fRotZ)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="playerobject">
+			</param>
+			<param name="objectid">
+			</param>
+			<param name="response">
+			</param>
+			<param name="fX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fRotX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fRotY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fRotZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerEnterAmmuCP" syntax="OnPlayerEnterAmmuCP(playerid, ammuid)">
+			<attribute name="public"/>
+			<stacksize value="5"/>
+			<dependency name="SetPlayerAmmunationCamera"/>
+			<dependency name="printf"/>
+			<param name="playerid">
+			</param>
+			<param name="ammuid">
+			</param>
+		</member>
+		<member name="M:OnPlayerEnterAmmunation" syntax="OnPlayerEnterAmmunation(playerid, ammunationid)">
+			<attribute name="public"/>
+			<stacksize value="5"/>
+			<dependency name="printf"/>
+			<param name="playerid">
+			</param>
+			<param name="ammunationid">
+			</param>
+		</member>
+		<member name="M:OnPlayerEnterCheckpoint" syntax="OnPlayerEnterCheckpoint(playerid)">
+			<attribute name="public"/>
+			<stacksize value="6"/>
+			<dependency name="CallLocalFunction"/>
+			<dependency name="DisablePlayerCheckpoint"/>
+			<dependency name="IsPlayerInAnyAmmunation"/>
+			<dependency name="MainMenu"/>
+			<dependency name="ShowMenuForPlayer"/>
+			<dependency name="TogglePlayerControllable"/>
+			<dependency name="playerAmmunationID"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerEnterRaceCheckpoint" syntax="OnPlayerEnterRaceCheckpoint(playerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerEnterVehicle" syntax="OnPlayerEnterVehicle(playerid, vehicleid, ispassenger)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="vehicleid">
+			</param>
+			<param name="ispassenger">
+			</param>
+		</member>
+		<member name="M:OnPlayerExitVehicle" syntax="OnPlayerExitVehicle(playerid, vehicleid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="vehicleid">
+			</param>
+		</member>
+		<member name="M:OnPlayerExitedMenu" syntax="OnPlayerExitedMenu(playerid)">
+			<attribute name="public"/>
+			<stacksize value="4"/>
+			<dependency name="AssaultMenu"/>
+			<dependency name="CheckToShowAmmuCheckpoint"/>
+			<dependency name="GetPlayerMenu"/>
+			<dependency name="MainMenu"/>
+			<dependency name="PistolMenu"/>
+			<dependency name="SetCameraBehindPlayer"/>
+			<dependency name="ShowMenuForPlayer"/>
+			<dependency name="TogglePlayerControllable"/>
+			<dependency name="printf"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerGiveDamage" syntax="OnPlayerGiveDamage(playerid, damagedid, amount, weaponid, bodypart)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="damagedid">
+			</param>
+			<param name="amount">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="weaponid">
+			</param>
+			<param name="bodypart">
+			</param>
+		</member>
+		<member name="M:OnPlayerInteriorChange" syntax="OnPlayerInteriorChange(playerid, newinteriorid, oldinteriorid)">
+			<attribute name="public"/>
+			<stacksize value="8"/>
+			<dependency name="operator==(Float:,_:)"/>
+			<dependency name="DisablePlayerCheckpoint"/>
+			<dependency name="IsPlayerInAnyAmmunation"/>
+			<dependency name="OnPlayerLeaveAmmunation"/>
+			<dependency name="SetTimerEx"/>
+			<dependency name="ammunationInteriorInfo"/>
+			<dependency name="false"/>
+			<dependency name="playerAmmunationID"/>
+			<dependency name="true"/>
+			<param name="playerid">
+			</param>
+			<param name="newinteriorid">
+			</param>
+			<param name="oldinteriorid">
+			</param>
+			Wrapper for detecting when a player enters ammu-nation *
+		</member>
+		<member name="M:OnPlayerKeyStateChange" syntax="OnPlayerKeyStateChange(playerid, newkeys, oldkeys)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="newkeys">
+			</param>
+			<param name="oldkeys">
+			</param>
+		</member>
+		<member name="M:OnPlayerLeaveAmmunation" syntax="OnPlayerLeaveAmmunation(playerid)">
+			<attribute name="public"/>
+			<stacksize value="4"/>
+			<referrer name="OnPlayerInteriorChange"/>
+			<dependency name="printf"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerLeaveCheckpoint" syntax="OnPlayerLeaveCheckpoint(playerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerLeaveRaceCheckpoint" syntax="OnPlayerLeaveRaceCheckpoint(playerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerObjectMoved" syntax="OnPlayerObjectMoved(playerid, objectid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="objectid">
+			</param>
+		</member>
+		<member name="M:OnPlayerPickUpPickup" syntax="OnPlayerPickUpPickup(playerid, pickupid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="pickupid">
+			</param>
+		</member>
+		<member name="M:OnPlayerRequestClass" syntax="OnPlayerRequestClass(playerid, classid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="classid">
+			</param>
+		</member>
+		<member name="M:OnPlayerRequestSpawn" syntax="OnPlayerRequestSpawn(playerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerSelectObject" syntax="OnPlayerSelectObject(playerid, type, objectid, modelid, fX, fY, fZ)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="type">
+			</param>
+			<param name="objectid">
+			</param>
+			<param name="modelid">
+			</param>
+			<param name="fX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerSelectedMenuRow" syntax="OnPlayerSelectedMenuRow(playerid, row)">
+			<attribute name="public"/>
+			<stacksize value="4"/>
+			<dependency name="ArmorMenu"/>
+			<dependency name="AssaultMenu"/>
+			<dependency name="GetPlayerMenu"/>
+			<dependency name="MainMenu"/>
+			<dependency name="MicroSMGMenu"/>
+			<dependency name="PistolMenu"/>
+			<dependency name="SMGMenu"/>
+			<dependency name="ShotgunMenu"/>
+			<dependency name="ShowMenuForPlayer"/>
+			<param name="playerid">
+			</param>
+			<param name="row">
+			</param>
+		</member>
+		<member name="M:OnPlayerSpawn" syntax="OnPlayerSpawn(playerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerStateChange" syntax="OnPlayerStateChange(playerid, newstate, oldstate)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="newstate">
+			</param>
+			<param name="oldstate">
+			</param>
+		</member>
+		<member name="M:OnPlayerStreamIn" syntax="OnPlayerStreamIn(playerid, forplayerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="forplayerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerStreamOut" syntax="OnPlayerStreamOut(playerid, forplayerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="forplayerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerTakeDamage" syntax="OnPlayerTakeDamage(playerid, issuerid, amount, weaponid, bodypart)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="issuerid">
+			</param>
+			<param name="amount">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="weaponid">
+			</param>
+			<param name="bodypart">
+			</param>
+		</member>
+		<member name="M:OnPlayerText" syntax="OnPlayerText(playerid, text[])">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="text">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerUpdate" syntax="OnPlayerUpdate(playerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerWeaponShot" syntax="OnPlayerWeaponShot(playerid, weaponid, hittype, hitid, fX, fY, fZ)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="weaponid">
+			</param>
+			<param name="hittype">
+			</param>
+			<param name="hitid">
+			</param>
+			<param name="fX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnRconCommand" syntax="OnRconCommand(cmd[])">
+			<stacksize value="1"/>
+			<param name="cmd">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnRconLoginAttempt" syntax="OnRconLoginAttempt(ip[], password[], success)">
+			<stacksize value="1"/>
+			<param name="ip">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="password">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="success">
+			</param>
+		</member>
+		<member name="M:OnTrailerUpdate" syntax="OnTrailerUpdate(playerid, vehicleid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="vehicleid">
+			</param>
+		</member>
+		<member name="M:OnUnoccupiedVehicleUpdate" syntax="OnUnoccupiedVehicleUpdate(vehicleid, playerid, passenger_seat, new_x, new_y, new_z, vel_x, vel_y, vel_z)">
+			<stacksize value="1"/>
+			<param name="vehicleid">
+			</param>
+			<param name="playerid">
+			</param>
+			<param name="passenger_seat">
+			</param>
+			<param name="new_x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="new_y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="new_z">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="vel_x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="vel_y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="vel_z">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnVehicleDamageStatusUpdate" syntax="OnVehicleDamageStatusUpdate(vehicleid, playerid)">
+			<stacksize value="1"/>
+			<param name="vehicleid">
+			</param>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnVehicleDeath" syntax="OnVehicleDeath(vehicleid, killerid)">
+			<stacksize value="1"/>
+			<param name="vehicleid">
+			</param>
+			<param name="killerid">
+			</param>
+		</member>
+		<member name="M:OnVehicleMod" syntax="OnVehicleMod(playerid, vehicleid, componentid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="vehicleid">
+			</param>
+			<param name="componentid">
+			</param>
+		</member>
+		<member name="M:OnVehiclePaintjob" syntax="OnVehiclePaintjob(playerid, vehicleid, paintjobid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="vehicleid">
+			</param>
+			<param name="paintjobid">
+			</param>
+		</member>
+		<member name="M:OnVehicleRespray" syntax="OnVehicleRespray(playerid, vehicleid, color1, color2)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="vehicleid">
+			</param>
+			<param name="color1">
+			</param>
+			<param name="color2">
+			</param>
+		</member>
+		<member name="M:OnVehicleSirenStateChange" syntax="OnVehicleSirenStateChange(playerid, vehicleid, newstate)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="vehicleid">
+			</param>
+			<param name="newstate">
+			</param>
+		</member>
+		<member name="M:OnVehicleSpawn" syntax="OnVehicleSpawn(vehicleid)">
+			<stacksize value="1"/>
+			<param name="vehicleid">
+			</param>
+		</member>
+		<member name="M:OnVehicleStreamIn" syntax="OnVehicleStreamIn(vehicleid, forplayerid)">
+			<stacksize value="1"/>
+			<param name="vehicleid">
+			</param>
+			<param name="forplayerid">
+			</param>
+		</member>
+		<member name="M:OnVehicleStreamOut" syntax="OnVehicleStreamOut(vehicleid, forplayerid)">
+			<stacksize value="1"/>
+			<param name="vehicleid">
+			</param>
+			<param name="forplayerid">
+			</param>
+		</member>
+		<member name="M:ReturnPlayerName" syntax="ReturnPlayerName(playerid)">
+			<stacksize value="29"/>
+			<dependency name="GetPlayerName"/>
+			<dependency name="ReturnPlayerName"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:SendClientMessage" syntax="SendClientMessage(playerid, color, message[])">
+			<attribute name="native"/>
+			<referrer name="OnPlayerCommandText"/>
+			<param name="playerid">
+			</param>
+			<param name="color">
+			</param>
+			<param name="message">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:SetCameraBehindPlayer" syntax="SetCameraBehindPlayer(playerid)">
+			<attribute name="native"/>
+			<referrer name="OnPlayerExitedMenu"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:SetPlayerAmmunationCamera" syntax="SetPlayerAmmunationCamera(playerid, ammunationId)">
+			<stacksize value="13"/>
+			<referrer name="OnPlayerEnterAmmuCP"/>
+			<dependency name="operator+(Float:,Float:)"/>
+			<dependency name="Float:operator=(_:)"/>
+			<dependency name="GetActorPos"/>
+			<dependency name="GetXYInFrontOfActor"/>
+			<dependency name="SetPlayerCameraLookAt"/>
+			<dependency name="SetPlayerCameraPos"/>
+			<dependency name="ammunationActorIDs"/>
+			<param name="playerid">
+			</param>
+			<param name="ammunationId">
+			</param>
+		</member>
+		<member name="M:SetPlayerCameraLookAt" syntax="SetPlayerCameraLookAt(playerid, x, y, z, cut)">
+			<attribute name="native"/>
+			<referrer name="SetPlayerAmmunationCamera"/>
+			<param name="playerid">
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="cut">
+			</param>
+		</member>
+		<member name="M:SetPlayerCameraPos" syntax="SetPlayerCameraPos(playerid, x, y, z)">
+			<attribute name="native"/>
+			<referrer name="SetPlayerAmmunationCamera"/>
+			<param name="playerid">
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:SetPlayerCheckpoint" syntax="SetPlayerCheckpoint(playerid, x, y, z, size)">
+			<attribute name="native"/>
+			<referrer name="ammunationCheck"/>
+			<referrer name="CheckToShowAmmuCheckpoint"/>
+			<param name="playerid">
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="size">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:SetPlayerPos" syntax="SetPlayerPos(playerid, x, y, z)">
+			<attribute name="native"/>
+			<referrer name="OnPlayerCommandText"/>
+			<param name="playerid">
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:SetPlayerShopName" syntax="SetPlayerShopName(playerid, shopname[])">
+			<attribute name="native"/>
+			<referrer name="ammunationCheck"/>
+			<param name="playerid">
+			</param>
+			<param name="shopname">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:SetTimerEx" syntax="SetTimerEx(funcname[], interval, repeating, format[], ...)">
+			<attribute name="native"/>
+			<referrer name="OnPlayerInteriorChange"/>
+			<referrer name="CheckToShowAmmuCheckpoint"/>
+			<referrer name="AnimateAmmunationActor"/>
+			<param name="funcname">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="interval">
+			</param>
+			<param name="repeating">
+			</param>
+			<param name="format">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="...">
+				<paraminfo> {Float,_} </paraminfo>
+			</param>
+		</member>
+		<member name="M:ShowMenuForPlayer" syntax="ShowMenuForPlayer(menuid, playerid)">
+			<attribute name="native"/>
+			<referrer name="OnPlayerSelectedMenuRow"/>
+			<referrer name="OnPlayerExitedMenu"/>
+			<referrer name="OnPlayerEnterCheckpoint"/>
+			<param name="menuid">
+				<paraminfo>Menu </paraminfo>
+			</param>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:TogglePlayerControllable" syntax="TogglePlayerControllable(playerid, toggle)">
+			<attribute name="native"/>
+			<referrer name="OnPlayerExitedMenu"/>
+			<referrer name="OnPlayerEnterCheckpoint"/>
+			<param name="playerid">
+			</param>
+			<param name="toggle">
+			</param>
+		</member>
+		<member name="M:ammunationCheck" syntax="ammunationCheck(playerid)">
+			<attribute name="public"/>
+			<stacksize value="8"/>
+			<dependency name="Float:operator=(_:)"/>
+			<dependency name="CallLocalFunction"/>
+			<dependency name="IsPlayerInAnyAmmunation"/>
+			<dependency name="IsPlayerInRangeOfPoint"/>
+			<dependency name="SetPlayerCheckpoint"/>
+			<dependency name="SetPlayerShopName"/>
+			<dependency name="ammunationInteriorInfo"/>
+			<dependency name="playerAmmunationID"/>
+			<dependency name="true"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:fclose" syntax="fclose(handle)">
+			<tagname value="bool"/>
+			<attribute name="native"/>
+			<referrer name="OnPlayerCommandText"/>
+			<param name="handle">
+				<paraminfo>File </paraminfo>
+			</param>
+		</member>
+		<member name="M:float" syntax="float(value)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="operator*(Float:,_:)"/>
+			<referrer name="operator/(Float:,_:)"/>
+			<referrer name="operator/(_:,Float:)"/>
+			<referrer name="operator+(Float:,_:)"/>
+			<referrer name="operator-(Float:,_:)"/>
+			<referrer name="operator-(_:,Float:)"/>
+			<referrer name="operator==(Float:,_:)"/>
+			<referrer name="operator!=(Float:,_:)"/>
+			<referrer name="operator&gt;(Float:,_:)"/>
+			<referrer name="operator&gt;(_:,Float:)"/>
+			<referrer name="operator&gt;=(Float:,_:)"/>
+			<referrer name="operator&gt;=(_:,Float:)"/>
+			<referrer name="operator&lt;(Float:,_:)"/>
+			<referrer name="operator&lt;(_:,Float:)"/>
+			<referrer name="operator&lt;=(Float:,_:)"/>
+			<referrer name="operator&lt;=(_:,Float:)"/>
+			<param name="value">
+			</param>
+		</member>
+		<member name="M:floatadd" syntax="floatadd(oper1, oper2)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="operator+(Float:,_:)"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:floatcmp" syntax="floatcmp(oper1, oper2)">
+			<attribute name="native"/>
+			<referrer name="operator==(Float:,Float:)"/>
+			<referrer name="operator==(Float:,_:)"/>
+			<referrer name="operator!=(Float:,Float:)"/>
+			<referrer name="operator!=(Float:,_:)"/>
+			<referrer name="operator&gt;(Float:,Float:)"/>
+			<referrer name="operator&gt;(Float:,_:)"/>
+			<referrer name="operator&gt;(_:,Float:)"/>
+			<referrer name="operator&gt;=(Float:,Float:)"/>
+			<referrer name="operator&gt;=(Float:,_:)"/>
+			<referrer name="operator&gt;=(_:,Float:)"/>
+			<referrer name="operator&lt;(Float:,Float:)"/>
+			<referrer name="operator&lt;(Float:,_:)"/>
+			<referrer name="operator&lt;(_:,Float:)"/>
+			<referrer name="operator&lt;=(Float:,Float:)"/>
+			<referrer name="operator&lt;=(Float:,_:)"/>
+			<referrer name="operator&lt;=(_:,Float:)"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:floatcos" syntax="floatcos(value, mode)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="GetXYInFrontOfActor"/>
+			<param name="value">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="mode">
+				<paraminfo>anglemode </paraminfo>
+			</param>
+		</member>
+		<member name="M:floatdiv" syntax="floatdiv(dividend, divisor)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="operator/(Float:,_:)"/>
+			<referrer name="operator/(_:,Float:)"/>
+			<param name="dividend">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="divisor">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:floatmul" syntax="floatmul(oper1, oper2)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="operator*(Float:,_:)"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:floatsin" syntax="floatsin(value, mode)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="GetXYInFrontOfActor"/>
+			<param name="value">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="mode">
+				<paraminfo>anglemode </paraminfo>
+			</param>
+		</member>
+		<member name="M:floatsub" syntax="floatsub(oper1, oper2)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="operator-(Float:,_:)"/>
+			<referrer name="operator-(_:,Float:)"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:fopen" syntax="fopen(name[], mode)">
+			<tagname value="File"/>
+			<attribute name="native"/>
+			<referrer name="OnPlayerCommandText"/>
+			<param name="name">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="mode">
+				<paraminfo>filemode </paraminfo>
+			</param>
+		</member>
+		<member name="M:format" syntax="format(output[], len, format[], ...)">
+			<attribute name="native"/>
+			<referrer name="initActors"/>
+			<referrer name="OnPlayerCommandText"/>
+			<param name="output">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="len">
+			</param>
+			<param name="format">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="...">
+				<paraminfo> {Float,_} </paraminfo>
+			</param>
+		</member>
+		<member name="M:fwrite" syntax="fwrite(handle, string[])">
+			<attribute name="native"/>
+			<referrer name="OnPlayerCommandText"/>
+			<param name="handle">
+				<paraminfo>File </paraminfo>
+			</param>
+			<param name="string">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:initActors" syntax="initActors()">
+			<stacksize value="143"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="Float:operator=(_:)"/>
+			<dependency name="ActorMoveTo"/>
+			<dependency name="Create3DTextLabel"/>
+			<dependency name="CreateActor"/>
+			<dependency name="ammunationActorIDs"/>
+			<dependency name="ammunationInteriorInfo"/>
+			<dependency name="format"/>
+			<dependency name="printf"/>
+		</member>
+		<member name="M:printf" syntax="printf(format[], ...)">
+			<attribute name="native"/>
+			<referrer name="OnPlayerExitedMenu"/>
+			<referrer name="initActors"/>
+			<referrer name="OnFilterScriptInit"/>
+			<referrer name="OnPlayerEnterAmmunation"/>
+			<referrer name="OnPlayerLeaveAmmunation"/>
+			<referrer name="OnPlayerEnterAmmuCP"/>
+			<param name="format">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="...">
+				<paraminfo> {Float,_} </paraminfo>
+			</param>
+		</member>
+		<member name="M:removeActors" syntax="removeActors()">
+			<stacksize value="4"/>
+			<referrer name="OnFilterScriptExit"/>
+			<dependency name="DestroyActor"/>
+			<dependency name="ammunationActorIDs"/>
+		</member>
+		<member name="M:strcmp" syntax="strcmp(string1[], string2[], ignorecase, length)">
+			<attribute name="native"/>
+			<referrer name="OnPlayerCommandText"/>
+			<param name="string1">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="string2">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="ignorecase">
+				<paraminfo>bool </paraminfo>
+			</param>
+			<param name="length">
+			</param>
+		</member>
+		<member name="M:strlen" syntax="strlen(string[])">
+			<attribute name="native"/>
+			<referrer name="strtok"/>
+			<param name="string">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:strtok" syntax="strtok(string[], &amp;index, seperator)">
+			<stacksize value="258"/>
+			<referrer name="OnPlayerCommandText"/>
+			<dependency name="EOS"/>
+			<dependency name="strlen"/>
+			<dependency name="strtok"/>
+			<param name="string">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="index">
+				<paraminfo> &amp; </paraminfo>
+			</param>
+			<param name="seperator">
+			</param>
+		</member>
+
+	</members>
+</doc>

@@ -1,0 +1,370 @@
+[7/7/2015] [22:47:19] [20]: OnGameModeInit
+[7/7/2015] [22:47:19] [20]: Loading games from file: gameList.csv
+[7/7/2015] [22:47:19] [20]: Read string: Jay's DM,jaydm,1
+
+[7/7/2015] [22:47:19] [20]: Added game 0 to cache. GameName: Jay's DM, FileName: jaydm, Type: 1
+[7/7/2015] [22:47:19] [20]: Read string: 
+
+[7/7/2015] [22:47:20] [18313600]: Callback: OnGameModeExit
+[7/7/2015] [22:47:21] [20]: gameUnloader init: No game currently loaded.
+[7/7/2015] [22:48:26] [20]: OnGameModeInit
+[7/7/2015] [22:48:26] [20]: Loading games from file: gameList.csv
+[7/7/2015] [22:48:26] [20]: Read string: Jay's DM,jaydm,1
+
+[7/7/2015] [22:48:26] [20]: Added game 0 to cache. GameName: Jay's DM, FileName: jaydm, Type: 1
+[7/7/2015] [22:48:26] [20]: Read string: 
+
+[7/7/2015] [22:49:1] [10]: Callback: OnPlayerConnect(0)
+[7/7/2015] [22:49:1] [10]: Callback: OnPlayerRequestClass(0, 0)
+[7/7/2015] [22:49:1] [10]: Callback: OnPlayerStateChange(0, 9, 0
+[7/7/2015] [22:49:3] [20]: Screen fade: show textdraw
+[7/7/2015] [22:49:7] [10]: Callback: OnPlayerStateChange(0, 8, 9
+[7/7/2015] [22:49:7] [10]: Callback: OnPlayerSpawn(0)
+[7/7/2015] [22:49:7] [10]: Callback: OnPlayerStateChange(0, 1, 8
+[7/7/2015] [22:51:44] [10]: Callback: OnDialogResponse(0, 0, 1, -1, omghax
+[7/7/2015] [22:51:50] [20]: Choosing a game: parameter: -1
+[7/7/2015] [22:51:50] [20]: GetGameFileName(0): jaydm
+[7/7/2015] [22:51:50] [20]: GameInit called from a filterscript. timeouttimer: 870
+[7/7/2015] [22:51:50] [20]: GetGameName(0): Jay's DM
+[7/7/2015] [22:51:50] [20]: GetGameName(0): Jay's DM
+[7/7/2015] [22:51:50] [0]: Loading Game: Jay's DM (ID:0)
+[7/7/2015] [22:51:55] [10]: Callback: OnPlayerKeyStateChange(0, 1024, 0)
+[7/7/2015] [22:51:56] [20]: ExitGameChangerScreen
+[7/7/2015] [22:51:57] [20]: screen fade: hide textdraw
+[7/7/2015] [22:52:9] [10]: Callback: OnPlayerStateChange(0, 8, 1
+[7/7/2015] [22:52:9] [10]: Callback: OnPlayerSpawn(0)
+[7/7/2015] [22:52:9] [10]: Callback: OnPlayerKeyStateChange(0, 0, 1024)
+[7/7/2015] [22:52:9] [10]: Callback: OnPlayerStateChange(0, 1, 8
+[7/7/2015] [22:52:13] [10]: Callback: OnPlayerStateChange(0, 7, 1
+[7/7/2015] [22:52:13] [10]: Callback: OnPlayerDeath(0, 65535, 255)
+[7/7/2015] [22:52:16] [10]: Callback: OnPlayerStateChange(0, 8, 7
+[7/7/2015] [22:52:16] [10]: Callback: OnPlayerSpawn(0)
+[7/7/2015] [22:52:16] [10]: Callback: OnPlayerStateChange(0, 1, 8
+[7/7/2015] [22:52:17] [10]: Callback: OnPlayerKeyStateChange(0, 1024, 0)
+[7/7/2015] [22:56:40] [20]: GameInit called from a filterscript. timeouttimer: -1
+[7/7/2015] [22:56:40] [20]: GetGameName(0): Jay's DM
+[7/7/2015] [22:56:40] [20]: GetGameName(0): Jay's DM
+[7/7/2015] [22:56:40] [0]: Loading Game: Jay's DM (ID:0)
+[7/7/2015] [22:56:46] [20]: ExitGameChangerScreen
+[7/7/2015] [22:56:47] [20]: screen fade: hide textdraw
+[7/7/2015] [22:56:55] [10]: Callback: OnPlayerStateChange(0, 8, 1
+[7/7/2015] [22:56:55] [10]: Callback: OnPlayerSpawn(0)
+[7/7/2015] [22:56:55] [10]: Callback: OnPlayerKeyStateChange(0, 0, 1024)
+[7/7/2015] [22:56:55] [10]: Callback: OnPlayerStateChange(0, 1, 8
+[7/7/2015] [22:56:57] [10]: Callback: OnPlayerStateChange(0, 7, 1
+[7/7/2015] [22:56:57] [10]: Callback: OnPlayerDeath(0, 65535, 255)
+[7/7/2015] [22:57:0] [10]: Callback: OnPlayerStateChange(0, 8, 7
+[7/7/2015] [22:57:0] [10]: Callback: OnPlayerSpawn(0)
+[7/7/2015] [22:57:0] [10]: Callback: OnPlayerStateChange(0, 1, 8
+[7/7/2015] [22:57:2] [10]: Callback: OnPlayerKeyStateChange(0, 1024, 0)
+[7/7/2015] [22:57:25] [20]: GameInit called from a filterscript. timeouttimer: -1
+[7/7/2015] [22:57:25] [20]: GetGameName(0): Jay's DM
+[7/7/2015] [22:57:25] [20]: GetGameName(0): Jay's DM
+[7/7/2015] [22:57:25] [0]: Loading Game: Jay's DM (ID:0)
+[7/7/2015] [22:57:27] [10]: Callback: OnPlayerKeyStateChange(0, 0, 1024)
+[7/7/2015] [22:57:28] [10]: Callback: OnPlayerStateChange(0, 7, 1
+[7/7/2015] [22:57:28] [10]: Callback: OnPlayerDeath(0, 65535, 255)
+[7/7/2015] [22:57:31] [20]: ExitGameChangerScreen
+[7/7/2015] [22:57:31] [10]: Callback: OnPlayerStateChange(0, 8, 7
+[7/7/2015] [22:57:31] [10]: Callback: OnPlayerSpawn(0)
+[7/7/2015] [22:57:31] [10]: Callback: OnPlayerStateChange(0, 7, 8
+[7/7/2015] [22:57:31] [10]: Callback: OnPlayerDeath(0, 65535, 255)
+[7/7/2015] [22:57:32] [10]: Callback: OnPlayerStateChange(0, 8, 7
+[7/7/2015] [22:57:32] [10]: Callback: OnPlayerSpawn(0)
+[7/7/2015] [22:57:32] [10]: Callback: OnPlayerStateChange(0, 1, 8
+[7/7/2015] [22:57:32] [20]: screen fade: hide textdraw
+[7/7/2015] [22:57:33] [10]: Callback: OnPlayerKeyStateChange(0, 1024, 0)
+[7/7/2015] [22:58:53] [20]: OnGameModeInit
+[7/7/2015] [22:58:53] [20]: Loading games from file: gameList.csv
+[7/7/2015] [22:58:53] [20]: Read string: Jay's DM,jaydm,1
+
+[7/7/2015] [22:58:53] [20]: Added game 0 to cache. GameName: Jay's DM, FileName: jaydm, Type: 1
+[7/7/2015] [22:58:53] [20]: Read string: 
+
+[7/7/2015] [22:59:3] [10]: Callback: OnPlayerConnect(0)
+[7/7/2015] [22:59:3] [10]: Callback: OnPlayerRequestClass(0, 0)
+[7/7/2015] [22:59:3] [10]: Callback: OnPlayerStateChange(0, 9, 0
+[7/7/2015] [22:59:5] [20]: Screen fade: show textdraw
+[7/7/2015] [22:59:9] [10]: Callback: OnPlayerStateChange(0, 8, 9
+[7/7/2015] [22:59:9] [10]: Callback: OnPlayerSpawn(0)
+[7/7/2015] [22:59:9] [10]: Callback: OnPlayerStateChange(0, 1, 8
+[7/7/2015] [22:59:10] [10]: Callback: OnDialogResponse(0, 0, 1, -1, omghax
+[7/7/2015] [22:59:14] [20]: Choosing a game: parameter: -1
+[7/7/2015] [22:59:14] [20]: GetGameFileName(0): jaydm
+[7/7/2015] [22:59:14] [20]: GameInit called from a filterscript. timeouttimer: 106
+[7/7/2015] [22:59:14] [20]: GetGameName(0): Jay's DM
+[7/7/2015] [22:59:14] [20]: GetGameName(0): Jay's DM
+[7/7/2015] [22:59:14] [0]: Loading Game: Jay's DM (ID:0)
+[7/7/2015] [22:59:14] [20]: API Call: AddSpawnPos()
+[7/7/2015] [22:59:14] [20]: API Call: GetNumberOfSpawnPoints
+[7/7/2015] [22:59:20] [20]: ExitGameChangerScreen
+[7/7/2015] [22:59:20] [10]: Callback: OnPlayerStateChange(0, 8, 1
+[7/7/2015] [22:59:20] [20]: API Call: SpawnPlayerAtRandomPos
+[7/7/2015] [22:59:20] [10]: Callback: OnPlayerSpawn(0)
+[7/7/2015] [22:59:20] [10]: Callback: OnPlayerStateChange(0, 1, 8
+[7/7/2015] [22:59:21] [20]: screen fade: hide textdraw
+[7/7/2015] [22:59:23] [10]: Callback: OnPlayerStateChange(0, 7, 1
+[7/7/2015] [22:59:23] [10]: Callback: OnPlayerDeath(0, 65535, 255)
+[7/7/2015] [22:59:26] [10]: Callback: OnPlayerStateChange(0, 8, 7
+[7/7/2015] [22:59:26] [20]: API Call: SpawnPlayerAtRandomPos
+[7/7/2015] [22:59:26] [10]: Callback: OnPlayerSpawn(0)
+[7/7/2015] [22:59:26] [10]: Callback: OnPlayerStateChange(0, 1, 8
+[7/7/2015] [22:59:27] [10]: Callback: OnPlayerKeyStateChange(0, 1024, 0)
+[7/7/2015] [23:4:59] [10]: Callback: OnPlayerDisconnect(0, 1)
+[7/7/2015] [23:4:59] [18314156]: Callback: OnGameModeExit
+[7/7/2015] [23:4:59] [20]: ----------------
+[7/7/2015] [23:4:59] [20]: GetGameName(0): Jay's DM
+[7/7/2015] [23:4:59] [20]: Unloading game: Jay's DM
+[7/7/2015] [23:4:59] [20]: GetGameFileName(0): jaydm
+[7/7/2015] [23:5:11] [20]: OnGameModeInit
+[7/7/2015] [23:5:11] [20]: Loading games from file: gameList.csv
+[7/7/2015] [23:5:11] [20]: Read string: Jay's DM,jaydm,1
+
+[7/7/2015] [23:5:11] [20]: Added game 0 to cache. GameName: Jay's DM, FileName: jaydm, Type: 1
+[7/7/2015] [23:5:11] [20]: Read string: 
+
+[7/7/2015] [23:5:11] [10]: Callback: OnPlayerConnect(0)
+[7/7/2015] [23:5:11] [10]: Callback: OnPlayerRequestClass(0, 0)
+[7/7/2015] [23:5:13] [20]: Screen fade: show textdraw
+[7/7/2015] [23:5:13] [10]: Callback: OnPlayerStateChange(0, 9, 0
+[7/7/2015] [23:5:17] [10]: Callback: OnPlayerStateChange(0, 8, 9
+[7/7/2015] [23:5:17] [10]: Callback: OnPlayerSpawn(0)
+[7/7/2015] [23:5:17] [10]: Callback: OnPlayerStateChange(0, 1, 8
+[7/7/2015] [23:5:24] [10]: Callback: OnDialogResponse(0, 0, 1, -1, omghax
+[7/7/2015] [23:5:27] [20]: Choosing a game: parameter: -1
+[7/7/2015] [23:5:27] [20]: GetGameFileName(0): jaydm
+[7/7/2015] [23:5:27] [20]: GameInit called from a filterscript. timeouttimer: 1663
+[7/7/2015] [23:5:27] [20]: GetGameName(0): Jay's DM
+[7/7/2015] [23:5:27] [20]: GetGameName(0): Jay's DM
+[7/7/2015] [23:5:27] [0]: Loading Game: Jay's DM (ID:0)
+[7/7/2015] [23:5:27] [20]: API Call: AddSpawnPos()
+[7/7/2015] [23:5:27] [20]: API Call: GetNumberOfSpawnPoints
+[7/7/2015] [23:5:33] [20]: ExitGameChangerScreen
+[7/7/2015] [23:5:33] [10]: Callback: OnPlayerStateChange(0, 8, 1
+[7/7/2015] [23:5:33] [20]: API Call: SpawnPlayerAtRandomPos
+[7/7/2015] [23:5:33] [10]: Callback: OnPlayerSpawn(0)
+[7/7/2015] [23:5:33] [10]: Callback: OnPlayerStateChange(0, 1, 8
+[7/7/2015] [23:5:34] [20]: screen fade: hide textdraw
+[7/7/2015] [23:5:45] [10]: Callback: OnPlayerKeyStateChange(0, 1024, 0)
+[7/7/2015] [23:7:41] [20]: OnGameModeInit
+[7/7/2015] [23:7:41] [20]: Loading games from file: gameList.csv
+[7/7/2015] [23:7:41] [20]: Read string: Jay's DM,jaydm,1
+
+[7/7/2015] [23:7:41] [20]: Added game 0 to cache. GameName: Jay's DM, FileName: jaydm, Type: 1
+[7/7/2015] [23:7:41] [20]: Read string: 
+
+[7/7/2015] [23:7:50] [20]: GameInit called from a filterscript. timeouttimer: -1
+[7/7/2015] [23:7:50] [0]: Loading Game:  (ID:-1)
+[7/7/2015] [23:7:50] [20]: API Call: AddSpawnPos()
+[7/7/2015] [23:7:50] [20]: API Call: GetNumberOfSpawnPoints
+[7/7/2015] [23:7:54] [10]: Callback: OnPlayerConnect(0)
+[7/7/2015] [23:7:55] [10]: Callback: OnPlayerRequestClass(0, 0)
+[7/7/2015] [23:7:55] [10]: Callback: OnPlayerStateChange(0, 9, 0
+[7/7/2015] [23:7:55] [20]: ExitGameChangerScreen
+[7/7/2015] [23:7:55] [10]: Callback: OnPlayerStateChange(0, 8, 9
+[7/7/2015] [23:7:55] [20]: API Call: SpawnPlayerAtRandomPos
+[7/7/2015] [23:7:55] [10]: Callback: OnPlayerSpawn(0)
+[7/7/2015] [23:7:55] [10]: Callback: OnPlayerStateChange(0, 9, 8
+[7/7/2015] [23:7:57] [20]: screen fade: hide textdraw
+[7/7/2015] [23:8:0] [10]: Callback: OnPlayerStateChange(0, 8, 9
+[7/7/2015] [23:8:0] [20]: API Call: SpawnPlayerAtRandomPos
+[7/7/2015] [23:8:0] [10]: Callback: OnPlayerSpawn(0)
+[7/7/2015] [23:8:0] [10]: Callback: OnPlayerStateChange(0, 1, 8
+[7/7/2015] [23:8:8] [10]: Callback: OnDialogResponse(0, 1, 1, -1, omghax
+[7/7/2015] [23:8:43] [10]: Callback: OnPlayerStateChange(0, 7, 1
+[7/7/2015] [23:8:43] [10]: Callback: OnPlayerDeath(0, 65535, 255)
+[7/7/2015] [23:8:47] [10]: Callback: OnPlayerStateChange(0, 8, 7
+[7/7/2015] [23:8:47] [20]: API Call: SpawnPlayerAtRandomPos
+[7/7/2015] [23:8:47] [10]: Callback: OnPlayerSpawn(0)
+[7/7/2015] [23:8:47] [10]: Callback: OnPlayerStateChange(0, 1, 8
+[7/7/2015] [23:8:49] [10]: Callback: OnPlayerKeyStateChange(0, 1024, 0)
+[7/7/2015] [23:8:58] [10]: Callback: OnPlayerKeyStateChange(0, 0, 1024)
+[7/7/2015] [23:9:1] [10]: Callback: OnRconLoginAttempt(127.0.0.1, omghax, 1)
+[7/7/2015] [23:9:7] [10]: Callback: OnPlayerStateChange(0, 7, 1
+[7/7/2015] [23:9:7] [10]: Callback: OnPlayerDeath(0, 65535, 255)
+[7/7/2015] [23:9:11] [10]: Callback: OnPlayerStateChange(0, 8, 7
+[7/7/2015] [23:9:11] [10]: Callback: OnPlayerSpawn(0)
+[7/7/2015] [23:9:11] [10]: Callback: OnPlayerStateChange(0, 1, 8
+[7/7/2015] [23:10:40] [20]: GameInit called from a filterscript. timeouttimer: -1
+[7/7/2015] [23:10:40] [0]: Loading Game:  (ID:-1)
+[7/7/2015] [23:10:40] [20]: API Call: AddSpawnPos()
+[7/7/2015] [23:10:40] [20]: API Call: GetNumberOfSpawnPoints
+[7/7/2015] [23:10:46] [20]: ExitGameChangerScreen
+[7/7/2015] [23:10:46] [10]: Callback: OnPlayerStateChange(0, 8, 1
+[7/7/2015] [23:10:46] [20]: API Call: SpawnPlayerAtRandomPos
+[7/7/2015] [23:10:46] [10]: Callback: OnPlayerSpawn(0)
+[7/7/2015] [23:10:46] [10]: Callback: OnPlayerStateChange(0, 1, 8
+[7/7/2015] [23:10:47] [20]: screen fade: hide textdraw
+[7/7/2015] [23:10:48] [10]: Callback: OnPlayerDisconnect(0, 1)
+[7/7/2015] [23:10:54] [20]: OnGameModeInit
+[7/7/2015] [23:10:54] [20]: Loading games from file: gameList.csv
+[7/7/2015] [23:10:54] [20]: Read string: Jay's DM,jaydm,1
+
+[7/7/2015] [23:10:54] [20]: Added game 0 to cache. GameName: Jay's DM, FileName: jaydm, Type: 1
+[7/7/2015] [23:10:54] [20]: Read string: 
+
+[7/7/2015] [23:11:37] [10]: Callback: OnPlayerConnect(0)
+[7/7/2015] [23:11:37] [10]: Callback: OnPlayerRequestClass(0, 0)
+[7/7/2015] [23:11:37] [10]: Callback: OnPlayerStateChange(0, 9, 0
+[7/7/2015] [23:11:39] [20]: Screen fade: show textdraw
+[7/7/2015] [23:11:43] [10]: Callback: OnPlayerStateChange(0, 8, 9
+[7/7/2015] [23:11:43] [10]: Callback: OnPlayerSpawn(0)
+[7/7/2015] [23:11:43] [10]: Callback: OnPlayerStateChange(0, 1, 8
+[7/7/2015] [23:12:27] [10]: Callback: OnDialogResponse(0, 0, 1, -1, omghax
+[7/7/2015] [23:12:30] [20]: Choosing a game: parameter: -1
+[7/7/2015] [23:12:30] [20]: GetGameFileName(0): jaydm
+[7/7/2015] [23:12:30] [20]: GameInit called from a filterscript. timeouttimer: 426
+[7/7/2015] [23:12:30] [20]: GetGameName(0): Jay's DM
+[7/7/2015] [23:12:30] [20]: GetGameName(0): Jay's DM
+[7/7/2015] [23:12:30] [0]: Loading Game: Jay's DM (ID:0)
+[7/7/2015] [23:12:30] [20]: API Call: AddSpawnPos()
+[7/7/2015] [23:12:30] [20]: API Call: GetNumberOfSpawnPoints
+[7/7/2015] [23:12:36] [20]: ExitGameChangerScreen
+[7/7/2015] [23:12:36] [10]: Callback: OnPlayerStateChange(0, 8, 1
+[7/7/2015] [23:12:36] [20]: API Call: SpawnPlayerAtRandomPos
+[7/7/2015] [23:12:36] [10]: Callback: OnPlayerSpawn(0)
+[7/7/2015] [23:12:36] [10]: Callback: OnPlayerStateChange(0, 1, 8
+[7/7/2015] [23:12:37] [20]: screen fade: hide textdraw
+[7/7/2015] [23:12:39] [10]: Callback: OnPlayerKeyStateChange(0, 1024, 0)
+[7/7/2015] [23:13:3] [10]: Callback: OnPlayerKeyStateChange(0, 0, 1024)
+[7/7/2015] [23:13:8] [10]: Callback: OnRconLoginAttempt(127.0.0.1, omghax, 1)
+[7/7/2015] [23:13:10] [10]: Callback: OnPlayerDisconnect(0, 1)
+[7/7/2015] [23:13:10] [18314156]: Callback: OnGameModeExit
+[7/7/2015] [23:13:10] [20]: ----------------
+[7/7/2015] [23:13:10] [20]: GetGameName(0): Jay's DM
+[7/7/2015] [23:13:10] [20]: Unloading game: Jay's DM
+[7/7/2015] [23:13:10] [20]: GetGameFileName(0): jaydm
+[7/7/2015] [23:13:22] [20]: OnGameModeInit
+[7/7/2015] [23:13:22] [20]: Loading games from file: gameList.csv
+[7/7/2015] [23:13:22] [20]: Read string: Jay's DM,jaydm,1
+
+[7/7/2015] [23:13:22] [20]: Added game 0 to cache. GameName: Jay's DM, FileName: jaydm, Type: 1
+[7/7/2015] [23:13:22] [20]: Read string: 
+
+[7/7/2015] [23:13:22] [10]: Callback: OnPlayerConnect(0)
+[7/7/2015] [23:13:23] [10]: Callback: OnPlayerRequestClass(0, 0)
+[7/7/2015] [23:13:23] [10]: Callback: OnPlayerStateChange(0, 9, 0
+[7/7/2015] [23:13:23] [20]: Screen fade: show textdraw
+[7/7/2015] [23:13:27] [10]: Callback: OnPlayerStateChange(0, 8, 9
+[7/7/2015] [23:13:27] [10]: Callback: OnPlayerSpawn(0)
+[7/7/2015] [23:13:27] [10]: Callback: OnPlayerStateChange(0, 1, 8
+[7/7/2015] [23:13:28] [10]: Callback: OnDialogResponse(0, 0, 1, -1, omghax
+[7/7/2015] [23:13:32] [20]: Choosing a game: parameter: -1
+[7/7/2015] [23:13:32] [20]: GetGameFileName(0): jaydm
+[7/7/2015] [23:13:32] [20]: API Call: AddSpawnPos()
+[7/7/2015] [23:13:32] [20]: API Call: AddSpawnPos()
+[7/7/2015] [23:13:32] [20]: API Call: GetNumberOfSpawnPoints
+[7/7/2015] [23:13:35] [50]: Could not load game: request timed out.
+[7/7/2015] [23:13:35] [20]: ----------------
+[7/7/2015] [23:13:35] [20]: GetGameName(0): Jay's DM
+[7/7/2015] [23:13:35] [20]: Unloading game: Jay's DM
+[7/7/2015] [23:13:35] [20]: GetGameFileName(0): jaydm
+[7/7/2015] [23:13:36] [20]: Screen fade: show textdraw
+[7/7/2015] [23:13:38] [10]: Callback: OnPlayerStateChange(0, 8, 1
+[7/7/2015] [23:13:38] [10]: Callback: OnPlayerSpawn(0)
+[7/7/2015] [23:13:38] [10]: Callback: OnPlayerStateChange(0, 1, 8
+[7/7/2015] [23:13:39] [10]: Callback: OnPlayerKeyStateChange(0, 1024, 0)
+[7/7/2015] [23:13:47] [10]: Callback: OnPlayerKeyStateChange(0, 0, 1024)
+[7/7/2015] [23:13:52] [20]: Choosing a game: parameter: -1
+[7/7/2015] [23:13:52] [20]: GetGameFileName(0): jaydm
+[7/7/2015] [23:13:52] [20]: API Call: AddSpawnPos()
+[7/7/2015] [23:13:52] [20]: API Call: AddSpawnPos()
+[7/7/2015] [23:13:52] [20]: API Call: GetNumberOfSpawnPoints
+[7/7/2015] [23:13:56] [50]: Could not load game: request timed out.
+[7/7/2015] [23:13:56] [20]: ----------------
+[7/7/2015] [23:13:56] [20]: GetGameName(0): Jay's DM
+[7/7/2015] [23:13:56] [20]: Unloading game: Jay's DM
+[7/7/2015] [23:13:56] [20]: GetGameFileName(0): jaydm
+[7/7/2015] [23:13:57] [20]: Screen fade: show textdraw
+[7/7/2015] [23:13:58] [10]: Callback: OnPlayerStateChange(0, 8, 1
+[7/7/2015] [23:13:58] [10]: Callback: OnPlayerSpawn(0)
+[7/7/2015] [23:13:58] [10]: Callback: OnPlayerStateChange(0, 1, 8
+[7/7/2015] [23:14:16] [10]: Callback: OnPlayerKeyStateChange(0, 4, 0)
+[7/7/2015] [23:14:17] [10]: Callback: OnPlayerKeyStateChange(0, 0, 4)
+[7/7/2015] [23:14:17] [10]: Callback: OnPlayerKeyStateChange(0, 1024, 0)
+[7/7/2015] [23:14:34] [10]: Callback: OnPlayerKeyStateChange(0, 0, 1024)
+[7/7/2015] [23:14:41] [20]: Choosing a game: parameter: -1
+[7/7/2015] [23:14:41] [20]: GetGameFileName(0): jaydm
+[7/7/2015] [23:14:41] [20]: GameInit called from a filterscript. timeouttimer: 947
+[7/7/2015] [23:14:41] [20]: GetGameName(0): Jay's DM
+[7/7/2015] [23:14:41] [20]: GetGameName(0): Jay's DM
+[7/7/2015] [23:14:41] [0]: Loading Game: Jay's DM (ID:0)
+[7/7/2015] [23:14:41] [20]: API Call: AddSpawnPos()
+[7/7/2015] [23:14:41] [20]: API Call: GetNumberOfSpawnPoints
+[7/7/2015] [23:14:47] [20]: ExitGameChangerScreen
+[7/7/2015] [23:14:47] [10]: Callback: OnPlayerStateChange(0, 8, 1
+[7/7/2015] [23:14:47] [20]: API Call: SpawnPlayerAtRandomPos
+[7/7/2015] [23:14:47] [10]: Callback: OnPlayerSpawn(0)
+[7/7/2015] [23:14:47] [10]: Callback: OnPlayerStateChange(0, 1, 8
+[7/7/2015] [23:14:48] [20]: screen fade: hide textdraw
+[7/7/2015] [23:15:14] [10]: Callback: OnPlayerStateChange(0, 7, 1
+[7/7/2015] [23:15:14] [10]: Callback: OnPlayerDeath(0, 65535, 255)
+[7/7/2015] [23:15:17] [10]: Callback: OnPlayerStateChange(0, 8, 7
+[7/7/2015] [23:15:17] [20]: API Call: SpawnPlayerAtRandomPos
+[7/7/2015] [23:15:17] [10]: Callback: OnPlayerSpawn(0)
+[7/7/2015] [23:15:17] [10]: Callback: OnPlayerStateChange(0, 1, 8
+[7/7/2015] [23:15:19] [10]: Callback: OnPlayerStateChange(0, 7, 1
+[7/7/2015] [23:15:19] [10]: Callback: OnPlayerDeath(0, 65535, 255)
+[7/7/2015] [23:15:22] [10]: Callback: OnPlayerStateChange(0, 8, 7
+[7/7/2015] [23:15:22] [20]: API Call: SpawnPlayerAtRandomPos
+[7/7/2015] [23:15:22] [10]: Callback: OnPlayerSpawn(0)
+[7/7/2015] [23:15:22] [10]: Callback: OnPlayerStateChange(0, 1, 8
+[7/7/2015] [23:15:24] [10]: Callback: OnPlayerKeyStateChange(0, 1024, 0)
+[7/7/2015] [23:15:39] [10]: Callback: OnPlayerKeyStateChange(0, 0, 1024)
+[7/7/2015] [23:15:41] [10]: Callback: OnPlayerKeyStateChange(0, 1024, 0)
+[7/7/2015] [23:15:57] [10]: Callback: OnPlayerKeyStateChange(0, 0, 1024)
+[7/7/2015] [23:16:0] [20]: ----------------
+[7/7/2015] [23:16:0] [20]: GetGameName(0): Jay's DM
+[7/7/2015] [23:16:0] [20]: Unloading game: Jay's DM
+[7/7/2015] [23:16:0] [20]: GetGameFileName(0): jaydm
+[7/7/2015] [23:16:2] [20]: Screen fade: show textdraw
+[7/7/2015] [23:16:3] [10]: Callback: OnPlayerStateChange(0, 8, 1
+[7/7/2015] [23:16:3] [10]: Callback: OnPlayerSpawn(0)
+[7/7/2015] [23:16:3] [10]: Callback: OnPlayerStateChange(0, 1, 8
+[7/7/2015] [23:16:7] [20]: Choosing a game: parameter: -1
+[7/7/2015] [23:16:7] [20]: GetGameFileName(0): jaydm
+[7/7/2015] [23:16:7] [20]: GameInit called from a filterscript. timeouttimer: 1319
+[7/7/2015] [23:16:7] [20]: GetGameName(0): Jay's DM
+[7/7/2015] [23:16:7] [20]: GetGameName(0): Jay's DM
+[7/7/2015] [23:16:7] [0]: Loading Game: Jay's DM (ID:0)
+[7/7/2015] [23:16:7] [20]: API Call: AddSpawnPos()
+[7/7/2015] [23:16:7] [20]: API Call: AddSpawnPos()
+[7/7/2015] [23:16:7] [20]: API Call: AddSpawnPos()
+[7/7/2015] [23:16:7] [20]: API Call: GetNumberOfSpawnPoints
+[7/7/2015] [23:16:13] [20]: ExitGameChangerScreen
+[7/7/2015] [23:16:13] [10]: Callback: OnPlayerStateChange(0, 8, 1
+[7/7/2015] [23:16:13] [20]: API Call: SpawnPlayerAtRandomPos
+[7/7/2015] [23:16:13] [10]: Callback: OnPlayerSpawn(0)
+[7/7/2015] [23:16:13] [10]: Callback: OnPlayerStateChange(0, 1, 8
+[7/7/2015] [23:16:14] [20]: screen fade: hide textdraw
+[7/7/2015] [23:16:17] [10]: Callback: OnPlayerStateChange(0, 7, 1
+[7/7/2015] [23:16:17] [10]: Callback: OnPlayerDeath(0, 65535, 255)
+[7/7/2015] [23:16:25] [10]: Callback: OnPlayerStateChange(0, 8, 7
+[7/7/2015] [23:16:25] [20]: API Call: SpawnPlayerAtRandomPos
+[7/7/2015] [23:16:25] [10]: Callback: OnPlayerSpawn(0)
+[7/7/2015] [23:16:25] [10]: Callback: OnPlayerStateChange(0, 1, 8
+[7/7/2015] [23:16:27] [10]: Callback: OnPlayerStateChange(0, 7, 1
+[7/7/2015] [23:16:27] [10]: Callback: OnPlayerDeath(0, 65535, 255)
+[7/7/2015] [23:16:31] [10]: Callback: OnPlayerStateChange(0, 8, 7
+[7/7/2015] [23:16:31] [20]: API Call: SpawnPlayerAtRandomPos
+[7/7/2015] [23:16:31] [10]: Callback: OnPlayerSpawn(0)
+[7/7/2015] [23:16:31] [10]: Callback: OnPlayerStateChange(0, 1, 8
+[7/7/2015] [23:16:36] [10]: Callback: OnPlayerStateChange(0, 7, 1
+[7/7/2015] [23:16:36] [10]: Callback: OnPlayerDeath(0, 65535, 255)
+[7/7/2015] [23:16:40] [10]: Callback: OnPlayerStateChange(0, 8, 7
+[7/7/2015] [23:16:40] [20]: API Call: SpawnPlayerAtRandomPos
+[7/7/2015] [23:16:40] [10]: Callback: OnPlayerSpawn(0)
+[7/7/2015] [23:16:40] [10]: Callback: OnPlayerStateChange(0, 1, 8
+[7/7/2015] [23:16:42] [10]: Callback: OnPlayerStateChange(0, 7, 1
+[7/7/2015] [23:16:42] [10]: Callback: OnPlayerDeath(0, 65535, 255)
+[7/7/2015] [23:16:45] [10]: Callback: OnPlayerStateChange(0, 8, 7
+[7/7/2015] [23:16:45] [20]: API Call: SpawnPlayerAtRandomPos
+[7/7/2015] [23:16:45] [10]: Callback: OnPlayerSpawn(0)
+[7/7/2015] [23:16:45] [10]: Callback: OnPlayerStateChange(0, 1, 8
+[7/7/2015] [23:16:47] [10]: Callback: OnPlayerStateChange(0, 7, 1
+[7/7/2015] [23:16:47] [10]: Callback: OnPlayerDeath(0, 65535, 255)
+[7/7/2015] [23:16:50] [10]: Callback: OnPlayerStateChange(0, 8, 7
+[7/7/2015] [23:16:50] [20]: API Call: SpawnPlayerAtRandomPos
+[7/7/2015] [23:16:50] [10]: Callback: OnPlayerSpawn(0)
+[7/7/2015] [23:16:50] [10]: Callback: OnPlayerStateChange(0, 1, 8
+[7/7/2015] [23:16:52] [10]: Callback: OnPlayerDisconnect(0, 1)

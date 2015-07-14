@@ -1,0 +1,320 @@
+PlayerTakeDamage(6) (10.371678) from: 54
+PlayerTakeDamage(6) (2.407829) from: 54
+PlayerTakeDamage(6) (4.950000) from: 54
+PlayerTakeDamage(6) (4.950000) from: 54
+PlayerTakeDamage(6) (0.000000) from: 54
+PlayerTakeDamage(6) (0.726305) from: 54
+PlayerTakeDamage(6) (16.755197) from: 54
+PlayerTakeDamage(1) (4.950000) from: 54
+PlayerTakeDamage(1) (4.950000) from: 54
+PlayerTakeDamage(6) (4.950000) from: 54
+PlayerTakeDamage(6) (4.950000) from: 54
+PlayerTakeDamage(6) (18.985458) from: 54
+PlayerTakeDamage(6) (4.950000) from: 54
+PlayerTakeDamage(6) (4.950000) from: 54
+PlayerTakeDamage(6) (19.558601) from: 54
+PlayerTakeDamage(6) (2.246545) from: 54
+PlayerTakeDamage(6) (4.950000) from: 54
+PlayerTakeDamage(6) (17.976371) from: 54
+PlayerTakeDamage(6) (4.950000) from: 54
+PlayerTakeDamage(6) (4.950000) from: 54
+PlayerTakeDamage(6) (4.950000) from: 54
+PlayerTakeDamage(6) (4.950000) from: 54
+PlayerTakeDamage(6) (4.950000) from: 54
+PlayerTakeDamage(6) (4.950000) from: 54
+PlayerTakeDamage(6) (2.343809) from: 54
+PlayerTakeDamage(6) (165.000000) from: 54
+PlayerTakeDamage(6) (3.300000) from: 54
+PlayerTakeDamage(6) (47.366115) from: 54
+PlayerTakeDamage(6) (42.443672) from: 54
+PlayerTakeDamage(6) (4.950000) from: 54
+PlayerTakeDamage(6) (49.500003) from: 49
+PlayerTakeDamage(6) (49.500003) from: 49
+PlayerTakeDamage(6) (3.300000) from: 54
+PlayerTakeDamage(6) (165.000000) from: 54
+PlayerTakeDamage(6) (3.300000) from: 54
+PlayerTakeDamage(6) (43.428623) from: 54
+PlayerTakeDamage(6) (49.500003) from: 49
+PlayerTakeDamage(6) (13.835381) from: 54
+PlayerTakeDamage(6) (1.731063) from: 54
+PlayerTakeDamage(6) (165.000000) from: 54
+PlayerTakeDamage(6) (3.300000) from: 54
+PlayerTakeDamage(6) (165.000000) from: 54
+PlayerTakeDamage(6) (3.300000) from: 54
+PlayerTakeDamage(6) (3.300000) from: 54
+PlayerTakeDamage(6) (3.300000) from: 54
+PlayerTakeDamage(6) (2.095912) from: 54
+PlayerTakeDamage(6) (24.802339) from: 54
+PlayerTakeDamage(6) (49.500003) from: 49
+PlayerTakeDamage(6) (49.500003) from: 49
+PlayerTakeDamage(6) (3.300000) from: 54
+PlayerTakeDamage(6) (49.500003) from: 49
+PlayerTakeDamage(6) (49.500003) from: 49
+PlayerTakeDamage(6) (49.500003) from: 49
+PlayerTakeDamage(6) (24.112367) from: 54
+PlayerTakeDamage(6) (20.670993) from: 54
+PlayerTakeDamage(6) (49.500003) from: 49
+PlayerTakeDamage(6) (49.500003) from: 49
+PlayerTakeDamage(6) (3.300000) from: 54
+PlayerTakeDamage(6) (49.500003) from: 49
+PlayerTakeDamage(6) (49.500003) from: 49
+PlayerTakeDamage(6) (3.300000) from: 54
+PlayerTakeDamage(6) (49.500003) from: 49
+PlayerTakeDamage(6) (49.500003) from: 49
+PlayerTakeDamage(6) (4.950000) from: 54
+PlayerTakeDamage(6) (10.383964) from: 54
+PlayerTakeDamage(6) (49.500003) from: 49
+PlayerGiveDamage(7) to Player(6) (1.320000) using weapon: 0  bodypart: 3
+PlayerGiveDamage(7) to Player(6) (2.310000) using weapon: 0  bodypart: 3
+PlayerGiveDamage(7) to Player(6) (3.960000) using weapon: 0  bodypart: 3
+PlayerGiveDamage(7) to Player(6) (1.320000) using weapon: 0  bodypart: 3
+PlayerGiveDamage(7) to Player(6) (2.310000) using weapon: 0  bodypart: 3
+PlayerGiveDamage(7) to Player(6) (3.960000) using weapon: 0  bodypart: 3
+PlayerGiveDamage(7) to Player(6) (1.320000) using weapon: 0  bodypart: 3
+PlayerGiveDamage(7) to Player(6) (2.310000) using weapon: 0  bodypart: 3
+PlayerGiveDamage(7) to Player(6) (3.960000) using weapon: 0  bodypart: 3
+PlayerGiveDamage(7) to Player(6) (8.250000) using weapon: 22  bodypart: 3
+PlayerGiveDamage(7) to Player(6) (8.250000) using weapon: 22  bodypart: 5
+PlayerGiveDamage(7) to Player(6) (8.250000) using weapon: 22  bodypart: 3
+PlayerGiveDamage(7) to Player(6) (8.250000) using weapon: 22  bodypart: 5
+PlayerGiveDamage(7) to Player(6) (8.250000) using weapon: 22  bodypart: 3
+PlayerGiveDamage(7) to Player(6) (8.250000) using weapon: 22  bodypart: 5
+PlayerGiveDamage(7) to Player(6) (8.250000) using weapon: 22  bodypart: 3
+PlayerGiveDamage(7) to Player(6) (8.250000) using weapon: 22  bodypart: 5
+PlayerGiveDamage(7) to Player(6) (8.250000) using weapon: 22  bodypart: 3
+PlayerGiveDamage(7) to Player(6) (8.250000) using weapon: 22  bodypart: 3
+PlayerGiveDamage(7) to Player(6) (8.250000) using weapon: 22  bodypart: 3
+PlayerGiveDamage(7) to Player(6) (8.250000) using weapon: 22  bodypart: 5
+PlayerGiveDamage(7) to Player(6) (8.250000) using weapon: 22  bodypart: 3
+PlayerGiveDamage(7) to Player(6) (8.250000) using weapon: 22  bodypart: 3
+PlayerGiveDamage(7) to Player(6) (8.250000) using weapon: 22  bodypart: 3
+PlayerGiveDamage(7) to Player(6) (8.250000) using weapon: 22  bodypart: 5
+PlayerGiveDamage(7) to Player(6) (8.250000) using weapon: 22  bodypart: 3
+PlayerGiveDamage(7) to Player(6) (8.250000) using weapon: 22  bodypart: 3
+PlayerGiveDamage(7) to Player(6) (8.250000) using weapon: 22  bodypart: 3
+PlayerGiveDamage(7) to Player(6) (8.250000) using weapon: 22  bodypart: 5
+PlayerGiveDamage(7) to Player(6) (1.980000) using weapon: 0  bodypart: 3
+PlayerGiveDamage(7) to Player(6) (5.280000) using weapon: 0  bodypart: 3
+PlayerGiveDamage(7) to Player(6) (1.980000) using weapon: 0  bodypart: 3
+PlayerGiveDamage(7) to Player(6) (5.280000) using weapon: 0  bodypart: 3
+PlayerGiveDamage(7) to Player(6) (1.980000) using weapon: 0  bodypart: 3
+PlayerGiveDamage(7) to Player(6) (5.280000) using weapon: 0  bodypart: 3
+PlayerGiveDamage(7) to Player(6) (1.320000) using weapon: 0  bodypart: 3
+PlayerGiveDamage(7) to Player(6) (1.320000) using weapon: 0  bodypart: 3
+PlayerGiveDamage(7) to Player(6) (2.310000) using weapon: 0  bodypart: 3
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (29.473209) from: 54
+PlayerTakeDamage(7) (29.088733) from: 54
+PlayerTakeDamage(7) (3.300000) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (49.500003) from: 49
+PlayerGiveDamage(7) to Player(1) (8.250000) using weapon: 22  bodypart: 3
+PlayerGiveDamage(7) to Player(1) (8.250000) using weapon: 22  bodypart: 3
+PlayerGiveDamage(7) to Player(1) (8.250000) using weapon: 22  bodypart: 8
+PlayerGiveDamage(7) to Player(1) (8.250000) using weapon: 22  bodypart: 8
+PlayerGiveDamage(7) to Player(1) (8.250000) using weapon: 22  bodypart: 8
+PlayerGiveDamage(7) to Player(1) (8.250000) using weapon: 22  bodypart: 8
+PlayerGiveDamage(7) to Player(1) (8.250000) using weapon: 22  bodypart: 7
+PlayerGiveDamage(7) to Player(1) (8.250000) using weapon: 22  bodypart: 7
+PlayerGiveDamage(7) to Player(1) (8.250000) using weapon: 22  bodypart: 3
+PlayerGiveDamage(7) to Player(1) (8.250000) using weapon: 22  bodypart: 3
+PlayerGiveDamage(7) to Player(1) (8.250000) using weapon: 22  bodypart: 9
+PlayerGiveDamage(7) to Player(1) (8.250000) using weapon: 22  bodypart: 9
+PlayerGiveDamage(7) to Player(1) (8.250000) using weapon: 22  bodypart: 9
+PlayerGiveDamage(7) to Player(1) (8.250000) using weapon: 22  bodypart: 9
+PlayerGiveDamage(7) to Player(1) (8.250000) using weapon: 22  bodypart: 9
+PlayerGiveDamage(7) to Player(1) (8.250000) using weapon: 22  bodypart: 9
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (22.953760) from: 54
+PlayerGiveDamage(7) to Player(6) (1.320000) using weapon: 0  bodypart: 3
+PlayerGiveDamage(7) to Player(6) (1.320000) using weapon: 0  bodypart: 3
+PlayerGiveDamage(7) to Player(6) (1.320000) using weapon: 0  bodypart: 3
+PlayerGiveDamage(7) to Player(6) (1.320000) using weapon: 0  bodypart: 3
+PlayerGiveDamage(7) to Player(6) (1.320000) using weapon: 0  bodypart: 3
+PlayerGiveDamage(7) to Player(6) (1.320000) using weapon: 0  bodypart: 3
+PlayerTakeDamage(7) (3.300000) from: 54
+PlayerTakeDamage(7) (0.000000) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (0.000000) from: 54
+PlayerTakeDamage(7) (3.188720) from: 54
+PlayerTakeDamage(7) (17.251647) from: 54
+PlayerTakeDamage(7) (165.000000) from: 54
+PlayerTakeDamage(7) (3.300000) from: 54
+PlayerTakeDamage(7) (17.536851) from: 54
+PlayerTakeDamage(7) (38.368942) from: 54
+PlayerTakeDamage(7) (38.341449) from: 54
+PlayerTakeDamage(7) (38.529476) from: 54
+PlayerTakeDamage(7) (3.300000) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (29.704429) from: 54
+PlayerTakeDamage(7) (1.393489) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (18.595542) from: 51
+PlayerTakeDamage(7) (5.280000) from: 54
+PlayerTakeDamage(7) (53.899810) from: 51
+PlayerTakeDamage(7) (45.460563) from: 51
+PlayerTakeDamage(7) (3.300000) from: 54
+PlayerGiveDamage(7) to Player(6) (1.980000) using weapon: 0  bodypart: 3
+PlayerGiveDamage(7) to Player(6) (5.280000) using weapon: 0  bodypart: 3
+PlayerGiveDamage(7) to Player(6) (6.600000) using weapon: 0  bodypart: 3
+PlayerGiveDamage(7) to Player(6) (6.600000) using weapon: 0  bodypart: 3
+PlayerGiveDamage(7) to Player(6) (6.600000) using weapon: 0  bodypart: 3
+PlayerGiveDamage(7) to Player(6) (1.980000) using weapon: 0  bodypart: 3
+PlayerGiveDamage(7) to Player(6) (5.280000) using weapon: 0  bodypart: 3
+PlayerTakeDamage(0) (4.950000) from: 54
+PlayerTakeDamage(0) (165.000000) from: 54
+PlayerTakeDamage(0) (3.300000) from: 54
+PlayerTakeDamage(0) (3.300000) from: 54
+PlayerTakeDamage(0) (4.950000) from: 54
+PlayerTakeDamage(0) (31.925378) from: 54
+PlayerTakeDamage(2) from Player(1) (9.900000) using weapon: 49 bodypart: 3
+PlayerGiveDamage(2) to Player(1) (8.250000) using weapon: 22  bodypart: 9
+PlayerGiveDamage(2) to Player(1) (8.250000) using weapon: 22  bodypart: 9
+PlayerGiveDamage(2) to Player(1) (8.250000) using weapon: 22  bodypart: 9
+PlayerGiveDamage(2) to Player(1) (8.250000) using weapon: 22  bodypart: 9
+PlayerGiveDamage(2) to Player(1) (8.250000) using weapon: 22  bodypart: 9
+PlayerGiveDamage(2) to Player(1) (8.250000) using weapon: 22  bodypart: 9
+PlayerGiveDamage(2) to Player(1) (8.250000) using weapon: 22  bodypart: 9
+PlayerGiveDamage(2) to Player(1) (8.250000) using weapon: 22  bodypart: 9
+PlayerGiveDamage(2) to Player(0) (8.250000) using weapon: 22  bodypart: 5
+PlayerGiveDamage(2) to Player(0) (8.250000) using weapon: 22  bodypart: 3
+PlayerGiveDamage(2) to Player(0) (8.250000) using weapon: 22  bodypart: 7
+PlayerGiveDamage(2) to Player(0) (8.250000) using weapon: 22  bodypart: 3
+PlayerGiveDamage(2) to Player(0) (8.250000) using weapon: 22  bodypart: 3
+PlayerGiveDamage(2) to Player(0) (8.250000) using weapon: 22  bodypart: 3
+PlayerGiveDamage(2) to Player(0) (8.250000) using weapon: 22  bodypart: 3
+PlayerGiveDamage(2) to Player(0) (41.250000) using weapon: 34  bodypart: 4
+PlayerGiveDamage(2) to Player(0) (41.250000) using weapon: 34  bodypart: 4
+PlayerGiveDamage(2) to Player(0) (41.250000) using weapon: 34  bodypart: 3
+PlayerGiveDamage(2) to Player(0) (41.250000) using weapon: 34  bodypart: 6
+PlayerGiveDamage(2) to Player(0) (41.250000) using weapon: 34  bodypart: 5
+PlayerGiveDamage(2) to Player(0) (41.250000) using weapon: 34  bodypart: 3
+PlayerTakeDamage(2) (0.590538) from: 54
+PlayerTakeDamage(8) (38.094734) from: 54
+PlayerTakeDamage(8) (4.950000) from: 54
+PlayerTakeDamage(6) (49.500003) from: 49
+PlayerTakeDamage(6) (0.181500) from: 50
+PlayerTakeDamage(6) (0.198000) from: 50
+PlayerTakeDamage(6) (4.950000) from: 54
+PlayerTakeDamage(6) (21.939331) from: 54
+PlayerTakeDamage(6) (4.950000) from: 54
+PlayerTakeDamage(6) (25.169815) from: 54
+PlayerTakeDamage(6) (4.950000) from: 54
+PlayerTakeDamage(6) (0.181500) from: 50
+PlayerTakeDamage(6) (0.165000) from: 50
+PlayerTakeDamage(6) (0.181500) from: 50
+PlayerTakeDamage(6) (0.181500) from: 50
+PlayerTakeDamage(6) (0.181500) from: 50
+PlayerTakeDamage(6) (0.165000) from: 50
+PlayerTakeDamage(6) (39.196006) from: 54
+PlayerTakeDamage(6) (3.300000) from: 54
+PlayerTakeDamage(6) (165.000000) from: 54
+PlayerTakeDamage(6) (3.300000) from: 54
+PlayerTakeDamage(6) (165.000000) from: 54
+PlayerTakeDamage(6) (3.300000) from: 54
+PlayerTakeDamage(6) (165.000000) from: 54
+PlayerTakeDamage(6) (3.300000) from: 54
+PlayerTakeDamage(6) (3.300000) from: 54
+PlayerTakeDamage(6) (43.763019) from: 54
+PlayerTakeDamage(7) from Player(5) (9.900000) using weapon: 49 bodypart: 3
+PlayerTakeDamage(7) from Player(5) (9.900000) using weapon: 49 bodypart: 3
+PlayerTakeDamage(7) from Player(5) (9.900000) using weapon: 49 bodypart: 3
+PlayerTakeDamage(7) (36.545669) from: 54
+PlayerTakeDamage(7) (37.130569) from: 54
+PlayerTakeDamage(7) (3.300000) from: 54
+PlayerTakeDamage(7) (38.195896) from: 54
+PlayerTakeDamage(7) (28.818700) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (20.367156) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (21.433979) from: 54
+PlayerTakeDamage(7) (1.648744) from: 54
+PlayerTakeDamage(7) (11.389026) from: 54
+PlayerTakeDamage(7) (39.395729) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (19.901245) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (0.000000) from: 54
+PlayerTakeDamage(7) (0.000000) from: 54
+PlayerTakeDamage(7) (0.000000) from: 54
+PlayerTakeDamage(7) (26.683864) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (2.057323) from: 54
+PlayerTakeDamage(7) (1.836702) from: 54
+PlayerTakeDamage(7) (0.000000) from: 54
+PlayerTakeDamage(7) (21.160501) from: 51
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (0.000000) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (16.907966) from: 54
+PlayerTakeDamage(7) (22.747087) from: 54
+PlayerTakeDamage(7) (1.343623) from: 54
+PlayerTakeDamage(7) (0.000000) from: 54
+PlayerTakeDamage(7) (22.796617) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (1.421622) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (1.280786) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (165.000000) from: 54
+PlayerTakeDamage(7) (3.300000) from: 54
+PlayerTakeDamage(7) (2.284121) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (24.853961) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (165.000000) from: 54
+PlayerTakeDamage(7) (3.300000) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (16.508296) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (1.563047) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (330.000000) from: 34
+PlayerTakeDamage(7) (3.300000) from: 54
+PlayerTakeDamage(7) (330.000000) from: 34
+PlayerTakeDamage(7) (3.300000) from: 54
+PlayerTakeDamage(7) (330.000000) from: 34
+PlayerTakeDamage(7) (3.300000) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (27.777088) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (30.816741) from: 54
+PlayerTakeDamage(7) (1.490624) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (4.950000) from: 54
+PlayerTakeDamage(7) (1.308463) from: 54
+PlayerTakeDamage(7) (1.326791) from: 54

@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet href="file:///C|/Program Files (x86)/PAWN Compiler/xml/pawndoc.xsl" type="text/xsl"?>
+<doc source="C:\Users\James\Desktop\SA-MP\source\filterscripts\ammunation\storeHandler.pwn">
+	<assembly>
+		<name>storeHandler.pwn</name>
+	</assembly>
+	<members>
+
+		<!-- enumerations -->
+
+		<!-- constants -->
+		<member name="C:false" value="0">
+			<tagname value="bool"/>
+			<referrer name="OnPlayerInteriorChange"/>
+		</member>
+		<member name="C:true" value="1">
+			<tagname value="bool"/>
+			<referrer name="OnPlayerInteriorChange"/>
+			<referrer name="ammunationCheck"/>
+		</member>
+
+		<!-- variables -->
+		<member name="F:IsPlayerInAnyAmmunation">
+			<tagname value="bool"/>
+			<referrer name="OnPlayerInteriorChange"/>
+			<referrer name="ammunationCheck"/>
+			<referrer name="OnPlayerEnterCheckpoint"/>
+			<referrer name="CheckToShowAmmuCheckpoint"/>
+			Server Side Ammu-Nation by SA-MP BETA Tester Jay_  Utils for loading store data and actors, and checking when  a player enters/exits a store 
+		</member>
+		<member name="F:ammunationActorIDs">
+			<referrer name="initActors"/>
+			<referrer name="removeActors"/>
+			<referrer name="SetPlayerAmmunationCamera"/>
+		</member>
+		<member name="F:ammunationInteriorInfo">
+			<tagname value="Float"/>
+			<referrer name="initActors"/>
+			<referrer name="OnPlayerInteriorChange"/>
+			<referrer name="ammunationCheck"/>
+			<referrer name="CheckToShowAmmuCheckpoint"/>
+		</member>
+		<member name="F:playerAmmunationID">
+			<referrer name="OnPlayerInteriorChange"/>
+			<referrer name="ammunationCheck"/>
+			<referrer name="OnPlayerEnterCheckpoint"/>
+			<referrer name="CheckToShowAmmuCheckpoint"/>
+		</member>
+
+		<!-- functions -->
+		<member name="M:ActorMoveTo" syntax="ActorMoveTo()">
+			<stacksize value="1"/>
+			<referrer name="initActors"/>
+		</member>
+		<member name="M:CallLocalFunction" syntax="CallLocalFunction()">
+			<stacksize value="1"/>
+			<referrer name="ammunationCheck"/>
+			<referrer name="OnPlayerEnterCheckpoint"/>
+		</member>
+		<member name="M:CheckToShowAmmuCheckpoint" syntax="CheckToShowAmmuCheckpoint(playerid)">
+			<attribute name="public"/>
+			<stacksize value="9"/>
+			<dependency name="GetPlayerInterior"/>
+			<dependency name="IsPlayerConnected"/>
+			<dependency name="IsPlayerInAnyAmmunation"/>
+			<dependency name="IsPlayerInRangeOfPoint"/>
+			<dependency name="SetPlayerCheckpoint"/>
+			<dependency name="SetTimerEx"/>
+			<dependency name="ammunationInteriorInfo"/>
+			<dependency name="playerAmmunationID"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:Create3DTextLabel" syntax="Create3DTextLabel()">
+			<stacksize value="1"/>
+			<referrer name="initActors"/>
+		</member>
+		<member name="M:CreateActor" syntax="CreateActor()">
+			<stacksize value="1"/>
+			<referrer name="initActors"/>
+		</member>
+		<member name="M:DestroyActor" syntax="DestroyActor()">
+			<stacksize value="1"/>
+			<referrer name="removeActors"/>
+		</member>
+		<member name="M:DisablePlayerCheckpoint" syntax="DisablePlayerCheckpoint()">
+			<stacksize value="1"/>
+			<referrer name="OnPlayerInteriorChange"/>
+			<referrer name="OnPlayerEnterCheckpoint"/>
+		</member>
+		<member name="M:GetActorPos" syntax="GetActorPos()">
+			<stacksize value="1"/>
+			<referrer name="SetPlayerAmmunationCamera"/>
+		</member>
+		<member name="M:GetPlayerInterior" syntax="GetPlayerInterior()">
+			<stacksize value="1"/>
+			<referrer name="CheckToShowAmmuCheckpoint"/>
+		</member>
+		<member name="M:GetXYInFrontOfActor" syntax="GetXYInFrontOfActor()">
+			<stacksize value="1"/>
+			<referrer name="SetPlayerAmmunationCamera"/>
+		</member>
+		<member name="M:IsPlayerConnected" syntax="IsPlayerConnected()">
+			<stacksize value="1"/>
+			<referrer name="CheckToShowAmmuCheckpoint"/>
+		</member>
+		<member name="M:IsPlayerInRangeOfPoint" syntax="IsPlayerInRangeOfPoint()">
+			<stacksize value="1"/>
+			<referrer name="ammunationCheck"/>
+			<referrer name="CheckToShowAmmuCheckpoint"/>
+		</member>
+		<member name="M:OnPlayerEnterCheckpoint" syntax="OnPlayerEnterCheckpoint(playerid)">
+			<attribute name="public"/>
+			<stacksize value="7"/>
+			<dependency name="CallLocalFunction"/>
+			<dependency name="DisablePlayerCheckpoint"/>
+			<dependency name="IsPlayerInAnyAmmunation"/>
+			<dependency name="ShowMenuForPlayer"/>
+			<dependency name="TogglePlayerControllable"/>
+			<dependency name="playerAmmunationID"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerInteriorChange" syntax="OnPlayerInteriorChange(playerid, newinteriorid, oldinteriorid)">
+			<attribute name="public"/>
+			<stacksize value="9"/>
+			<dependency name="DisablePlayerCheckpoint"/>
+			<dependency name="IsPlayerInAnyAmmunation"/>
+			<dependency name="OnPlayerLeaveAmmunation"/>
+			<dependency name="SetTimerEx"/>
+			<dependency name="ammunationInteriorInfo"/>
+			<dependency name="false"/>
+			<dependency name="playerAmmunationID"/>
+			<dependency name="true"/>
+			<param name="playerid">
+			</param>
+			<param name="newinteriorid">
+			</param>
+			<param name="oldinteriorid">
+			</param>
+			Wrapper for detecting when a player enters ammu-nation *
+		</member>
+		<member name="M:OnPlayerLeaveAmmunation" syntax="OnPlayerLeaveAmmunation()">
+			<stacksize value="1"/>
+			<referrer name="OnPlayerInteriorChange"/>
+		</member>
+		<member name="M:SetPlayerAmmunationCamera" syntax="SetPlayerAmmunationCamera(playerid, ammunationId)">
+			<stacksize value="13"/>
+			<dependency name="GetActorPos"/>
+			<dependency name="GetXYInFrontOfActor"/>
+			<dependency name="SetPlayerCameraLookAt"/>
+			<dependency name="SetPlayerCameraPos"/>
+			<dependency name="ammunationActorIDs"/>
+			<param name="playerid">
+			</param>
+			<param name="ammunationId">
+			</param>
+		</member>
+		<member name="M:SetPlayerCameraLookAt" syntax="SetPlayerCameraLookAt()">
+			<stacksize value="1"/>
+			<referrer name="SetPlayerAmmunationCamera"/>
+		</member>
+		<member name="M:SetPlayerCameraPos" syntax="SetPlayerCameraPos()">
+			<stacksize value="1"/>
+			<referrer name="SetPlayerAmmunationCamera"/>
+		</member>
+		<member name="M:SetPlayerCheckpoint" syntax="SetPlayerCheckpoint()">
+			<stacksize value="1"/>
+			<referrer name="ammunationCheck"/>
+			<referrer name="CheckToShowAmmuCheckpoint"/>
+		</member>
+		<member name="M:SetPlayerShopName" syntax="SetPlayerShopName()">
+			<stacksize value="1"/>
+			<referrer name="ammunationCheck"/>
+		</member>
+		<member name="M:SetTimerEx" syntax="SetTimerEx()">
+			<stacksize value="1"/>
+			<referrer name="OnPlayerInteriorChange"/>
+			<referrer name="CheckToShowAmmuCheckpoint"/>
+		</member>
+		<member name="M:ShowMenuForPlayer" syntax="ShowMenuForPlayer()">
+			<stacksize value="1"/>
+			<referrer name="OnPlayerEnterCheckpoint"/>
+		</member>
+		<member name="M:TogglePlayerControllable" syntax="TogglePlayerControllable()">
+			<stacksize value="1"/>
+			<referrer name="OnPlayerEnterCheckpoint"/>
+		</member>
+		<member name="M:ammunationCheck" syntax="ammunationCheck(playerid)">
+			<attribute name="public"/>
+			<stacksize value="9"/>
+			<dependency name="CallLocalFunction"/>
+			<dependency name="IsPlayerInAnyAmmunation"/>
+			<dependency name="IsPlayerInRangeOfPoint"/>
+			<dependency name="SetPlayerCheckpoint"/>
+			<dependency name="SetPlayerShopName"/>
+			<dependency name="ammunationInteriorInfo"/>
+			<dependency name="playerAmmunationID"/>
+			<dependency name="true"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:format" syntax="format()">
+			<stacksize value="1"/>
+			<referrer name="initActors"/>
+		</member>
+		<member name="M:initActors" syntax="initActors()">
+			<stacksize value="143"/>
+			<dependency name="ActorMoveTo"/>
+			<dependency name="Create3DTextLabel"/>
+			<dependency name="CreateActor"/>
+			<dependency name="ammunationActorIDs"/>
+			<dependency name="ammunationInteriorInfo"/>
+			<dependency name="format"/>
+			<dependency name="printf"/>
+		</member>
+		<member name="M:printf" syntax="printf()">
+			<stacksize value="1"/>
+			<referrer name="initActors"/>
+		</member>
+		<member name="M:removeActors" syntax="removeActors()">
+			<stacksize value="5"/>
+			<dependency name="DestroyActor"/>
+			<dependency name="ammunationActorIDs"/>
+		</member>
+
+	</members>
+</doc>

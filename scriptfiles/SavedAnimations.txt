@@ -1,0 +1,8 @@
+ApplyAnimation(playerid, "WEAPONS", "SHP_TRAY_POSE", 4.0, 1, 0, 0, 1, 0); // shop_idle
+ApplyAnimation(playerid, "PED", "FACTALK", 4.0, 1, 0, 0, 0, 0); // test
+ApplyAnimation(playerid, "WEAPONS", "SHP_TRAY_OUT", 4.0, 1, 0, 0, 0, 0); // STEP1
+ApplyAnimation(playerid, "WEAPONS", "SHP_1H_LIFT", 4.0, 0, 0, 0, 0, 0); // 2
+ApplyAnimation(playerid, "WEAPONS", "SHP_2H_LIFT_END", 4.0, 0, 0, 0, 0, 0); // 3
+ApplyAnimation(playerid, "WEAPONS", "SHP_TRAY_IN", 4.0, 0, 0, 0, 0, 0); // 5
+ApplyAnimation(playerid, "WEAPONS", "SHP_TRAY_POSE", 4.0, 0, 0, 0, 0, 0); // 6
+ApplyAnimation(playerid, "WEAPONS", "SHP_G_LIFT_IN", 4.0, 0, 0, 0, 0, 0); // LIFT_IN
