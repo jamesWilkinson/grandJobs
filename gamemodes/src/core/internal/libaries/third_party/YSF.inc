@@ -91,7 +91,7 @@ native IsPlayerPaused(playerid);
 native GetPlayerPausedTime(playerid);
 
 // Objects get - global
-native GetObjectModel(objectid);
+//native GetObjectModel(objectid);
 native Float:GetObjectDrawDistance(objectid);
 native SetObjectMoveSpeed(objectid, Float:fSpeed);
 native Float:GetObjectMoveSpeed(objectid);
@@ -103,7 +103,7 @@ native GetObjectMaterial(objectid, materialindex, &modelid, txdname[], txdnamele
 native GetObjectMaterialText(objectid, materialindex, text[], textlen = sizeof(text), &materialsize, fontface[], fontfacelen = sizeof(fontface), &fontsize, &bold, &fontcolor, &backcolor, &textalignment);
 
 // Objects get - player
-native GetPlayerObjectModel(playerid, objectid);
+//native GetPlayerObjectModel(playerid, objectid);
 native Float:GetPlayerObjectDrawDistance(playerid, objectid);
 native SetPlayerObjectMoveSpeed(playerid, objectid, Float:fSpeed);
 native Float:GetPlayerObjectMoveSpeed(playerid, objectid);

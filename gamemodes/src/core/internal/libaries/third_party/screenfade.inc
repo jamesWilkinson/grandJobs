@@ -1,173 +1,131 @@
-///////////////////////////////////////
-///////////Made by Joe Staff///////////
-///////////////////////////////////////
+/**
+	Textdraw Fader - original concept by Joe Staff, completely rewritten by Jay_ using a few concepts
+**/
 
-#include <a_samp>
-#define _UPDATERATE 100 //milliseconds
-#define _TELEPORTFADECOLORR 0
-#define _TELEPORTFADECOLORG 0
-#define _TELEPORTFADECOLORB 0
-#define _TELEPORTFADECOLORA 255
-forward _UpdateFadeTimer();
-forward OnFadeComplete(playerid,beforehold);
-new _pEndColor[MAX_PLAYERS][4];
-new _pCurrentColor[MAX_PLAYERS][4];
-new _pRateColor[MAX_PLAYERS][4];
-new _pStep[MAX_PLAYERS];
-new _pHold[MAX_PLAYERS];
-new _OPArray[MAX_PLAYERS];
-new _OnlinePlayers;
-new _PlayerTeleporting[MAX_PLAYERS];
-new _PlayerInterior[MAX_PLAYERS];
-new Float:_pTPToPos[MAX_PLAYERS][3];
-new _pTPSteps[MAX_PLAYERS];
-new Text:_text; //Look, only one!
+// This. is. BAD.
+#define  PLAYER_COUNT		200
 
-/*
-native ConvertToColor(RR,GG,BB,AA);
-native StopPlayerFade(playerid);
-native FadeColorForPlayer(playerid,RR1,GG1,BB1,AA1,RR2,GG2,BB2,AA2,steps,hold);
-native FadeInit();
-native FadeExit();
-native FadePlayerConnect(playerid);
-native FadePlayerDisonnect(playerid);
-native SetPlayerPosFade(playerid,steps,Float:x,Float:y,Float:z);
-*/
+static PlayerText:FadeTD	[PLAYER_COUNT] 	= {PlayerText:INVALID_TEXT_DRAW, ...};
+static fadeTimer			[PLAYER_COUNT] 	= {-1, ...};
+static FadeScreenIteration	[PLAYER_COUNT] 	= {-1, ...};
+// Once the screen has fulled faded in, this textdraw shows
+static Text:GlobalFadeInTD  = 	Text:INVALID_TEXT_DRAW;
 
-
-stock SetPlayerPosFade(playerid,steps,interior,Float:x,Float:y,Float:z)
-{
-	_PlayerTeleporting[playerid]=1;
-	_pTPToPos[playerid][0]=x;
-	_pTPToPos[playerid][1]=y;
-	_pTPToPos[playerid][2]=z;
-	_pTPSteps[playerid]=steps;
-	_PlayerInterior[playerid]=interior;
-	FadeColorForPlayer(playerid,0,0,0,0,_TELEPORTFADECOLORR,_TELEPORTFADECOLORG,_TELEPORTFADECOLORB,_TELEPORTFADECOLORA,steps,1);
-}
-stock ConvertToColor(RR,GG,BB,AA)return (RR*16777216)+(GG*65536)+(BB*256)+AA;
-stock _UpdateOPA(playerid=INVALID_PLAYER_ID) //my version of foreach (I made it before Y_Less did! publicly anyway)
-{
-	_OnlinePlayers=0;
-	for(new ply;ply<MAX_PLAYERS;ply++)
+stock initScreenFade() {
+	if(GlobalFadeInTD == Text:INVALID_TEXT_DRAW)
 	{
-		if(IsPlayerConnected(ply)&&(ply!=playerid))
-		{
-			_OPArray[_OnlinePlayers]=ply;
-			_OnlinePlayers++;
-		}
+		GlobalFadeInTD = TextDrawCreate(0, 0, "~r~");
+		TextDrawTextSize(GlobalFadeInTD, 640, 480);
+		TextDrawLetterSize(GlobalFadeInTD, 0, 50);
+		TextDrawUseBox(GlobalFadeInTD, 1);
+		TextDrawBoxColor(GlobalFadeInTD, 0x000000FF);
 	}
 }
-stock FadeColorForPlayer(playerid,RR1,GG1,BB1,AA1,RR2,GG2,BB2,AA2,steps,hold)
-{
-	_pStep[playerid]=steps;//countdown, sorta
-	new tmpsteps; //This will have to be added to incase the math is messed up (programming annoyance)
-	_pHold[playerid]=hold;//How long the last color is held before disappearing (Divide this by UPDATERATE to get the time Ex:hold=10, in milliseconds that's 1000)
-	_pEndColor[playerid][0]=RR2;
-	_pEndColor[playerid][1]=GG2;
-	_pEndColor[playerid][2]=BB2;
-	_pEndColor[playerid][3]=AA2;
-	_pCurrentColor[playerid][0]=RR1;
-	_pCurrentColor[playerid][1]=GG1;
-	_pCurrentColor[playerid][2]=BB1;
-	_pCurrentColor[playerid][3]=AA1;
-	_pRateColor[playerid][0]=(RR1-RR2)/steps;
-	_pRateColor[playerid][1]=(GG1-GG2)/steps;
-	_pRateColor[playerid][2]=(BB1-BB2)/steps;
-	_pRateColor[playerid][3]=(AA1-AA2)/steps;
-	//No dividing by 0!
-	if(_pRateColor[playerid][0]!=0)if(((RR1-RR2)/_pRateColor[playerid][0])>steps)tmpsteps=((RR1-RR2)/_pRateColor[playerid][0])-steps;
-	if(_pRateColor[playerid][1]!=0)if(((GG1-GG2)/_pRateColor[playerid][1])>steps+tmpsteps)tmpsteps=((GG1-GG2)/_pRateColor[playerid][1])-steps;
-	if(_pRateColor[playerid][2]!=0)if(((BB1-BB2)/_pRateColor[playerid][2])>steps+tmpsteps)tmpsteps=((BB1-BB2)/_pRateColor[playerid][2])-steps;
-	if(_pRateColor[playerid][3]!=0)if(((AA1-AA2)/_pRateColor[playerid][3])>steps+tmpsteps)tmpsteps=((AA1-AA2)/_pRateColor[playerid][3])-steps;
-	if(tmpsteps)_pStep[playerid]+=tmpsteps+1;
-}
-FadeInit()
-{
-	_text=TextDrawCreate(0.0,0.0,"~r~");
-	TextDrawTextSize(_text,640,480);
-	TextDrawLetterSize(_text,0.0,50.0);
-	TextDrawUseBox(_text,1);
-	SetTimer("_UpdateFadeTimer",_UPDATERATE,1);
-	_UpdateOPA();
-	return 1;
-}
-FadeExit()
-{
-	TextDrawDestroy(_text);
-	return 1;
-}
-FadePlayerConnect(playerid)
-{
-	_UpdateOPA();
-	_pHold[playerid]=-1;
-	_pStep[playerid]=-1;
-	_PlayerTeleporting[playerid]=0;
-	return 1;
-}
-FadePlayerDisconnect(playerid)
-{
-	_UpdateOPA(playerid);
-	return 1;
-}
-stock StopPlayerFade(playerid)
-{
-	_pStep[playerid]=0;
-	_pHold[playerid]=0;
-}
-public _UpdateFadeTimer()
-{
-	new playerid;
-	for(new opa;opa<_OnlinePlayers;opa++)
-	{
-		playerid=_OPArray[opa];
-		if(_pStep[playerid])
-		{
-			_pStep[playerid]--;
-			for(new color;color<4;color++)
-			{
-				_pCurrentColor[playerid][color]-=_pRateColor[playerid][color];
-				if(_pRateColor[playerid][color]>0)
-				{
-					if(_pCurrentColor[playerid][color]<_pEndColor[playerid][color])_pCurrentColor[playerid][color]=_pEndColor[playerid][color];
-				}
-				if(_pRateColor[playerid][color]<0)
-				{
-					if(_pCurrentColor[playerid][color]>_pEndColor[playerid][color])_pCurrentColor[playerid][color]=_pEndColor[playerid][color];
-				}
-				if(_pCurrentColor[playerid][color]<0)_pCurrentColor[playerid][color]=0;
-				if(_pCurrentColor[playerid][color]>255)_pCurrentColor[playerid][color]=255;
-			}
-			TextDrawBoxColor(_text,ConvertToColor(_pCurrentColor[playerid][0],_pCurrentColor[playerid][1],_pCurrentColor[playerid][2],_pCurrentColor[playerid][3]));
-			TextDrawShowForPlayer(playerid,_text);
-		}
-		else if(_pStep[playerid]==0)
-		{
-			_pStep[playerid]=-1;
-			if(_PlayerTeleporting[playerid]==1)
-			{
-				SetPlayerPos(playerid,_pTPToPos[playerid][0],_pTPToPos[playerid][1],_pTPToPos[playerid][2]);
-				SetPlayerInterior(playerid,_PlayerInterior[playerid]);
-				FadeColorForPlayer(playerid,_TELEPORTFADECOLORR,_TELEPORTFADECOLORG,_TELEPORTFADECOLORB,_TELEPORTFADECOLORA,0,0,0,0,_pTPSteps[playerid],1);
-				_PlayerTeleporting[playerid]=2;
-			}else if(_PlayerTeleporting[playerid]==2)
-			{
-				_PlayerTeleporting[playerid]=0;
-			}
-			else			
-			{
-				CallLocalFunction("OnFadeComplete","ii",playerid,1);
-			}
-		}
-		else if(_pHold[playerid])
-		{
-			_pHold[playerid]--;
-		}
-		else if(_pHold[playerid]==0)
-		{
-			_pHold[playerid]=-1;
-			TextDrawHideForPlayer(playerid,_text);
-			CallLocalFunction("OnFadeComplete","ii",playerid,0);
-		}
+
+ResetPlayerFadeData(playerid) {
+	if(fadeTimer[playerid] != -1) {
+		KillTimer(fadeTimer[playerid]);
+		fadeTimer[playerid] = -1;
 	}
+	if(FadeTD[playerid] != PlayerText:INVALID_TEXT_DRAW) {
+		PlayerTextDrawDestroy(playerid, FadeTD[playerid]);
+		FadeTD[playerid] = PlayerText:INVALID_TEXT_DRAW;
+	}
+	FadeScreenIteration[playerid] = -1;
+	TextDrawHideForPlayer(playerid, GlobalFadeInTD);
+}
+
+CreateFadeTextdraws(playerid) {
+	if(FadeTD[playerid] == PlayerText:INVALID_TEXT_DRAW)
+	{
+		FadeTD[playerid] = CreatePlayerTextDraw(playerid, 0, 0, "~r~");
+		PlayerTextDrawTextSize(playerid, FadeTD[playerid], 640, 480);
+		PlayerTextDrawLetterSize(playerid, FadeTD[playerid], 0, 50);
+		PlayerTextDrawUseBox(playerid, FadeTD[playerid], 1);
+	}
+}
+
+forward UnfadePlayerScreen(playerid);
+public UnfadePlayerScreen(playerid) {
+	if(!IsPlayerConnected(playerid) || IsPlayerNPC(playerid))
+		return 0;
+	FadePlayerScreen(playerid, true);
+	return 1;
+}
+
+
+stock FadePlayerScreen(playerid, bool:fade_out = false) {
+	if(!IsPlayerConnected(playerid)) 
+		return; 
+
+	if(fadeTimer[playerid] != -1)
+		KillTimer(fadeTimer[playerid]);
+
+	FadeScreenIteration[playerid] = -1;
+
+	CreateFadeTextdraws(playerid);
+	
+
+	if(fade_out == false) {
+		fadeTimer[playerid] = SetTimerEx("UpdateTextdrawFade", 75, 1, "dd", playerid, 1);
+	} else {
+		fadeTimer[playerid] = SetTimerEx("UpdateTextdrawFade", 75, 1, "dd", playerid, 0);
+	}
+}
+
+forward UpdateTextdrawFade(playerid, fade_in);
+public UpdateTextdrawFade(playerid, fade_in) 
+{
+	// player has left the server during a screen fade
+	if(!IsPlayerConnected(playerid)) {
+		ResetPlayerFadeData(playerid);
+		return;
+	}
+
+	new color;
+
+	// Upon the first iteration, if this is a fade out hide the faded in textdraw
+	if(FadeScreenIteration[playerid] == 0 && fade_in == 0) {
+		TextDrawHideForPlayer(playerid, GlobalFadeInTD);
+	}
+
+	if(fade_in == 0)
+   		color = 0xFF - 0x11 * ++FadeScreenIteration[playerid]; 
+   	else 
+   		color = 0x00 + 0x11 * ++FadeScreenIteration[playerid]; 
+
+   	PlayerTextDrawBoxColor(playerid, FadeTD[playerid], color);
+   	PlayerTextDrawShow(playerid, FadeTD[playerid]);
+
+   	// we've reached the maximum fade out point
+   	if(FadeScreenIteration[playerid] == 15)
+   	{
+   		if(fade_in == 1) {
+			Log("Screen fade: show textdraw");
+			PlayerTextDrawHide(playerid, FadeTD[playerid]);
+			TextDrawShowForPlayer(playerid, GlobalFadeInTD);
+		}
+		else {
+			Log("screen fade: hide textdraw");
+			TextDrawHideForPlayer(playerid, GlobalFadeInTD);
+		}
+   		KillTimer(fadeTimer[playerid]);
+   		fadeTimer[playerid] = -1;
+   		FadeScreenIteration[playerid] = -1;
+   	}
+}
+
+FadePlayerConnect(playerid) {
+	if(playerid >= PLAYER_COUNT)
+	{
+		Log("TEXTDRAW SCREEN FADE WARNING: buffer overflow - need to increase PLAYER_COUNT");
+		return;
+	}
+
+	ResetPlayerFadeData(playerid);
+	CreateFadeTextdraws(playerid);
+}
+
+FadePlayerDisconnect(playerid) {
+	ResetPlayerFadeData(playerid);
 }

@@ -19,8 +19,8 @@ this.main(playerid)
 
 	if(!database::API->IsPlayerRegistered.get(playerid)) {
 		SendClientInfoMessage(playerid, "You are using an unregistered account.");
+		OnPlayerExitAccountDialog(playerid);
 	} else {
-		SendClientInfoMessage(playerid, "You need to login to your account. Use {00FF00}/login{FFFFFF}.");
 		database::Controllers->loginPlayer.showDialog(playerid);
 	}
 }

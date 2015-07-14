@@ -18,7 +18,7 @@
 													// This can range from 1-500
 
 
-#define     GLOBAL_SETTING_VERSION     "0.0.1"		// The number of the script
+
 
 /** These settings are for the database connection. They need to be changed accordingly.
 	The database used is MySQL	**/

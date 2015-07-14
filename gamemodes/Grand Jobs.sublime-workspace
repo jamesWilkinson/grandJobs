@@ -4,6 +4,42 @@
 		"selected_items":
 		[
 			[
+				"featureSh",
+				"featureShowOff"
+			],
+			[
+				"featureShowO",
+				"featureShowOffTitle"
+			],
+			[
+				"featureShow",
+				"featureShowOffTitle"
+			],
+			[
+				"unique",
+				"currentUniqueSpawnId"
+			],
+			[
+				"PlayerTextDra",
+				"PlayerTextDrawShow"
+			],
+			[
+				"ShowGameChange",
+				"ShowGameChangeTDSForPlayer"
+			],
+			[
+				"handleWelc",
+				"handleWelcomeMessageAuthor"
+			],
+			[
+				"DIALOG_S",
+				"DIALOG_STYLE_LIST"
+			],
+			[
+				"setVersionM",
+				"setVersionMinor"
+			],
+			[
 				"DIALOG",
 				"DIALOG_STYLE_LIST"
 			],
@@ -20,34 +56,34 @@
 	"buffers":
 	[
 		{
-			"file": "/C/Users/James/Desktop/SA-MP/source/filterscripts/ammunation/ammunation.pwn",
+			"file": "src/gameEngine/helpers/spawn/spawn.pwn",
 			"settings":
 			{
-				"buffer_size": 4971,
+				"buffer_size": 3810,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/C/Users/James/Desktop/SA-MP/source/filterscripts/ammunation/utils.pwn",
+			"file": "src/gj.pwn",
 			"settings":
 			{
-				"buffer_size": 3095,
+				"buffer_size": 2080,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/C/Users/James/Desktop/SA-MP/source/filterscripts/ammunation/storeHandler.pwn",
+			"file": "src/core/internal/libaries/third_party/screenfade.inc",
 			"settings":
 			{
-				"buffer_size": 2107,
+				"buffer_size": 3622,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/C/Users/James/Desktop/SA-MP/source/filterscripts/ammunation/menuHandler.pwn",
+			"file": "src/gameEngine/initialisation/global/gameChanger.pwn",
 			"settings":
 			{
-				"buffer_size": 2665,
+				"buffer_size": 7204,
 				"line_ending": "Windows"
 			}
 		}
@@ -84,15 +120,59 @@
 	},
 	"file_history":
 	[
-		"/C/Users/James/Desktop/SA-MP/source/filterscripts/ammunation.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/initialisation/initialiseGamemode.pwn",
 		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/gj.pwn",
-		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerAccount/database/Controllers/loginPlayer.pwn",
-		"/C/Users/James/Downloads/samp037_svr_RC5-2-ActorTest2_win32/filterscripts/a51_base.pwn",
-		"/C/Users/James/Downloads/samp037_svr_RC5-2-ActorTest2_win32/filterscripts/test_cmds.pwn",
-		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerAccount/database/Controllers/registerPlayer.pwn",
-		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerAccount/playerAccountCheckLogin.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/internal/globals.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/gameEngine/initialisation/global/gameUnloader.pwn",
 		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/internal/includes.pwn",
 		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/internal/namingConventionDefines.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/gameEngine/helpers/spawn/spawn.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/internal/Logger.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/gameEngine/helpers/sound/spawn/spawn.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/gameEngine/helpers/sound/sound.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/internal/callbackHooks.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/player/death.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/player/kill.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerConnection/handleWelcomeMessage.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/internal/libaries/third_party/sscanf2.inc",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerConnection/playerDeath.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/internal/settings.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/gameEngine/initialisation/global/gameChanger.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/gameEngine/initialisation/global/gameLoader.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/internal/libaries/third_party/screenfade.inc",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/gameEngine/initialisation/game/gameMeta.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/gameEngine/initialisation/global/globalGameLoader.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/gameEngine/initialisation/global/gamePicker.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/gameEngine/initialisation/global/game.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/filterscripts/meta.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/gameEngine/initialisation/global/globals.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/gameAPI/meta.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/gameEngine/initialisation/gameMeta.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/gameEngine/API.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/gameEngine/initialisation/gameLoader.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/internal/libaries/third_party/translate/dependencies/strlib.inc",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/gameEngine/initialisation/gameRegistration.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerAccount/playerAccountSettings/playerLanguageSettings.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/gameEngine/gameMeta.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/gameEngine/AP.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/gameEngine/gameMeta",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/gameEngine/API",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerAccount/database/Controllers/registerPlayer.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerAccount/database/API/Account.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerAccount/database/Controllers/activationEmail.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerAccount/database/Controllers/loginPlayer.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerAccount/playerAccountCheckLogin.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerAccount/playerAccountChatBoxMessageHandling.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerConnection/security.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/internal/libaries/API.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/initialisation/initialiseDatabase/initialiseDatabase.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/filterscripts/ammunation/ammunation.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/filterscripts/ammunation/utils.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/filterscripts/ammunation/menuHandler.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/filterscripts/ammunation/storeHandler.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/filterscripts/ammunation.pwn",
+		"/C/Users/James/Downloads/samp037_svr_RC5-2-ActorTest2_win32/filterscripts/a51_base.pwn",
+		"/C/Users/James/Downloads/samp037_svr_RC5-2-ActorTest2_win32/filterscripts/test_cmds.pwn",
 		"/C/Users/James/Desktop/SA-MP/source/filterscripts/art_test.pwn",
 		"/C/Users/James/Downloads/samp037_svr_RC5-2-ActorTest2_win32/filterscripts/sf_building1.pwn",
 		"/C/Users/James/Downloads/samp037_svr_RC5-2-ActorTest2_win32/filterscripts/dillimore_gas.pwn",
@@ -108,8 +188,6 @@
 		"/C/Users/James/Desktop/SA-MP/source/filterscripts/attachments.pwn",
 		"/C/Users/James/Desktop/SA-MP/source/filterscripts/animation.pwn",
 		"/C/Users/James/Downloads/SoundPreviewFS/sound.pwn",
-		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/internal/callbackHooks.pwn",
-		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/initialisation/initialiseGamemode.pwn",
 		"/C/Users/James/Desktop/SA-MP/source/filterscripts/fsdebug.pwn",
 		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/trunk/Elements/Player/Taxi.pwn",
 		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/trunk/Elements/Player/Commands/General.pwn",
@@ -124,15 +202,11 @@
 		"/C/Users/James/Desktop/SA-MP/source/filterscripts/sprite.pwn",
 		"/C/Users/James/Desktop/SA-MP/source/filterscripts/sprite",
 		"/C/Users/James/Desktop/SA-MP/source/filterscripts/test_cmds.pwn",
-		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/internal/libaries/third_party/screenfade.inc",
-		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerAccount/database/API/Account.pwn",
-		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/internal/libaries/API.pwn",
 		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/trunk/Resources/Minigames/Core/RWTW.pwn",
 		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/internal/libaries/third_party/a_mysql.inc",
 		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerAccount/database/API/IsPlayerRegistered.pwn",
 		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerAccount/database/controller.pwn",
 		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerAccount/database/Controllers/controller.pwn",
-		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerConnection/handleWelcomeMessage.pwn",
 		"/C/Users/James/Desktop/SA-MP/LVP/archive/LVP_PreCompiler/syntax_check/syntax.pwn",
 		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/trunk/Elements/Player/LVPRadio.pwn",
 		"/C/Users/James/Desktop/SA-MP/source/server.cfg",
@@ -143,13 +217,11 @@
 		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/trunk/Resources/Minigames/Core/Robbery.pwn",
 		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/trunk/Resources/Minigames/Core/Brief.pwn",
 		"/C/Users/James/Downloads/CSSAMP.pwn",
-		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerAccount/playerAccountChatBoxMessageHandling.pwn",
 		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/branches/LVP 2.94.12/Sources/Minigames/Races/DowntownRavage.pwn",
 		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/branches/LVP 2.94.12/Elements/Vehicle/Core.pwn",
 		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/branches/LVP 2.94.12/Elements/Player/playerHandler.pwn",
 		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/branches/LVP 2.94.12/Elements/Player/LVPRadio.pwn",
 		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/branches/LVP 2.94.12/Natives/DateTime.pwn",
-		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/initialisation/initialiseDatabase/initialiseDatabase.pwn",
 		"/C/Users/James/Downloads/YSI-dc301d2df7c73dbbd917984a3975001239cdf16c/YSI-dc301d2df7c73dbbd917984a3975001239cdf16c/gamemodes/YSI/y_classes_test.pwn",
 		"/C/Users/James/Downloads/YSI-dc301d2df7c73dbbd917984a3975001239cdf16c/YSI-dc301d2df7c73dbbd917984a3975001239cdf16c/gamemodes/YSI/y_admins.pwn",
 		"/C/Users/James/Downloads/YSI-dc301d2df7c73dbbd917984a3975001239cdf16c/YSI-dc301d2df7c73dbbd917984a3975001239cdf16c/gamemodes/y_formatin.pwn",
@@ -158,7 +230,6 @@
 		"/C/Users/James/Desktop/SA-MP/source/filterscripts/sf_zombotech.pwn",
 		"/C/Users/James/Desktop/SA-MP/source/filterscripts/modular_island.pwn",
 		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/branches/LVP 2.94.12/Elements/Player/Houses.pwn",
-		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/internal/settings.pwn",
 		"/C/Users/James/Desktop/website_animation.pwn",
 		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/trunk/Features/Account/AccountData.pwn",
 		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/trunk/Features/Account/Account.pwn",
@@ -176,25 +247,7 @@
 		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/trunk/Interface/MySQL/QueryBuilder.pwn",
 		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/trunk/Interface/MySQL/Database.pwn",
 		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerAccount/database/API/CheckAccountPassword.pwn",
-		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerAccount/database/API/CheckAccountPassword",
-		"/C/Users/James/Desktop/jay_aimbot.pwn",
-		"/C/Users/James/Desktop/jay_anticheat.pwn",
-		"/C/Users/James/Desktop/cake.pwn",
-		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/internal/libaries/sprintf.pwn",
-		"/C/Users/James/Desktop/jay_reaction.pwn",
-		"/C/Users/James/Desktop/jay_runaway.pwn",
-		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerAccount/playerAccountCheckLogin",
-		"/C/Users/James/Desktop/SA-MP/source/filterscripts/gl_npcs.pwn",
-		"/C/Users/James/Desktop/SA-MP/source/filterscripts/npc_record.pwn",
-		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerConnection/security.pwn",
-		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerConnection/main.pwn",
-		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/trunk/lvp.pwn",
-		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerConnection/handleWelcomeMessage.xml",
-		"/C/Users/James/AppData/Roaming/Sublime Text 2/Packages/User/jay_amx.sublime-build",
-		"/C/Users/James/AppData/Roaming/Sublime Text 2/Packages/User/AMX Build.sublime-build",
-		"/C/Users/James/AppData/Roaming/Sublime Text 2/Packages/User/Pawn.sublime-build",
-		"/C/Users/James/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
-		"/C/Users/James/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings"
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerAccount/database/API/CheckAccountPassword"
 	],
 	"find":
 	{
@@ -213,6 +266,73 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"featureshowoff",
+			"textdrawshowfor",
+			"createtextdraws",
+			"playaudiostream",
+			"debug",
+			"	\n",
+			"sound.pwn",
+			"sound",
+			" %s\";",
+			"statechange",
+			"reason",
+			"playe4:",
+			"player:",
+			"helpers",
+			"(\n",
+			"onplayerdeath",
+			"recreate",
+			"timeouttimer",
+			"fadeplayerscreen",
+			"CreateFadeTextdraws",
+			"gameinit called from a",
+			"FadePlayerScreen",
+			"	\n",
+			"onplayerdisconnect",
+			";\n",
+			"	\n",
+			"OnGameInit",
+			"unfadescreensandspawn",
+			"loltest",
+			"1",
+			"Begin:",
+			"));",
+			"forplayerid",
+			"setname",
+			"setgamename",
+			"print",
+			"major",
+			"getgameversionmajor",
+			"setgamename",
+			"handleWelcomeMessageTitle",
+			"//		",
+			"fadeplayerscreen",
+			"INVALID_GAME_ID",
+			"MAX_NAME_STRING",
+			"ungame",
+			"gamepicker",
+			"64",
+			"getgamename",
+			"getnumberofgamesloaded",
+			"loader",
+			"sscanf",
+			"screenfade",
+			"sprintf",
+			"\";",
+			"getversionstring",
+			"getAuthor",
+			");\n",
+			"loginplayer.pwn",
+			"sent to",
+			"test",
+			"email has",
+			"an email has",
+			"you need to login",
+			"PLAYERCOUNT",
+			"fade",
+			"onplayerrequest",
+			"onplayerrequestclass",
 			"onplayerleaveammu",
 			"connectnpc",
 			"npc",
@@ -275,12 +395,17 @@
 			"weapon",
 			"weaponshot"
 		],
-		"highlight": true,
+		"highlight": false,
 		"in_selection": false,
 		"preserve_case": false,
-		"regex": true,
+		"regex": false,
 		"replace_history":
 		[
+			"\";",
+			"str",
+			"playe4:",
+			"Callback:",
+			"), LOG_LEVEL_CALLBACK);",
 			"Sprite0",
 			"playerid"
 		],
@@ -293,23 +418,23 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/C/Users/James/Desktop/SA-MP/source/filterscripts/ammunation/ammunation.pwn",
+					"file": "src/gameEngine/helpers/spawn/spawn.pwn",
 					"settings":
 					{
-						"buffer_size": 4971,
+						"buffer_size": 3810,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								310,
-								310
+								587,
+								587
 							]
 						],
 						"settings":
@@ -318,31 +443,30 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 336.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "/C/Users/James/Desktop/SA-MP/source/filterscripts/ammunation/utils.pwn",
+					"file": "src/gj.pwn",
 					"settings":
 					{
-						"buffer_size": 3095,
+						"buffer_size": 2080,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2158,
-								2158
+								341,
+								341
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Pawn syntax/Pawn.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Pawn syntax/Pawn.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -352,18 +476,18 @@
 				},
 				{
 					"buffer": 2,
-					"file": "/C/Users/James/Desktop/SA-MP/source/filterscripts/ammunation/storeHandler.pwn",
+					"file": "src/core/internal/libaries/third_party/screenfade.inc",
 					"settings":
 					{
-						"buffer_size": 2107,
+						"buffer_size": 3622,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								990,
-								990
+								749,
+								749
 							]
 						],
 						"settings":
@@ -372,25 +496,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 45.0,
+						"translation.y": 378.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "/C/Users/James/Desktop/SA-MP/source/filterscripts/ammunation/menuHandler.pwn",
+					"file": "src/gameEngine/initialisation/global/gameChanger.pwn",
 					"settings":
 					{
-						"buffer_size": 2665,
+						"buffer_size": 7204,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2303,
-								2303
+								5713,
+								5713
 							]
 						],
 						"settings":
@@ -399,7 +523,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 585.0,
+						"translation.y": 2270.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -467,6 +591,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 180.0,
+	"side_bar_width": 244.0,
 	"status_bar_visible": true
 }
