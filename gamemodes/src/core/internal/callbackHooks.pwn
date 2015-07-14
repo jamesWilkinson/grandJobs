@@ -79,6 +79,7 @@ public OnPlayerDeath(playerid, killerid, reason)
 public OnVehicleSpawn(vehicleid)
 {
 	Log(sprintf("Callback: OnVehicleSpawn(%d)", vehicleid), LOG_LEVEL_CALLBACK);
+	gameEngine::helpers->race.checkToDestroyVehicle(vehicleid);
 	return 1;
 }
 

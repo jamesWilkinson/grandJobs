@@ -100,6 +100,12 @@ this.spawnPlayerUnique(playerid)
 
 		this.spawnPlayer(playerid, currentUniqueSpawnId);
 		currentUniqueSpawnId++;
+
+		// if this is a race game, we'll put them in a race vehicle too
+		if(gameEngine::initialisation->Meta.getType() == GAME_TYPE_RACE) 
+		{
+			gameEngine::helpers->race.createPlayerVehicle(playerid);
+		}
 	} else {
 		return 0;
 	}

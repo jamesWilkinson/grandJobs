@@ -4,3 +4,4 @@ mysql_log.txt
 scriptfiles/Logger/*
 scriptfiles/SavedPos.log
 testserver/*
+crashinfo.txt

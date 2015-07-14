@@ -59,7 +59,7 @@
 			"file": "src/gameEngine/helpers/spawn/spawn.pwn",
 			"settings":
 			{
-				"buffer_size": 3810,
+				"buffer_size": 4012,
 				"line_ending": "Windows"
 			}
 		},
@@ -67,23 +67,7 @@
 			"file": "src/gj.pwn",
 			"settings":
 			{
-				"buffer_size": 2080,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/core/internal/libaries/third_party/screenfade.inc",
-			"settings":
-			{
-				"buffer_size": 3622,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/gameEngine/initialisation/global/gameChanger.pwn",
-			"settings":
-			{
-				"buffer_size": 7204,
+				"buffer_size": 1633,
 				"line_ending": "Windows"
 			}
 		}
@@ -120,26 +104,28 @@
 	},
 	"file_history":
 	[
-		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/initialisation/initialiseGamemode.pwn",
-		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/gj.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/filterscripts/race.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/internal/callbackHooks.pwn",
 		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/internal/globals.pwn",
-		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/gameEngine/initialisation/global/gameUnloader.pwn",
 		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/internal/includes.pwn",
 		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/internal/namingConventionDefines.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/gameEngine/initialisation/global/gameChanger.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/internal/libaries/third_party/screenfade.inc",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/gameEngine/helpers/race/race.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/initialisation/initialiseGamemode.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/gj.pwn",
+		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/gameEngine/initialisation/global/gameUnloader.pwn",
 		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/gameEngine/helpers/spawn/spawn.pwn",
 		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/internal/Logger.pwn",
 		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/gameEngine/helpers/sound/spawn/spawn.pwn",
 		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/gameEngine/helpers/sound/sound.pwn",
-		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/internal/callbackHooks.pwn",
 		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/player/death.pwn",
 		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/player/kill.pwn",
 		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerConnection/handleWelcomeMessage.pwn",
 		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/internal/libaries/third_party/sscanf2.inc",
 		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerConnection/playerDeath.pwn",
 		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/internal/settings.pwn",
-		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/gameEngine/initialisation/global/gameChanger.pwn",
 		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/gameEngine/initialisation/global/gameLoader.pwn",
-		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/internal/libaries/third_party/screenfade.inc",
 		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/gameEngine/initialisation/game/gameMeta.pwn",
 		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/gameEngine/initialisation/global/globalGameLoader.pwn",
 		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/gameEngine/initialisation/global/gamePicker.pwn",
@@ -245,9 +231,7 @@
 		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/trunk/Interface/MySQL.pwn",
 		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/trunk/Interface/JSON.pwn",
 		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/trunk/Interface/MySQL/QueryBuilder.pwn",
-		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/trunk/Interface/MySQL/Database.pwn",
-		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerAccount/database/API/CheckAccountPassword.pwn",
-		"/C/Users/James/Desktop/SA-MP/source/gamemodes/src/core/playerAccount/database/API/CheckAccountPassword"
+		"/C/Users/James/Desktop/SA-MP/LVP/gamemode/trunk/Interface/MySQL/Database.pwn"
 	],
 	"find":
 	{
@@ -255,7 +239,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 90.0,
 		"where_history":
 		[
 			""
@@ -266,6 +250,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"vehiclespawn",
+			"init",
+			"bn",
+			"sound",
+			"helpers",
 			"featureshowoff",
 			"textdrawshowfor",
 			"createtextdraws",
@@ -388,12 +377,7 @@
 			"registered",
 			"checklogin",
 			"playerAccountCheckLogin",
-			"cheatcount[",
-			"opossible mod",
-			"API",
-			"takedamage",
-			"weapon",
-			"weaponshot"
+			"cheatcount["
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -418,7 +402,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -426,15 +410,15 @@
 					"file": "src/gameEngine/helpers/spawn/spawn.pwn",
 					"settings":
 					{
-						"buffer_size": 3810,
+						"buffer_size": 4012,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								587,
-								587
+								2793,
+								2793
 							]
 						],
 						"settings":
@@ -443,7 +427,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 336.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -453,15 +437,15 @@
 					"file": "src/gj.pwn",
 					"settings":
 					{
-						"buffer_size": 2080,
+						"buffer_size": 1633,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								341,
-								341
+								1592,
+								1592
 							]
 						],
 						"settings":
@@ -469,61 +453,7 @@
 							"syntax": "Packages/Pawn syntax/Pawn.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "src/core/internal/libaries/third_party/screenfade.inc",
-					"settings":
-					{
-						"buffer_size": 3622,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								749,
-								749
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Pawn syntax/Pawn.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 378.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "src/gameEngine/initialisation/global/gameChanger.pwn",
-					"settings":
-					{
-						"buffer_size": 7204,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5713,
-								5713
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Pawn syntax/Pawn.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 2270.0,
+						"translation.y": 462.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
