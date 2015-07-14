@@ -46,3 +46,6 @@ stock PlayerName(playerid) {
 	GetPlayerName(playerid, name, MAX_PLAYER_NAME);
 	return name;
 }
+
+stock randomex(min, max)  
+    return random(max-min)+min; 

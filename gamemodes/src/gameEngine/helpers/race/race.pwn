@@ -28,7 +28,7 @@ stock this.getVehicleModel() {
 }
 
 stock this.createPlayerVehicle(playerid) {
-	if()
+
 }
 
 

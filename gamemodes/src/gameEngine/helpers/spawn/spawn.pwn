@@ -58,8 +58,7 @@ this.randomSpawnPlayer(playerid) {
 	new teamId = GetPlayerTeam(playerid);
 
 	if(teamId == NO_TEAM) {
-		spawnId = random(numberOfSpawnPositions + 1) -1;
-		Log(sprintf("randomSpawnPlayer: spawnId: %d (NO_TEAM)", spawnId));
+		spawnId = randomex(0, numberOfSpawnPositions);
 	} else {
 		// ok we have a team based spawn id request
 		// First of all build an array of spawns for this team id
@@ -77,9 +76,8 @@ this.randomSpawnPlayer(playerid) {
 			return 0;
 
 		// Ok, lets pick a random spawn id with the correct team
-		spawnId = spawnIds[random(spawnIdCount +1)-1];
+		spawnId = spawnIds[randomex(0, spawnIdCount)];
 	}	
-	Log(sprintf("randomSpawnPlayer: spawnId: %d", spawnId));
 	this.spawnPlayer(playerid, spawnId);
 	return 1;
 }

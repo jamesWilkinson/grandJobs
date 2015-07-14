@@ -1,0 +1,6 @@
+*.amx
+server_log.txt
+mysql_log.txt
+scriptfiles/Logger/*
+scriptfiles/SavedPos.log
+scriptfiles/
